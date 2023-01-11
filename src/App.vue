@@ -3,7 +3,7 @@
   <div class="left coopen"></div>
   <div class="right coopen"></div>
   <div class="radio">
-    <div class="li" v-for="item in 15"></div>
+    <div class="li" v-for="item in 20"></div>
   </div>
 </template>
 <script setup lang="ts">
@@ -64,5 +64,8 @@ window.addEventListener("load", (e) => {
   height: 2px;
   background: rgb(255, 255, 255);
   margin-top: 10px;
+}
+.li:first-child {
+  margin-top: 6px;
 }
 </style>

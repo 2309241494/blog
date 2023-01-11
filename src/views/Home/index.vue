@@ -1,14 +1,13 @@
 <template>
   <div class="home-container">
-    <h1 class="title animate__animated animate__backInLeft">
-      console.log('Hello World')
-    </h1>
-    <img
-      class="animate__animated animate__backInLeft"
-      src="https://api.yishuzi.aishouxie.cn/cache/pc-20230111-16734334674251.png
+    <h1 class="title">
+      <img
+        class="animate__animated animate__backInLeft"
+        src="/src/assets/img1673435911551.png
       "
-      alt=""
-    />
+        alt=""
+      />
+    </h1>
   </div>
 </template>
 <script lang="ts" setup></script>
@@ -17,7 +16,7 @@
   width: 100%;
 }
 .title {
-  width: 800px;
+  width: 587px;
   margin: 50% auto;
   font-size: 50px;
 }

@@ -64,6 +64,11 @@
   padding: 10px 10px;
   margin: 17px 0;
   display: block;
+  transition: 0.5s;
+}
+.hr:hover {
+  color: #00d061;
+  font-size: 23px;
 }
 #id:hover {
   transform: scale(1.1);
