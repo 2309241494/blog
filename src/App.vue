@@ -2,9 +2,7 @@
   <layout />
   <div class="left coopen"></div>
   <div class="right coopen"></div>
-  <div class="radio">
-    <div class="li" v-for="item in 20"></div>
-  </div>
+  <img class="radio" src="/src/assets/6608733_141310658000_2.jpg" alt="">
 </template>
 <script setup lang="ts">
 import { ref } from "vue";
@@ -27,18 +25,21 @@ window.addEventListener("load", (e) => {
   position: absolute;
   z-index: 1;
 }
+
 .left {
   left: 0;
   height: 100vh;
   width: v-bind(left);
   transition: 1s;
 }
+
 .right {
   right: 0;
   height: 100vh;
   width: v-bind(right);
   transition: 1s;
 }
+
 .radio {
   height: 160px;
   width: 160px;
@@ -51,21 +52,14 @@ window.addEventListener("load", (e) => {
   z-index: 0;
   animation: move 8s linear infinite;
 }
+
 @keyframes move {
   0% {
     transform: rotate(0);
   }
+
   100% {
     transform: rotate(360deg);
   }
-}
-.li {
-  width: 100%;
-  height: 2px;
-  background: rgb(255, 255, 255);
-  margin-top: 10px;
-}
-.li:first-child {
-  margin-top: 6px;
 }
 </style>
