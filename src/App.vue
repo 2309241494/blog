@@ -2,7 +2,8 @@
   <layout />
   <div class="left coopen"></div>
   <div class="right coopen"></div>
-  <img class="radio" src="/src/assets/6608733_141310658000_2.jpg" alt="">
+  <img class="radio" src="/src/assets/6608733_141310658000_2.jpg" alt="" />
+  <img src="/src/assets/dot-rectangle.png" alt="" />
 </template>
 <script setup lang="ts">
 import { ref } from "vue";
@@ -20,10 +21,9 @@ window.addEventListener("load", (e) => {
 <style scoped>
 .coopen {
   background-color: rgb(31, 31, 31);
-
   top: 0;
   position: absolute;
-  z-index: 1;
+  z-index: 999;
 }
 
 .left {
@@ -39,7 +39,6 @@ window.addEventListener("load", (e) => {
   width: v-bind(right);
   transition: 1s;
 }
-
 .radio {
   height: 160px;
   width: 160px;
