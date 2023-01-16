@@ -32,8 +32,6 @@ import Avatar from "/src/components/Avatar/index.vue";
   justify-content: center;
   position: relative;
   z-index: 8;
-  .main {
-  }
   .avatar:hover {
     transform: scale(1.1);
   }
