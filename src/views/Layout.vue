@@ -1,7 +1,8 @@
 <template>
   <div class="layout-container">
     <div class="layout-left">
-      <Avatar class="avatar-hover" src="https://w.wallhaven.cc/full/zy/wallhaven-zygeko.jpg" />
+      <Avatar class="avatar-hover"
+        src="https://up2client.com/template/Murillo/main-file/assets/images/news/news-image-one.png" />
       <div class="name">NAME</div>
       <router-link to="/" class="hr"><i class="iconfont icon-shouye"
           :class="{ active: herf === '/' ? true : false }"></i>主页</router-link>
@@ -35,6 +36,8 @@ watch(
   },
   { immediate: true }
 );
+
+// 111
 </script>
 <style scoped lang="less">
 .layout-container {
