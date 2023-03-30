@@ -1,21 +1,12 @@
 <template>
   <div class="home-container">
     <div class="main">
-      <Avatar
-        class="avatar"
-        src="https://w.wallhaven.cc/full/zy/wallhaven-zygeko.jpg"
-        :height="463"
-        :width="900"
-      />
+      <Avatar class="avatar" src="https://w.wallhaven.cc/full/zy/wallhaven-zygeko.jpg" :height="463" :width="900" />
       <Title title="Home" />
     </div>
     <div class="title">
-      <img
-        class="animate__animated animate__backInLeft"
-        src="/src/assets/img1673435911551.png
-      "
-        alt=""
-      />
+      <img class="animate__animated animate__backInLeft" src="/src/assets/img1673435911551.png
+        " alt="" />
     </div>
   </div>
 </template>
@@ -32,10 +23,12 @@ import Avatar from "/src/components/Avatar/index.vue";
   justify-content: center;
   position: relative;
   z-index: 8;
+
   .avatar:hover {
     transform: scale(1.1);
   }
 }
+
 .title {
   width: 587px;
   font-size: 50px;

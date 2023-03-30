@@ -1,10 +1,13 @@
 <template>
-  <layout />
-  <div class="left coopen"></div>
-  <div class="right coopen"></div>
-  <img class="radio" src="/src/assets/6608733_141310658000_2.jpg" alt="" />
-  <img src="/src/assets/dot-rectangle.png" alt="" />
+	<layout />
+	<div class="left coopen"></div>
+	<div class="right coopen"></div>
+	<img class="radio" src="/src/assets/6608733_141310658000_2.jpg" alt="" />
+	<img class="bg" src="/src/assets/dot-rectangle.png" alt="" />
+	<img class="bg1" src="/src/assets/dot-rectangle.png" alt="" />
 </template>
+
+
 <script setup lang="ts">
 import { ref } from "vue";
 import layout from "/src/views/Layout.vue";
@@ -12,53 +15,71 @@ import layout from "/src/views/Layout.vue";
 let left = ref(50 + "vw");
 let right = ref(50 + "vw");
 window.addEventListener("load", (e) => {
-  console.log("Loaded!", e);
-  left.value = 0 + "vw";
-  right.value = 0 + "vw";
+	console.log("Loaded!", e);
+	left.value = 0 + "vw";
+	right.value = 0 + "vw";
 });
+
 </script>
 
 <style scoped>
 .coopen {
-  background-color: rgb(31, 31, 31);
-  top: 0;
-  position: absolute;
-  z-index: 999;
+	background-color: rgb(31, 31, 31);
+	top: 0;
+	position: absolute;
+	z-index: 999;
 }
 
 .left {
-  left: 0;
-  height: 100vh;
-  width: v-bind(left);
-  transition: 1s;
+	left: 0;
+	height: 100vh;
+	width: v-bind(left);
+	transition: 1s;
 }
 
 .right {
-  right: 0;
-  height: 100vh;
-  width: v-bind(right);
-  transition: 1s;
+	right: 0;
+	height: 100vh;
+	width: v-bind(right);
+	transition: 1s;
 }
+
 .radio {
-  height: 160px;
-  width: 160px;
-  border-radius: 50%;
-  overflow: hidden;
-  background: #0c0c0c;
-  position: absolute;
-  top: 100px;
-  left: 430px;
-  z-index: 0;
-  animation: move 8s linear infinite;
+	height: 160px;
+	width: 160px;
+	border-radius: 50%;
+	overflow: hidden;
+	background: #0c0c0c;
+	position: absolute;
+	top: 100px;
+	left: 430px;
+	z-index: 0;
+	animation: move 8s linear infinite;
 }
 
 @keyframes move {
-  0% {
-    transform: rotate(0);
-  }
+	0% {
+		transform: rotate(0);
+	}
 
-  100% {
-    transform: rotate(360deg);
-  }
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.bg {
+	width: 210px;
+	height: 470px;
+	position: fixed;
+	top: 36px;
+	right: 52px;
+}
+
+.bg1 {
+	width: 210px;
+	height: 470px;
+	position: fixed;
+	bottom: 36px;
+	left: 410px;
 }
 </style>
