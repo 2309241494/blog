@@ -16,9 +16,14 @@
           :class="{ active: herf === '/message' ? true : false }"></i>留言板</router-link>
       <router-link to="/project" class="hr"><i class="iconfont icon-xiangmu"
           :class="{ active: herf === '/project' ? true : false }"></i>项目&效果</router-link>
+      <!-- <div class="hr" v-for="(item, index ) in view" @click="handleClick(index)" :key="index">
+        <i class="iconfont" :class="[item.icon]"></i>
+        {{ item.name }}
+      </div> -->
     </div>
     <div class="layout-right">
       <router-view></router-view>
+      <!-- <component :is=view[index].view></component> -->
     </div>
   </div>
 </template>
@@ -26,8 +31,27 @@
 import Avatar from "/src/components/Avatar/index.vue";
 import { ref, watch } from "vue";
 import router from "../router/index";
+// import About from "./About/index.vue"
+// import Home from "./Home/index.vue"
+// import Article from "./Article/index.vue"
+// import Message from "./Message/index.vue"
+// import Photo from "./Photo/index.vue"
+// import Project from "./Project/index.vue"
 
-// 监听路由变化
+
+// // 组件初始索引
+// let index = ref(0)
+
+// // 组件数组
+// const view = [{ value: 0, name: "主页", icon: "icon-shouye", view: Home },
+// { value: 1, name: "相册", icon: "icon-xiangce", view: Photo }]
+
+// // 点击切换组件
+// const handleClick = (e: number) => {
+//   index.value = e;
+// }
+
+// 监听路由变化，并通过路由切换组件
 let herf = ref();
 watch(
   () => router.currentRoute.value.path,
@@ -65,13 +89,13 @@ watch(
       padding: 10px 10px;
       margin: 17px 0;
       display: block;
-      transition: 0.5s;
+      transition: 0.2s;
       height: 50px;
 
       .iconfont {
         font-size: 20px;
         padding-right: 15px;
-        transition: 0.5s;
+        transition: 0.2s;
       }
 
       .active {

@@ -1,8 +1,7 @@
 <template>
-    <div>article</div>
+    <Title title="Article" />
 </template>
-
-<script></script>
-<style scoped>
-
-</style>
+<script lang="ts" setup>
+import Title from "/src/components/Title/index.vue";
+</script>
+<style scoped></style>

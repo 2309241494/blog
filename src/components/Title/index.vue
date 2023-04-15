@@ -14,15 +14,16 @@ const props = defineProps<type>();
 </script>
 <style lang="less" scoped>
 .title-container {
-  height: 100px;
+  height: 200px;
   position: relative;
+
   .big-title {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     color: #0c0c0c;
-    font-size: 70px;
+    font-size: 80px;
     font-weight: 900;
     width: auto;
     -webkit-text-stroke: 1px#2e2e2e;

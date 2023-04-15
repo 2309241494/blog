@@ -2,11 +2,7 @@
 	<layout />
 	<div class="left coopen"></div>
 	<div class="right coopen"></div>
-	<img class="radio" src="/src/assets/6608733_141310658000_2.jpg" alt="" />
-	<img class="bg" src="/src/assets/dot-rectangle.png" alt="" />
-	<img class="bg1" src="/src/assets/dot-rectangle.png" alt="" />
 </template>
-
 
 <script setup lang="ts">
 import { ref } from "vue";
@@ -15,11 +11,9 @@ import layout from "/src/views/Layout.vue";
 let left = ref(50 + "vw");
 let right = ref(50 + "vw");
 window.addEventListener("load", (e) => {
-	console.log("Loaded!", e);
 	left.value = 0 + "vw";
 	right.value = 0 + "vw";
 });
-
 </script>
 
 <style scoped>
@@ -65,21 +59,5 @@ window.addEventListener("load", (e) => {
 	100% {
 		transform: rotate(360deg);
 	}
-}
-
-.bg {
-	width: 210px;
-	height: 470px;
-	position: fixed;
-	top: 36px;
-	right: 52px;
-}
-
-.bg1 {
-	width: 210px;
-	height: 470px;
-	position: fixed;
-	bottom: 36px;
-	left: 410px;
 }
 </style>

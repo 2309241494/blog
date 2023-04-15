@@ -1,10 +1,6 @@
 <template>
   <div class="Avatar-container" ref="avatar">
-    <img
-      :src="src"
-      alt=""
-      :style="{ height: height + 'px', width: width + 'px' }"
-    />
+    <img :src="src" alt="" :style="{ height: height + 'px', width: width + 'px' }" />
   </div>
 </template>
 
@@ -19,6 +15,7 @@ const props = withDefaults(defineProps<Props>(), {
   width: "250",
   height: "250",
 });
+
 </script>
 <style lang="less" scoped>
 .Avatar-container {
@@ -29,9 +26,18 @@ const props = withDefaults(defineProps<Props>(), {
   overflow: hidden;
   border-radius: 5%;
   cursor: pointer;
+
   img {
     height: 100%;
     width: 100%;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    transition: all 1s;
+
+    &:hover {
+      -webkit-filter: grayscale(0%);
+      filter: grayscale(0%);
+    }
   }
 }
 </style>
