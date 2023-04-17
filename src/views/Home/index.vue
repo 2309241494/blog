@@ -4,14 +4,12 @@
       <Title title="Home" />
     </div>
     <div class="title">
-      <img class="animate__animated animate__backInLeft" src="/src/assets/img1673435911551.png
-              " alt="" />
+      <img class="animate__animated animate__backInLeft" src="/src/assets/img1673435911551.png" alt="" />
     </div>
   </div>
 </template>
 <script lang="ts" setup>
 import Title from "/src/components/Title/index.vue";
-import Avatar from "/src/components/Avatar/index.vue";
 </script>
 <style lang="less" scoped>
 .home-container {
@@ -23,9 +21,6 @@ import Avatar from "/src/components/Avatar/index.vue";
   position: relative;
   z-index: 8;
 
-  .avatar:hover {
-    transform: scale(1.1);
-  }
 }
 
 .title {

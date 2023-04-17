@@ -23,7 +23,7 @@ const props = defineProps<type>();
     top: 50%;
     transform: translate(-50%, -50%);
     color: #0c0c0c;
-    font-size: 80px;
+    font-size: 90px;
     font-weight: 900;
     width: auto;
     -webkit-text-stroke: 1px#2e2e2e;
