@@ -23,7 +23,6 @@
 import Avatar from "/src/components/Avatar/index.vue";
 import { ref, watch } from "vue";
 import router from "../router/index";
-
 // 监听路由变化，并通过路由切换组件
 let herf = ref();
 watch(
