@@ -1,6 +1,6 @@
 <template>
   <div class="Avatar-container" ref="avatar">
-    <img :src="src" alt="" :style="{ height: height + 'px', width: width + 'px', borderRadius: raduis + '%' }" />
+    <img :src="src" alt="图片跑路了" :style="{ height: height + 'px', width: width + 'px', borderRadius: raduis + '%' }" />
   </div>
 </template>
 
@@ -33,11 +33,14 @@ const props = withDefaults(defineProps<Props>(), {
     width: 100%;
     -webkit-filter: grayscale(0%);
     filter: grayscale(0%);
+    // filter: invert(0%);
     transition: all 1s;
+    object-fit: cover;
 
     &:hover {
       -webkit-filter: grayscale(100%);
       filter: grayscale(100%);
+      // filter: invert(100%);
     }
   }
 }

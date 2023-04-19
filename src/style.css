@@ -29,9 +29,9 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background-image: url("https://w.wallhaven.cc/full/7p/wallhaven-7p19p9.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  background-color: #16141f;
 }
 
 h1 {

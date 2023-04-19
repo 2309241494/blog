@@ -2,9 +2,8 @@
   <div class="home-container">
     <div class="main">
       <Title title="Home" />
-    </div>
-    <div class="title">
-      <img class="animate__animated animate__backInLeft" src="/src/assets/img1673435911551.png" alt="" />
+      <h1>你好啊</h1>
+
     </div>
   </div>
 </template>
@@ -20,15 +19,5 @@ import Title from "/src/components/Title/index.vue";
   justify-content: center;
   position: relative;
   z-index: 8;
-
-}
-
-.title {
-  width: 587px;
-  font-size: 50px;
-  position: absolute;
-  left: 50%;
-  top: 90%;
-  transform: translate(-50%, -50%);
 }
 </style>

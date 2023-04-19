@@ -2,8 +2,7 @@
   <div class="layout-container">
     <div class="layout-left">
       <Avatar class="avatar-hover" raduis="4"
-        src="https://up2client.com/template/Murillo/main-file/assets/images/news/news-image-one.png" />
-      <div class="name">NAME</div>
+        src="https://marketplace.canva.cn/ShLdI/MACHw9ShLdI/2/tl/canva-MACHw9ShLdI.png" />
       <router-link to="/" class="hr"><i class="iconfont icon-shouye"
           :class="{ active: herf === '/' ? true : false }"></i>主页</router-link>
       <router-link to="/article" class="hr"><i class="iconfont icon-16"
@@ -31,6 +30,7 @@ watch(
   () => router.currentRoute.value.path,
   (newValue) => {
     herf.value = newValue;
+    console.log(newValue)
   },
   { immediate: true }
 );
@@ -47,15 +47,11 @@ watch(
   font-size: 20px;
 
   .layout-left {
-    background-color: rgb(0, 0, 0);
+    background-color: #0e0b11;
     flex: 0 0 350px;
     padding: 5px 55px;
 
-    .name {
-      color: #00d061;
-      font-size: 35px;
-      margin-bottom: 30px;
-    }
+
 
     .hr {
       border-bottom: 1px solid #2a2a2a;
@@ -73,15 +69,11 @@ watch(
       }
 
       .active {
-        font-size: 25px;
-        color: #00d061;
+        font-size: 25px !important;
+        color: #00d061 !important;
       }
     }
 
-    .hr:hover {
-      color: #00d061;
-      font-size: 23px;
-    }
 
     .hr:hover .iconfont {
       color: #00d061;
