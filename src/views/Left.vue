@@ -1,7 +1,7 @@
 <template>
     <div class='left-container'>
-        <Avatar class="avatar-hover" raduis="4"
-            src="https://marketplace.canva.cn/ShLdI/MACHw9ShLdI/2/tl/canva-MACHw9ShLdI.png" />
+        <Avatar class="avatar-hover" raduis="4" height="270"
+            src="https://marketplace.canva.cn/OAH_c/MAEwd_OAH_c/1/tl/canva-%E4%B8%AD%E5%8C%BB%E4%B8%BB%E9%A2%98%E6%B0%B4%E5%A2%A8%E9%A3%8E%E4%BA%BA%E7%89%A9-%E5%BC%A0%E4%BB%B2%E6%99%AF-MAEwd_OAH_c.png" />
         <router-link to="/" class="hr"><i class="iconfont icon-shouye"
                 :class="{ active: herf === '/' ? true : false }"></i>主页</router-link>
         <router-link to="/article" class="hr"><i class="iconfont icon-16"
@@ -13,6 +13,9 @@
         <router-link to="/project" class="hr"><i class="iconfont icon-xiangmu"
                 :class="{ active: herf === '/project' ? true : false }"></i>项目&效果</router-link>
         <Weather />
+        <div>
+            <span>© 2023 HTML Created by Li Lang</span>
+        </div>
     </div>
 </template>
 
