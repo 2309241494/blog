@@ -1,9 +1,9 @@
 <template>
   <div class="layout-container">
-    <div class="layout-left">
+    <div class="layout-top">
       <Left />
     </div>
-    <div class="layout-right">
+    <div class="layout-bottom">
       <router-view></router-view>
     </div>
   </div>
@@ -16,19 +16,27 @@ import Left from "./Left.vue"
   display: flex;
   width: 100vw;
   height: 100vh;
-  color: #b0b0b0;
+  // color: #b0b0b0;
   text-align: left;
   font-size: 20px;
+  flex-direction: column;
+  overflow-x: hidden;
 
-  .layout-left {
-    background-color: #0e0b11;
-    flex: 0 0 350px;
-    padding: 5px 55px;
+  .layout-top {
+    background-color: #ffffff;
+    position: fixed;
+    width: 100%;
+    border-top: 2px solid black;
+    border-bottom: 7px solid black;
   }
 
-  .layout-right {
-    flex: 1 0 auto;
-    overflow-y: auto;
+  .layout-bottom {
+    margin: 200px 100px 0 100px;
   }
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  scrollbar-width: none
 }
 </style>
