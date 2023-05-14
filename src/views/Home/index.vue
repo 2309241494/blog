@@ -1,43 +1,10 @@
-<template>
-  <div class="carousel">
-    <div :style="{ left: offset }">
-      <img src="https://picsum.photos/id/132/800/400" alt="Image 1" />
-    </div>
-    <div :style="{ left: offset }">
-      <img src="https://picsum.photos/id/133/800/400" alt="Image 2" />
-    </div>
-    <div :style="{ left: offset }">
-      <img src="https://picsum.photos/id/134/800/400" alt="Image 3" />
-    </div>
-    <button class="prev" @click="prev">
-    </button>
-    <button class="next" @click="next">></button>
-  </div>
-</template>
+<template></template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref, computed, onMounted } from 'vue';
 
-const itemCount = 3;
-const itemWidth = 800;
-const offset = ref(0);
-const currentItem = ref(0);
 
-function prev() {
-  currentItem.value = (currentItem.value - 1 + itemCount) % itemCount;
-}
 
-function next() {
-  currentItem.value = (currentItem.value + 1) % itemCount;
-}
-
-const computedOffset = computed(() => {
-  return -currentItem.value * itemWidth + 'px';
-});
-
-onMounted(() => {
-  offset.value = computedOffset.value;
-});
 
 </script>
 

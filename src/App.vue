@@ -1,19 +1,11 @@
 <template>
 	<layout />
-	<div class="left coopen"></div>
-	<div class="right coopen"></div>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
 import layout from "/src/views/Layout.vue";
-// 当页面加载结束，触发load
-let left = ref(50 + "vw");
-let right = ref(50 + "vw");
-window.addEventListener("load", (e) => {
-	left.value = 0 + "vw";
-	right.value = 0 + "vw";
-});
+
 </script>
 
 <style scoped>
@@ -22,20 +14,6 @@ window.addEventListener("load", (e) => {
 	top: 0;
 	position: absolute;
 	z-index: 999;
-}
-
-.left {
-	left: 0;
-	height: 100vh;
-	width: v-bind(left);
-	transition: 1s;
-}
-
-.right {
-	right: 0;
-	height: 100vh;
-	width: v-bind(right);
-	transition: 1s;
 }
 
 .radio {

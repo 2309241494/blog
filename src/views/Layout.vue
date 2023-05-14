@@ -23,11 +23,9 @@ import Left from "./Left.vue"
   overflow-x: hidden;
 
   .layout-top {
-    background-color: #ffffff;
     position: fixed;
     width: 100%;
     border-top: 2px solid black;
-    border-bottom: 7px solid black;
   }
 
   .layout-bottom {

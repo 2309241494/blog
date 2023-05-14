@@ -33,7 +33,7 @@ watch(
     display: flex;
     align-items: center;
     justify-content: center;
-
+    color: rgb(161, 161, 161);
 
     .hr {
         padding: 5px 20px;
@@ -45,7 +45,6 @@ watch(
         line-height: 30px;
 
         &:hover {
-            background-color: #2a2a2a;
             color: #fff
         }
 
@@ -60,6 +59,5 @@ watch(
 .router-link-active,
 .router-link-exact-active {
     color: white;
-    background: #202020;
 }
 </style>
