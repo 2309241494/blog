@@ -6,4 +6,11 @@ async function getWeather(
   return result.json();
 }
 
-export default getWeather;
+// 每日一言
+async function getPoetry(
+  url: string = "https://v.api.aa1.cn/api/api-wenan-mingrenmingyan/index.php?aa1=json"
+): Promise<string> {
+  const result = await fetch(url).then((data) => data);
+  return result.json();
+}
+export { getPoetry, getWeather };

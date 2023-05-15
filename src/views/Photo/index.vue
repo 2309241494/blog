@@ -1,14 +1,14 @@
 <template>
     <div class='index-container container'>
         <div class="left">
-            <Sidebar icon="icon-xiangmu" color="#f6d365" title="MY" main-title="PROJECT" />
+            <Sidebar icon="icon-xiangce" color="#43e97b" title="MY" main-title="PHOTO" />
         </div>
         <div class="main">
             <i class="back iconfont icon-cuowu" @click="goBack"></i>
             <div class="title">
-                <Title title="MY" main-title="PROJECT" />
+                <Title title="About" main-title="ME" />
             </div>
-            <Subhead title="基本信息" bg-color="#f6d365" />
+            <Subhead title="基本信息" bg-color="#43e97b" />
             <div class="content">
             </div>
         </div>

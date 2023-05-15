@@ -18,13 +18,13 @@
 
 <script setup lang="ts">
 import { ref, onMounted, reactive, watch } from 'vue';
-import getWeather from '../api/request';
+import { getWeather } from '../api/request';
 import { hour } from '../utils/util';
 
 // 天气信息
 let weatherArr: any = reactive({ arr: {} });
 
-// 获取当前时间(每20秒刷新)
+// 获取当前时间(每秒刷新)
 let hourTime = ref()
 let nowTime = ref()
 hourTime.value = hour().slice(13, 18)
@@ -42,37 +42,40 @@ onMounted(async () => {
 
 <style scoped lang='less'>
 .weather-container {
-    color: aliceblue;
-    width: 300px;
-    height: 150px;
-    background: linear-gradient(120deg, rgb(255 255 255 / 2%), rgb(255 255 255 / 10%));
-    border-radius: 20px;
-    margin: 40px 0;
-    padding: 15px;
+    color: #ebebeb;
+    width: 91%;
+    border-radius: .8rem;
+    margin: 1rem 0;
+    padding: 1.2rem;
+    background: linear-gradient(145deg, #282b49, #2f3357);
+    box-shadow: 6px 6px 12px #141624,
+        -6px -6px 12px #444a7e;
 
     .title {
-        font-size: 12px;
+        font-size: .8rem;
     }
 
     .weather {
-        margin-top: 16px;
+        margin-top: 1rem;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
 
         .left {
+            text-align: left;
+
             .hour {
                 font-weight: bold;
-                font-size: 40px;
+                font-size: 2.5rem;
             }
 
             div {
-                font-size: 14px;
+                font-size: 1rem;
                 font-weight: bold;
             }
 
             p {
-                font-size: 12px;
+                font-size: .6rem;
             }
         }
 
@@ -82,19 +85,19 @@ onMounted(async () => {
             align-items: flex-end;
 
             .iconfont {
-                font-size: 50px;
-                margin-top: -15px;
-                margin-bottom: 20px;
+                font-size: 3rem;
+                margin-top: -1rem;
+                margin-bottom: 1.5rem;
             }
 
             span {
-                font-size: 30px;
+                font-size: 2rem;
                 font-weight: bold;
-                margin-bottom: 2px;
+                margin-bottom: .3rem;
             }
 
             p {
-                font-size: 12px;
+                font-size: .5rem;
             }
         }
     }
