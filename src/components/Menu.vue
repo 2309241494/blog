@@ -1,6 +1,6 @@
 <template>
     <div class='Menu-container'>
-        <RouterLink :to=item.path v-for="item in menuList">
+        <RouterLink :to=item.path v-for="(item, index) in menuList" :key="index">
             <div class="menu-items">
                 <i class="iconfont" :class="[item.icon]" :style="{ color: item.color }"></i>
                 <div class="title">

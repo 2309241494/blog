@@ -24,10 +24,11 @@ onMounted(() => {
     display: flex;
     margin-top: 4rem;
     position: relative;
+    margin-bottom: 2rem;
 
     .bottom-border {
         width: 3rem;
-        height: .2rem;
+        height: .3rem;
         border-radius: 2px;
         position: absolute;
         bottom: -1rem;

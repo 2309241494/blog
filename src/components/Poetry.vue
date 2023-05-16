@@ -1,16 +1,23 @@
 <template>
     <div class='Poetry-container'>
-        meiriyiyan
+        <div class="main" :style="{ backgroundImage: '' }">
+        </div>
     </div>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted, reactive } from 'vue';
-import { getPoetry } from '../api/request';
-const poetryArr: any = reactive({ arr: {} })
-onMounted(async () => {
-    poetryArr.arr = await getPoetry().then(res => console.log(res))
+import { getRobot } from '../api/request';
+import { Ref } from 'vue';
+const poetryArr: any = ref("")
+onMounted(() => {
+
 })
 </script>
 
-<style scoped lang='scss'></style>
+<style scoped lang='less'>
+.Poetry-container {
+    width: 90%;
+    background-color: aqua;
+}
+</style>

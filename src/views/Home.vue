@@ -21,10 +21,8 @@
         </div>
         <!-- 右边区域 -->
         <div class="right">
-            <Weather />
-            <Poetry />
+            <MiniComponents />
         </div>
-        <Right />
     </div>
 </template>
 
@@ -34,8 +32,7 @@ import { RouterLink, RouterView } from "vue-router";
 import Sidebar from '../components/Sidebar.vue';
 import Title from "../components/Title.vue"
 import Menu from '../components/Menu.vue';
-import Weather from '../components/Weather.vue';
-import Poetry from '../components/Poetry.vue';
+import MiniComponents from './MiniComponent.vue';
 
 // 传递给菜单组件的菜单项
 const menuArr = [{ icon: "icon-guanyuwo", title: "ABOUT", mainTitle: "ME", path: "/about", color: "#fa709a" },
@@ -90,7 +87,6 @@ const currentText = computed(() => {
         }
 
         .title {
-            // flex: 0 0 20%;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -111,7 +107,7 @@ const currentText = computed(() => {
     }
 
     .right {
-        flex: 0 0 20%;
+        flex: 0 0 25%;
         background-color: #363b5f;
         display: flex;
         justify-content: flex-start;

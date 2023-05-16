@@ -1,11 +1,10 @@
-@import "https://at.alicdn.com/t/c/font_3860774_sgasdryht1q.css";
+@import "https://at.alicdn.com/t/c/font_3860774_es0oe0c7vht.css";
 
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
-
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   font-synthesis: none;
@@ -33,11 +32,17 @@
 
 /* 公共布局方式 */
 .container {
-  width: 90%;
+  width: 95%;
   height: 90%;
   background-color: #2c3051;
   display: flex;
   overflow: hidden;
+}
+
+.mini-container {
+  padding: 2.5rem 1.7rem;
+  background-color: #363b5f;
+  border-radius: 5px;
 }
 
 * {
@@ -54,7 +59,21 @@ body {
   min-height: 100vh;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  background-image: linear-gradient(to right top, #260030, #771d59);
+  /* fallback for old browsers */
+  background: #fc29;
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(
+    to right,
+    rgb(15, 12, 41),
+    rgb(48, 43, 99),
+    rgb(36, 36, 62)
+  );
+  background: linear-gradient(
+    to right,
+    rgb(15, 12, 41),
+    rgb(48, 43, 99),
+    rgb(36, 36, 62)
+  );
 }
 
 h1 {
@@ -85,7 +104,6 @@ button:focus-visible {
 
 #app {
   max-width: 1280px;
-  text-align: center;
 }
 
 a {

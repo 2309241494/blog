@@ -2,16 +2,12 @@
     <div class='weather-container'>
         <h5 class="title">{{ weatherArr.arr.province }}-{{ weatherArr.arr.city }}</h5>
         <div class="weather">
-            <div class="left">
-                <span class="hour">{{ hourTime }}</span>
-                <div>{{ nowTime }}</div>
-                <p>风向 {{ weatherArr.arr.winddirection }}</p>
-            </div>
-            <div class="right">
-                <i class="iconfont icon-qing"></i>
-                <span>{{ weatherArr.arr.temperature }}­°C</span>
-                <p>{{ weatherArr.arr.weather }} 空气湿度{{ weatherArr.arr.humidity }}</p>
-            </div>
+            <span class="hour">{{ hourTime }}</span>
+            <span>{{ weatherArr.arr.weather }}</span>
+            <span>风向 {{ weatherArr.arr.winddirection }}</span>
+            <span>{{ weatherArr.arr.temperature }}­°C</span>
+            <span>{{ nowTime }}</span>
+            <span> 空气湿度{{ weatherArr.arr.humidity }}</span>
         </div>
     </div>
 </template>
@@ -43,63 +39,53 @@ onMounted(async () => {
 <style scoped lang='less'>
 .weather-container {
     color: #ebebeb;
-    width: 91%;
+    width: 90%;
     border-radius: .8rem;
     margin: 1rem 0;
     padding: 1.2rem;
     background: linear-gradient(145deg, #282b49, #2f3357);
-    box-shadow: 6px 6px 12px #141624,
-        -6px -6px 12px #444a7e;
+
+    box-shadow: 6px 6px 12px #141624;
 
     .title {
         font-size: .8rem;
+        text-align: center;
     }
 
     .weather {
         margin-top: 1rem;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        font-size: .8rem;
 
-        .left {
+        span {
+            flex-basis: 50%;
+            flex-shrink: 0;
+        }
+
+        & span:nth-child(odd) {
             text-align: left;
-
-            .hour {
-                font-weight: bold;
-                font-size: 2.5rem;
-            }
-
-            div {
-                font-size: 1rem;
-                font-weight: bold;
-            }
-
-            p {
-                font-size: .6rem;
-            }
         }
 
-        .right {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-
-            .iconfont {
-                font-size: 3rem;
-                margin-top: -1rem;
-                margin-bottom: 1.5rem;
-            }
-
-            span {
-                font-size: 2rem;
-                font-weight: bold;
-                margin-bottom: .3rem;
-            }
-
-            p {
-                font-size: .5rem;
-            }
+        & span:nth-child(even) {
+            text-align: right;
         }
+
+        & span:nth-child(1) {
+            font-size: 2.8rem;
+        }
+
+        & span:nth-child(3) {
+            margin-top: .6rem;
+        }
+
+        & span:nth-child(4) {
+            font-size: 1.6rem;
+        }
+
     }
 
 }
