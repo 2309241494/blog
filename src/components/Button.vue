@@ -1,8 +1,8 @@
 <template>
     <div class='Button-container'>
-        <button @click="handleClick" v-for="(item, index) in buttonList" :key="index">
-            <i class="iconfont" :class="[item.icon]"></i>
-            <p>{{ item.title }}</p>
+        <button @click="handleClick">
+            <i class="iconfont" :class="[props.icon]"></i>
+            <p>{{ props.title }}</p>
         </button>
     </div>
 </template>
@@ -10,10 +10,15 @@
 <script setup lang="ts">
 import { ref, onMounted, reactive } from 'vue';
 import { useRouter } from "vue-router"
-const buttonList = ref([{ icon: "icon-jurassic_message", title: "给我留言" }])
+interface Props {
+    icon: string,
+    title: string,
+    router: string | object
+}
+const props = withDefaults(defineProps<Props>(), { icon: "icon-tubiaoji2_zhixiang", title: "联系我", router: "/message" })
 const router = useRouter()
 const handleClick = () => {
-    router.push("/message")
+    router.push(props.router)
 }
 onMounted(() => {
 

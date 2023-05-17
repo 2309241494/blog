@@ -14,11 +14,4 @@ async function getPoetry(
   return result.json();
 }
 
-// 聊天机器人
-async function getRobot(
-  url: string = "http://api.qingyunke.com/api.php?key=free&appid=0&msg=你好&_=1684194225693"
-): Promise<string> {
-  const result = await fetch(url).then((data) => data);
-  return result.json();
-}
-export { getPoetry, getWeather, getRobot };
+export { getPoetry, getWeather };

@@ -36,8 +36,8 @@ import MiniComponents from './MiniComponent.vue';
 
 // 传递给菜单组件的菜单项
 const menuArr = [{ icon: "icon-guanyuwo", title: "ABOUT", mainTitle: "ME", path: "/about", color: "#fa709a" },
-{ icon: "icon-xiangmu", title: "MY", mainTitle: "PROJECT", path: "/project", color: "#f6d365" },
-{ icon: "icon-xiangce", title: "MY", mainTitle: "PHOTO", path: "/photo", color: "#43e97b" },
+{ icon: "icon-xiangmu", title: "MY", mainTitle: "PROJECT", path: "/project", color: "#43e97b" },
+{ icon: "icon-xiangce", title: "MY", mainTitle: "PHOTO", path: "/photo", color: "#f6d365" },
 { icon: "icon-jurassic_message", title: "MY", mainTitle: "MessageBoard", path: "/message", color: "#6991c7" }
 ]
 // 打字机效果
@@ -107,7 +107,7 @@ const currentText = computed(() => {
     }
 
     .right {
-        flex: 0 0 25%;
+        flex: 0 0 23%;
         background-color: #363b5f;
         display: flex;
         justify-content: flex-start;

@@ -44,7 +44,6 @@ onMounted(async () => {
     margin: 1rem 0;
     padding: 1.2rem;
     background: linear-gradient(145deg, #282b49, #2f3357);
-
     box-shadow: 6px 6px 12px #141624;
 
     .title {

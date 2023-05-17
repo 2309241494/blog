@@ -15,7 +15,7 @@
             {{ introduce }}
           </p>
           <div class="personal-data">
-            <div class="personal-item" v-for="(item, index) in personalData.arr">
+            <div class="personal-item" v-for="(item, index) in personalData.arr" :key="index">
               <i class="iconfont icon-tubiaoji2_zhixiang"></i>
               <span>{{ item.title }} ：</span>
               <span>{{ item.value }}</span>
@@ -49,7 +49,7 @@ const router = useRouter();
 const goBack = () => {
   router.back();
 }
-const introduce = ref("我叫黎浪，所学专业是大数据技术与应用。我的兴趣爱好包括探索新技术、阅读前端文章、写博客、贡献开源社区等，对前端开发抱有浓厚的热情。我具有良好的虚心好学，并且有过团队协作开发的经验。")
+const introduce = ref("我叫黎浪，所学专业是大数据技术与应用。作为一名前端开发者，我拥有扎实的 HTML、CSS 和 JavaScript 技能。我能够从设计师给出的图稿中构建出无障碍的、兼容性良好的网站，并且能够在保持代码清晰易读的同时，使用最佳的性能实践进行开发。我的兴趣爱好包括探索新技术、阅读前端文章、写博客、贡献开源社区等，对前端开发抱有浓厚的热情。我具有良好的虚心好学，并且有过团队协作开发的经验。在生活中我愿意在业余时间提升自己，愿意花时间提升技术水平，钻研新技术等。")
 const personalData = reactive({
   arr: [
     { title: "姓名", value: "黎浪" },
@@ -99,6 +99,7 @@ const iconList = ref(
         p {
           color: #9c9c9c;
           font-size: .8rem;
+          text-indent: 2em;
         }
 
         .personal-data {
@@ -108,6 +109,16 @@ const iconList = ref(
           flex-wrap: wrap;
           justify-content: center;
           align-items: center;
+
+
+          .personal-item:nth-child(even) {
+            flex-basis: 30%;
+          }
+
+          .personal-item:nth-child(odd) {
+            flex-basis: 70%;
+          }
+
 
           .personal-item {
             flex-basis: 50%;
@@ -167,7 +178,7 @@ const iconList = ref(
   }
 
   .right {
-    flex: 0 0 25%;
+    flex: 0 0 23%;
     background-color: #363b5f;
     display: flex;
     justify-content: flex-start;

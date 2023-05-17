@@ -7,8 +7,6 @@
 
 <script setup lang="ts">
 import { ref, onMounted, reactive } from 'vue';
-import { getRobot } from '../api/request';
-import { Ref } from 'vue';
 const poetryArr: any = ref("")
 onMounted(() => {
 
