@@ -84,6 +84,7 @@ const changeShow = () => {
 
         img {
             width: 100%;
+            height: 400px;
             border-radius: 10px;
             margin-bottom: -2rem;
             object-fit: cover;

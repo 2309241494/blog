@@ -88,7 +88,7 @@ const projectList = ref([
         online: "www.ilove.vom",
         soundCode: "www.ilovegitee.vom",
         introduce: "此项目使用Typescript搭建",
-        imgUrl: "https://x0.ifengimg.com/res/2020/2CDD563B75BF507CAECEBCF7297304BAFD0AA2F8_size119_w1108_h736.jpeg",
+        imgUrl: "https://img.zcool.cn/community/0127bd5a3b6c15a801201a1f90c7e3.jpg@1280w_1l_2o_100sh.jpg",
     },
     {
         type: "hfive",
@@ -99,7 +99,7 @@ const projectList = ref([
         imgUrl: "https://ts1.cn.mm.bing.net/th/id/R-C.84aaeb8f09d5c757d0a0f888bf37704d?rik=QtnDGxKODF1dOQ&riu=http%3a%2f%2fweb.tedu.cn%2fupload%2f20190522%2f20190522164744_351.jpg&ehk=FLNgJTldtYmW9KdNH8OwBK94yz5kGmJm8bzw4HP3B2c%3d&risl=&pid=ImgRaw&r=0",
     },
     { type: "mini", imgUrl: "https://tse3-mm.cn.bing.net/th/id/OIP-C.Qq9d53ybUj-VhwBkjcVIjAHaEK?pid=ImgDet&rs=1", title: "uniapp" },
-    { type: "pc", imgUrl: "https://x0.ifengimg.com/res/2020/2CDD563B75BF507CAECEBCF7297304BAFD0AA2F8_size119_w1108_h736.jpeg", title: "博客后台" },])
+    { type: "pc", imgUrl: "https://img.zcool.cn/community/0127bd5a3b6c15a801201a1f90c7e3.jpg@1280w_1l_2o_100sh.jpg", title: "博客后台" },])
 const newList = [...projectList.value]
 </script>
 
@@ -169,10 +169,10 @@ const newList = [...projectList.value]
                     flex-wrap: wrap;
                     justify-content: center;
                     align-items: center;
-                    gap: 7rem;
+                    gap: 2rem;
 
                     .project-item {
-                        flex-basis: calc(50% - 4rem);
+                        flex-basis: calc(48%);
                         background-color: #2c3051;
                         display: flex;
                         justify-content: center;
@@ -228,17 +228,17 @@ const newList = [...projectList.value]
                             position: absolute;
                             content: "";
                             background-color: rgba(0, 0, 0, 0.5);
-                            height: 99%;
-                            width: 99%;
-                            top: 0;
+                            height: 100%;
+                            width: 100%;
                             opacity: 0;
                             transition: all .5s;
                             z-index: 1;
-                            border: 2px solid #fff;
+                            border: 3px solid white;
+                            bottom: 0;
                         }
 
                         &:hover .project-img {
-                            transform: scale(1.2);
+                            transform: scale(1.1);
                         }
 
                         &:hover::after {
@@ -247,7 +247,7 @@ const newList = [...projectList.value]
 
                         .project-img {
                             width: 100%;
-                            height: 30rem;
+                            height: 27rem;
                             border-radius: 5px;
                             object-fit: cover;
                             background-repeat: no-repeat;
