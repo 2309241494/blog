@@ -12,7 +12,9 @@
 				</router-view>
 			</div>
 			<div class="right-container">
-				<MiniComponents />
+				<keep-alive>
+					<MiniComponents />
+				</keep-alive>
 			</div>
 		</div>
 	</div>
@@ -31,9 +33,8 @@ import MiniComponents from "./views/MiniComponent.vue"
 	justify-content: center;
 	align-items: center;
 	display: flex;
+	animation: start 0.5s ease-in-out;
 
-
-	// animation: start 0.5s ease-in-out;
 	.main-container {
 		display: flex;
 		justify-content: center;

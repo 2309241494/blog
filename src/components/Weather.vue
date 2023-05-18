@@ -38,13 +38,16 @@ onMounted(async () => {
 
 <style scoped lang='less'>
 .weather-container {
-    color: #ebebeb;
+    flex: 0 0 20%;
+    color: rgb(212, 212, 212);
     width: 90%;
-    border-radius: .8rem;
-    margin: 1rem 0;
+    border-radius: 5px;
+    margin-bottom: 1rem;
     padding: 1.2rem;
-    background: linear-gradient(145deg, #282b49, #2f3357);
-    box-shadow: 6px 6px 12px #141624;
+    background-color: #2c3051;
+    background: linear-gradient(145deg, #2f3357, #282b49);
+    box-shadow: 5px 5px 17px #252844,
+        -5px -5px 17px #33385e;
 
     .title {
         font-size: .8rem;

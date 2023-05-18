@@ -1,8 +1,8 @@
 <template>
     <div class='miniComponents-container'>
         <Weather />
-        <Poetry />
         <Music />
+        <Poetry />
     </div>
 </template>
 
@@ -23,5 +23,12 @@ onMounted(() => {
     justify-content: flex-start;
     flex-direction: column;
     align-items: center;
+    padding: 1.3rem 0;
+    overflow: hidden;
+
+    &::-webkit-scrollbar {
+        width: 0;
+        /* 滚动条宽度 */
+    }
 }
 </style>

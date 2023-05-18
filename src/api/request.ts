@@ -8,7 +8,7 @@ async function getWeather(
 
 // 每日一言
 async function getPoetry(
-  url: string = "https://v.api.aa1.cn/api/api-wenan-mingrenmingyan/index.php?aa1=json"
+  url: string = "https://v1.hitokoto.cn/?c=d"
 ): Promise<string> {
   const result = await fetch(url).then((data) => data);
   return result.json();

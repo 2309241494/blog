@@ -32,10 +32,6 @@ const props = withDefaults(defineProps<Props>(), {
     show: false
 })
 
-onMounted(() => {
-    console.log(props.arr)
-})
-
 // 触发父组件传递过来的自定义函数
 const emit = defineEmits(["showChange"])
 const changeShow = () => {
