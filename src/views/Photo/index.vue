@@ -15,12 +15,7 @@
                         <img :src="item.src" alt="">
                     </div>
                 </div>
-
             </div>
-        </div>
-        <div class="right">
-            <Weather />
-            <Poetry />
         </div>
     </div>
 </template>
@@ -28,8 +23,6 @@
 <script lang="ts" setup>
 import { useRouter } from 'vue-router';
 import Sidebar from '../../components/Sidebar.vue';
-import Weather from '../../components/Weather.vue';
-import Poetry from '../../components/Poetry.vue';
 import Title from '../../components/Title.vue';
 import Subhead from '../../components/Subhead.vue'
 const router = useRouter();
@@ -112,19 +105,6 @@ const images = [{ src: "https://tse1-mm.cn.bing.net/th/id/OIP-C.mH9YLFEL5YdVxJM8
 
         }
     }
-
-
-
-    .right {
-        flex: 0 0 20%;
-        background-color: #363b5f;
-        display: flex;
-        justify-content: flex-start;
-        flex-direction: column;
-        align-items: center;
-    }
-
-
 
 }
 </style>

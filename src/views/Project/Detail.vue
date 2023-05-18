@@ -52,6 +52,7 @@ const changeShow = () => {
     background-color: rgba(0, 0, 0, 0.5);
     width: 100%;
     height: 100%;
+    overflow-y: auto;
     z-index: 999;
 
     .main {
@@ -84,8 +85,8 @@ const changeShow = () => {
 
         img {
             width: 100%;
-            height: 400px;
-            border-radius: 10px;
+            max-height: 500px;
+            border-radius: 5px;
             margin-bottom: -2rem;
             object-fit: cover;
 

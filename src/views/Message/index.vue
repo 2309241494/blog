@@ -12,10 +12,6 @@
             <div class="content">
             </div>
         </div>
-        <div class="right">
-            <Weather />
-            <Poetry />
-        </div>
     </div>
 </template>
 
@@ -23,8 +19,6 @@
 import { useRouter } from 'vue-router';
 import { ref, onMounted, reactive } from 'vue';
 import Sidebar from '../../components/Sidebar.vue';
-import Weather from '../../components/Weather.vue';
-import Poetry from '../../components/Poetry.vue';
 import Title from '../../components/Title.vue';
 import Subhead from '../../components/Subhead.vue'
 const router = useRouter();
@@ -75,17 +69,5 @@ onMounted(() => {
             }
         }
     }
-
-    .right {
-        flex: 0 0 20%;
-        background-color: #363b5f;
-        display: flex;
-        justify-content: flex-start;
-        flex-direction: column;
-        align-items: center;
-    }
-
-
-
 }
 </style>

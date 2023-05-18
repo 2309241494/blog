@@ -31,10 +31,6 @@
                 </div>
             </div>
         </div>
-        <div class="right">
-            <Weather />
-            <Poetry />
-        </div>
         <Detail :show=show @showChange="changeShow" :arr=detailArr />
     </div>
 </template>
@@ -88,7 +84,7 @@ const projectList = ref([
         online: "www.ilove.vom",
         soundCode: "www.ilovegitee.vom",
         introduce: "此项目使用Typescript搭建",
-        imgUrl: "https://img.zcool.cn/community/0127bd5a3b6c15a801201a1f90c7e3.jpg@1280w_1l_2o_100sh.jpg",
+        imgUrl: "https://ts1.cn.mm.bing.net/th/id/R-C.a8a7c9c5d90e47080c9f545b4bf91e5a?rik=lpTPYV%2fcsTlEAw&riu=http%3a%2f%2fimg.sj33.cn%2fuploads%2f201906%2f0404033E1-0.png&ehk=nOB8l3yOsI5hmb3VCOdMb2ZToAw6C0W3ePLi2EBPh3o%3d&risl=&pid=ImgRaw&r=0",
     },
     {
         type: "hfive",
@@ -96,10 +92,10 @@ const projectList = ref([
         online: "www.ilove.vom",
         soundCode: "www.ilovegitee.vom",
         introduce: "此项目使用Typescript搭建,Vue 框架：Vue 是一个流行的开源 JavaScript 框架，它提供了一些基本的构建组件化 Web 应用所需的功能，如模板语法、组件系统、路由管理、状态管理、响应式数据绑定等等",
-        imgUrl: "https://ts1.cn.mm.bing.net/th/id/R-C.84aaeb8f09d5c757d0a0f888bf37704d?rik=QtnDGxKODF1dOQ&riu=http%3a%2f%2fweb.tedu.cn%2fupload%2f20190522%2f20190522164744_351.jpg&ehk=FLNgJTldtYmW9KdNH8OwBK94yz5kGmJm8bzw4HP3B2c%3d&risl=&pid=ImgRaw&r=0",
+        imgUrl: "https://ts1.cn.mm.bing.net/th/id/R-C.c650494548f39feff1a6c77c29c9f3e5?rik=x3Zttdsl53WHNA&riu=http%3a%2f%2fimage.woshipm.com%2fwp-files%2f2020%2f08%2fYKHSSa6lHkrnyt50LIdy.png&ehk=nZnMjRiTGtokviaQ6h8ijz%2fQXQbPqcb4lriMDHmvIGQ%3d&risl=&pid=ImgRaw&r=0",
     },
-    { type: "mini", imgUrl: "https://tse3-mm.cn.bing.net/th/id/OIP-C.Qq9d53ybUj-VhwBkjcVIjAHaEK?pid=ImgDet&rs=1", title: "uniapp" },
-    { type: "pc", imgUrl: "https://img.zcool.cn/community/0127bd5a3b6c15a801201a1f90c7e3.jpg@1280w_1l_2o_100sh.jpg", title: "博客后台" },])
+    { type: "mini", imgUrl: "https://img.zcool.cn/community/012f705d22ab70a801213763366c0a.jpg@2o.jpg", title: "uniapp" },
+    { type: "pc", imgUrl: "https://img.zcool.cn/community/01d2a45848e22ca8012060c8f2d50c.png@2o.png", title: "博客后台" },])
 const newList = [...projectList.value]
 </script>
 
@@ -173,7 +169,7 @@ const newList = [...projectList.value]
 
                     .project-item {
                         flex-basis: calc(48%);
-                        background-color: #2c3051;
+                        background-color: white;
                         display: flex;
                         justify-content: center;
                         border-radius: 5px;
@@ -238,7 +234,7 @@ const newList = [...projectList.value]
                         }
 
                         &:hover .project-img {
-                            transform: scale(1.1);
+                            transform: scale(1.03);
                         }
 
                         &:hover::after {
@@ -249,9 +245,9 @@ const newList = [...projectList.value]
                             width: 100%;
                             height: 27rem;
                             border-radius: 5px;
-                            object-fit: cover;
                             background-repeat: no-repeat;
-                            background-size: 100% 100%;
+                            background-size: cover;
+                            background-position: center center;
                             transition: all .5s;
                         }
                     }
@@ -260,17 +256,6 @@ const newList = [...projectList.value]
             }
         }
     }
-
-    .right {
-        flex: 0 0 23%;
-        background-color: #363b5f;
-        display: flex;
-        justify-content: flex-start;
-        flex-direction: column;
-        align-items: center;
-    }
-
-
 
 }
 </style>

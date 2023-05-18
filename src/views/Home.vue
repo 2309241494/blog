@@ -19,10 +19,6 @@
                 <Menu :menu-list="menuArr" />
             </div>
         </div>
-        <!-- 右边区域 -->
-        <div class="right">
-            <MiniComponents />
-        </div>
     </div>
 </template>
 
@@ -73,6 +69,7 @@ const currentText = computed(() => {
 <style scoped lang='less'>
 .Home-container {
 
+
     .left {
         flex: 0 0 5%;
     }
@@ -106,13 +103,5 @@ const currentText = computed(() => {
         }
     }
 
-    .right {
-        flex: 0 0 23%;
-        background-color: #363b5f;
-        display: flex;
-        justify-content: flex-start;
-        flex-direction: column;
-        align-items: center;
-    }
 }
 </style>

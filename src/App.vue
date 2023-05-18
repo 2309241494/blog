@@ -1,19 +1,26 @@
 
 <template>
 	<div class='App-container'>
-		<router-view v-slot="{ Component }">
-			<transition name="slide-fade" mode="out-in">
-				<keep-alive>
-					<component :is="Component" />
-				</keep-alive>
-			</transition>
-		</router-view>
+		<div class="main-container">
+			<div class="left-container">
+				<router-view v-slot="{ Component }">
+					<transition name="slide-fade" mode="out-in">
+						<keep-alive>
+							<component :is="Component" />
+						</keep-alive>
+					</transition>
+				</router-view>
+			</div>
+			<div class="right-container">
+				<MiniComponents />
+			</div>
+		</div>
 	</div>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted, reactive, watch, computed } from 'vue';
-
+import MiniComponents from "./views/MiniComponent.vue"
 </script>
 
 <style scoped lang='less'>
@@ -21,10 +28,31 @@ import { ref, onMounted, reactive, watch, computed } from 'vue';
 	width: 100vw;
 	height: 100vh;
 	color: aliceblue;
-	display: flex;
 	justify-content: center;
 	align-items: center;
-	animation: start 0.5s ease-in-out;
+	display: flex;
+
+
+	// animation: start 0.5s ease-in-out;
+	.main-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 90%;
+		height: 90%;
+
+		.left-container {
+			flex: 1;
+			height: 100%;
+		}
+
+		.right-container {
+			background-color: #363b5f;
+			flex: 0 0 20%;
+			height: 100%;
+		}
+	}
+
 }
 
 .slide-fade-enter-active {

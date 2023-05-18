@@ -31,9 +31,6 @@
         </div>
       </div>
     </div>
-    <div class="right">
-      <MiniComponent />
-    </div>
   </div>
 </template>
 
@@ -43,7 +40,6 @@ import { ref, onMounted, reactive } from 'vue';
 import Sidebar from '../../components/Sidebar.vue';
 import Title from '../../components/Title.vue';
 import Subhead from '../../components/Subhead.vue'
-import MiniComponent from '../MiniComponent.vue';
 import Button from '../../components/Button.vue'
 const router = useRouter();
 const goBack = () => {
@@ -176,17 +172,6 @@ const iconList = ref(
       }
     }
   }
-
-  .right {
-    flex: 0 0 23%;
-    background-color: #363b5f;
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    align-items: center;
-  }
-
-
 
 }
 </style>
