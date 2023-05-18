@@ -2,9 +2,7 @@
     <div class='miniComponents-container'>
         <Weather />
         <Poetry />
-
-        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=320 height=450
-            src="https://music.163.com/outchain/player?type=0&id=616795500&auto=0&height=auto"></iframe>
+        <Music />
     </div>
 </template>
 
@@ -12,6 +10,7 @@
 import { ref, onMounted, reactive } from 'vue';
 import Weather from '../components/Weather.vue';
 import Poetry from '../components/Poetry.vue';
+import Music from '../components/Music.vue';
 onMounted(() => {
 })
 </script>

@@ -48,7 +48,7 @@ import MiniComponents from "./views/MiniComponent.vue"
 
 		.right-container {
 			background-color: #363b5f;
-			flex: 0 0 20%;
+			flex: 0 0 25%;
 			height: 100%;
 		}
 	}
