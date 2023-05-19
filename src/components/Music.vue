@@ -28,6 +28,14 @@ import { ref, onMounted, reactive, watch, computed } from 'vue';
 // 歌曲数据
 const audioList = ref([
     {
+        name: "Sunroof - Nicky Youre / Dazy", audioUrl: "http://music.163.com/song/media/outer/url?id=1893514633",
+        imgUrl: "http://p1.music.126.net/OE6x5vHGHZqBAK0E1kXn0Q==/109951167870371370.jpg?param=130y130"
+    },
+    {
+        name: "昼念 - 罗浩文BF / 苏琛", audioUrl: "http://music.163.com/song/media/outer/url?id=1826191539",
+        imgUrl: "http://p2.music.126.net/yaG1zHzAeh3hNavJAV08JQ==/109951165792054236.jpg?param=120y120"
+    },
+    {
         name: "Kiss Fight - Tülpa / BLANKTS / gnash", audioUrl: "http://music.163.com/song/media/outer/url?id=460112226",
         imgUrl: "http://p1.music.126.net/e3Et4gSGaddRNiw9vLstKA==/109951166562842133.jpg?param=130y130"
     },
@@ -76,12 +84,16 @@ const audioList = ref([
         imgUrl: "https://p2.music.126.net/-mrB7euJ09Fazbu85R6wgQ==/109951164764975405.jpg?param=130y130"
     },
     {
+        name: "英雄联盟台词鉴赏 - 人生导师卡密尔（青钢影）", audioUrl: "http://music.163.com/song/media/outer/url?id=1910038914.mp3",
+        imgUrl: "http://p2.music.126.net/ndmiknAsBwoymMasVysNgQ==/109951168536773914.jpg?param=130y130"
+    },
+    {
         name: "AutumnLeaf - re:plus", audioUrl: "http://music.163.com/song/media/outer/url?id=26111937.mp3",
         imgUrl: "https://p2.music.126.net/E323i3eNPwkTYqCgoRT6gQ==/2359551953231145.jpg?param=130y130"
     }])
 
 // 默认歌曲
-const audioIndex = ref(1)
+const audioIndex = ref(3)
 
 
 // 获取audio dom
@@ -187,12 +199,11 @@ watch(audioIndex, (val, prevVal) => {
         justify-content: center;
         align-items: center;
         position: relative;
-        z-index: 999;
+        z-index: 990;
 
         img {
             border-radius: 50%;
             animation: infinite-rotate 10s linear infinite;
-
         }
 
         .img-active {
@@ -212,7 +223,8 @@ watch(audioIndex, (val, prevVal) => {
 
     .title {
         position: relative;
-        z-index: 999;
+        z-index: 990;
+
         margin: 1rem 0;
         display: flex;
         justify-content: center;
@@ -234,7 +246,7 @@ watch(audioIndex, (val, prevVal) => {
 
     .icon {
         position: relative;
-        z-index: 999;
+        z-index: 990;
         display: flex;
 
         div {

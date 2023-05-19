@@ -25,9 +25,10 @@ onMounted(async () => {
     width: 90%;
     padding: 1rem;
     border-radius: 5px;
-    background: linear-gradient(225deg, #3a3f66, #313556);
-    box-shadow: -12px 12px 24px #2c304e,
-        12px -12px 24px #404670;
+    background-color: #2c3051;
+    background: linear-gradient(145deg, #2f3357, #282b49);
+    box-shadow: 5px 5px 17px #252844,
+        -5px -5px 17px #33385e;
     display: flex;
     justify-content: center;
     align-items: center;
