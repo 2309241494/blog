@@ -34,7 +34,7 @@ import MiniComponents from './MiniComponent.vue';
 const menuArr = [{ icon: "icon-guanyuwo", title: "ABOUT", mainTitle: "ME", path: "/about", color: "#fa709a" },
 { icon: "icon-xiangmu", title: "MY", mainTitle: "PROJECT", path: "/project", color: "#43e97b" },
 { icon: "icon-xiangce", title: "MY", mainTitle: "PHOTO", path: "/photo", color: "#f6d365" },
-{ icon: "icon-jurassic_message", title: "MY", mainTitle: "MessageBoard", path: "/message", color: "#6991c7" }
+{ icon: "icon-jurassic_message", title: "MY", mainTitle: "MESSAGE", path: "/message", color: "#6991c7" }
 ]
 // 打字机效果
 const textArr = [

@@ -1,4 +1,4 @@
-@import "https://at.alicdn.com/t/c/font_3860774_jpb216ylsk.css";
+@import "https://at.alicdn.com/t/c/font_3860774_2rp60e3j2p6.css";
 
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
@@ -54,12 +54,11 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
-  /* min-width: 100vw !important; */
-  /* min-height: 100vh !important; */
+  min-width: 100vw !important;
+  min-height: 100vh !important;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   /* fallback for old browsers */
-  background: #fc29;
   /* Chrome 10-25, Safari 5.1-6 */
   background: -webkit-linear-gradient(
     to right,

@@ -29,6 +29,46 @@
             <Button />
           </div>
         </div>
+
+      </div>
+      <Subhead title="个人经历" bg-color="#fa709a" />
+      <div class="mini-container work-container">
+        <div class="work">
+          <div class="top">
+            <h2>教育经历</h2>
+          </div>
+          <div class="bottom" v-for="(item, index) in education" :key="index">
+            <p><i class="iconfont icon-tubiaoji2_zhixiang"></i><span>学校名称：</span> {{ item.school }}</p>
+            <p> <i class="iconfont icon-tubiaoji2_zhixiang"></i><span>所学专业：</span> {{ item.major }}</p>
+            <p> <i class="iconfont icon-tubiaoji2_zhixiang"></i><span>时间：</span> {{ item.time }}</p>
+            <p>{{ item.described }}</p>
+          </div>
+        </div>
+        <div class="work">
+          <div class="top">
+            <h2>工作经历</h2>
+          </div>
+          <div class="bottom" v-for="(item, index) in work" :key="index">
+            <p> <i class="iconfont icon-tubiaoji2_zhixiang"></i><span>公司：</span>{{ item.work }}</p>
+            <p> <i class="iconfont icon-tubiaoji2_zhixiang"></i><span>职位：</span>{{ item.job }}</p>
+            <p> <i class="iconfont icon-tubiaoji2_zhixiang"></i><span>时间：</span>{{ item.time }}</p>
+            <p>{{ item.described }}</p>
+          </div>
+        </div>
+        <div class="work">
+          <div class="top">
+            <h2>项目经历</h2>
+          </div>
+          <div class="bottom" v-for="(item, index) in project" :key="index">
+            <p> <i class="iconfont icon-tubiaoji2_zhixiang"></i><span>项目名称：</span>{{ item.title }}</p>
+            <p> <i class="iconfont icon-tubiaoji2_zhixiang"></i><span>担任职位：</span>{{ item.job }}</p>
+            <p> <i class="iconfont icon-tubiaoji2_zhixiang"></i><span>所在公司：</span>{{ item.work }}</p>
+            <p> <i class="iconfont icon-tubiaoji2_zhixiang"></i><span>技术栈：</span>{{ item.skill }}</p>
+            <p> <i class="iconfont icon-tubiaoji2_zhixiang"></i><span>时间：</span>{{ item.time }}</p>
+            <p>{{ item.described }}</p>
+          </div>
+        </div>
+        <Button title="前往个人项目" router="/project" />
       </div>
     </div>
   </div>
@@ -62,6 +102,17 @@ const iconList = ref(
   { icon: "icon-gitee-fill-round", path: "https://gitee.com/LL--LL" },
   { icon: "icon-weixin1", path: "weixin://" }])
 
+const education = ref([{ time: "2020-9 ~ 2023-7", school: "贵州工贸职业学院", major: "大数据技术与应用", described: "在校期间学习了Java、mysql、linux、Python等技术" }])
+const work = ref([
+  { time: "2022-10 ~ 2023-3", work: "四川均龙科技有限公司", job: "实习前端研发工程师", described: "钧龙科技是国内领先的BIM信息化集成方案提供商，目前主要定向服务于中国建筑集团等大型企业的信息化项目，在公司期间负责与 UI 设计师进行沟通，通过 HTML/CSS/JacaScript/React/vue/echarts 等其他技术还原页面，参与团队的沟通协调，按质按时完成分配的任务，对老项目进行维护更新等工作。" }])
+const project = ref([{
+  title: "党建后台", time: "2022.10 ~ 2322.11", job: "实习前端研发工程师", skill: "TypeScript、Vite、Sass、Vue3、Arco-Design", work: "四川均龙科技有限公司",
+  described: "该项目住主要用于工作人员对前台页面的信息进行增删改查"
+},
+{
+  title: "两岸三地小程序一期", time: "2023.01 ~ 2323.02", job: "实习前端研发工程师", skill: "uniapp、Sass、Vue3、Echarts", work: "四川均龙科技有限公司",
+  described: "该项目分为多个地盘，每个地盘显示的数据以不同的图表进行可视化展示，使用了大量的Echarts来展示数据"
+}])
 </script>
 
 <style scoped lang='less'>
@@ -99,7 +150,6 @@ const iconList = ref(
         }
 
         .personal-data {
-          // margin: 2rem 0;
           display: flex;
           flex-direction: row;
           flex-wrap: wrap;
@@ -169,6 +219,53 @@ const iconList = ref(
 
       &:hover {
         color: aliceblue;
+      }
+    }
+
+    .work-container {
+      display: flex;
+      flex-direction: column;
+
+      .work {
+        margin-bottom: 2rem;
+
+        .top {
+          background: #2c3051;
+          text-align: center;
+          padding: 1rem;
+          color: aqua;
+          font-size: .7rem;
+        }
+
+        .bottom {
+          padding: 1rem;
+          border: 1px solid #2c3051;
+          border-top: none;
+
+          p {
+            margin: .5rem 0;
+            font-size: .9rem;
+            color: #9c9c9c;
+
+            .iconfont {
+              color: #00ffff;
+              font-size: 1.5rem;
+              vertical-align: bottom;
+              margin-right: .5rem;
+            }
+
+            span {
+              color: white;
+            }
+          }
+
+          & p:last-child {
+            color: #9c9c9c;
+            font-size: .9rem;
+            width: 50rem;
+          }
+
+        }
       }
     }
   }

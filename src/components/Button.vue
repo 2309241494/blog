@@ -32,15 +32,14 @@ onMounted(() => {
         justify-content: center;
         align-items: center;
         color: white;
-        // border: 1px solid #fff;
         border-radius: 5px;
         background-image: linear-gradient(to right, #041a2b, #1e3a5f);
-        background-position: -101% 0;
+        background-position: -102% 0;
         background-size: 200% 100%;
         transition: background-position 1s, background-color 1s;
 
         &:hover {
-            background-position: 100% 0;
+            background-position: 90% 0;
             background-color: #1e3a5f;
         }
 
