@@ -20,7 +20,7 @@ onMounted(async () => {
 
 <style scoped lang='less'>
 .Poetry-container {
-    flex: 0 0 25%;
+    flex: 0 0 23%;
     margin-top: 1.5rem;
     width: 90%;
     padding: 1rem;
