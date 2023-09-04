@@ -63,7 +63,6 @@ const handleSubmit = (event: any) => {
         message.value.unshift(from.value)
         from.value = {}
     }
-    console.log(from.value)
 }
 function checkForm() {
     for (let key in from.value) {
