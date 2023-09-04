@@ -68,7 +68,7 @@ const currentText = computed(() => {
 
 <style scoped lang='less'>
 .Home-container {
-
+    border-radius: 25px;
 
     .left {
         flex: 0 0 5%;

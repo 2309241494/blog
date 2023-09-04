@@ -36,6 +36,7 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
 
+
     .top {
         flex: 0 0 10%;
         display: flex;

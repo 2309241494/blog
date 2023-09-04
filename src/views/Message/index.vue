@@ -42,10 +42,11 @@ import { useRouter } from 'vue-router';
 import { ref, onMounted, reactive } from 'vue';
 import Sidebar from '../../components/Sidebar.vue';
 import Title from '../../components/Title.vue';
-import Subhead from '../../components/Subhead.vue'
+import Subhead from '../../components/Subhead.vue';
+
 const from: any = ref({ name: "", contactWay: "", message: "" })
 const message = ref([{ name: "黎浪", contactWay: "+62800000000", message: "你好！", time: "" }])
-const router = useRouter();
+const router = useRouter()
 const notFound = false
 const goBack = () => {
     router.back();
