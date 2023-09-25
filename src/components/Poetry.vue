@@ -22,19 +22,35 @@ onMounted(async () => {
 .Poetry-container {
     flex: 0 0 23%;
     margin-top: 1.5rem;
-    width: 90%;
+    width: 100%;
     padding: 1rem;
     border-radius: 5px;
-    background-color: #2c3051;
-    background: linear-gradient(145deg, #2f3357, #282b49);
     box-shadow: 5px 5px 17px #252844,
         -5px -5px 17px #33385e;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    overflow: hidden;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+
+    &::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: url("https://picsum.photos/200");
+        background-size: cover;
+        background-repeat: no-repeat;
+        filter: blur(10px);
+        z-index: 1;
+    }
 
     .left {
         width: 100%;
+        position: relative;
+        z-index: 999;
+        color: aliceblue;
 
         h6 {
             text-align: center;
@@ -44,12 +60,11 @@ onMounted(async () => {
 
         p {
             font-size: 1rem;
-            color: rgb(212, 212, 212);
             margin: 1.8rem 0;
         }
 
         h5 {
-            font-size: 0.5rem;
+            font-size: 0.8rem;
             text-align: right;
             font-weight: 100;
         }

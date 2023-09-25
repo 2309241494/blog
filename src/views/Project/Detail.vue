@@ -1,24 +1,26 @@
 <template>
-    <div class='Detail-container' v-if="show">
-        <div class="main ">
-            <i class="back iconfont icon-cuowu" @click="changeShow"></i>
-            <img :src=props.arr.imgUrl alt="">
-            <Subhead :title=props.arr.title bg-color="#5856e5" />
-            <div class="text-container">
-                <p>{{ props.arr.introduce }}</p>
-            </div>
-            <div class="button-container">
-                <a class="button" target="_blank" :href=props.arr.online>
-                    <i class="iconfont icon-tubiaoji2_zhixiang"></i>
-                    <p>{{ props.arr.online ? "在线预览" : "暂未部署到服务器" }}</p>
-                </a>
-                <a class="button" target="_blank" :href=props.arr.soundCode>
-                    <i class="iconfont icon-tubiaoji2_zhixiang"></i>
-                    <p>源码地址</p>
-                </a>
+    <transition name="scale">
+        <div class='Detail-container' v-show="show">
+            <div class="main ">
+                <i class="back iconfont icon-cuowu" @click="changeShow"></i>
+                <img :src=props.arr.imgUrl alt="">
+                <Subhead :title=props.arr.title bg-color="#5856e5" />
+                <div class="text-container">
+                    <p>{{ props.arr.introduce }}</p>
+                </div>
+                <div class="button-container">
+                    <a class="button" target="_blank" :href=props.arr.online>
+                        <i class="iconfont icon-tubiaoji2_zhixiang"></i>
+                        <p>{{ props.arr.online ? "在线预览" : "暂未部署到服务器" }}</p>
+                    </a>
+                    <a class="button" target="_blank" :href=props.arr.soundCode>
+                        <i class="iconfont icon-tubiaoji2_zhixiang"></i>
+                        <p>源码地址</p>
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
+    </transition>
 </template>
 
 <script setup lang="ts">
@@ -40,6 +42,21 @@ const changeShow = () => {
 </script>
 
 <style scoped lang='less'>
+.scale-enter-active,
+.scale-leave-active {
+    transition: opacity 0.3s;
+}
+
+.scale-enter-from,
+.scale-leave-to {
+    opacity: 0;
+}
+
+.scale-enter-to,
+.scale-leave-from {
+    opacity: 1;
+}
+
 .Detail-container {
     position: fixed;
     left: 50%;

@@ -28,6 +28,10 @@ import { ref, onMounted, reactive, watch, computed } from 'vue';
 // 歌曲数据
 const audioList = ref([
     {
+        name: "AutumnLeaf - re:plus", audioUrl: "http://music.163.com/song/media/outer/url?id=26111937.mp3",
+        imgUrl: "https://p2.music.126.net/E323i3eNPwkTYqCgoRT6gQ==/2359551953231145.jpg?param=130y130"
+    },
+    {
         name: "Sunroof - Nicky Youre / Dazy", audioUrl: "http://music.163.com/song/media/outer/url?id=1893514633",
         imgUrl: "http://p1.music.126.net/OE6x5vHGHZqBAK0E1kXn0Q==/109951167870371370.jpg?param=130y130"
     },
@@ -87,13 +91,10 @@ const audioList = ref([
         name: "英雄联盟台词鉴赏 - 人生导师卡密尔（青钢影）", audioUrl: "http://music.163.com/song/media/outer/url?id=1910038914.mp3",
         imgUrl: "http://p2.music.126.net/ndmiknAsBwoymMasVysNgQ==/109951168536773914.jpg?param=130y130"
     },
-    {
-        name: "AutumnLeaf - re:plus", audioUrl: "http://music.163.com/song/media/outer/url?id=26111937.mp3",
-        imgUrl: "https://p2.music.126.net/E323i3eNPwkTYqCgoRT6gQ==/2359551953231145.jpg?param=130y130"
-    }])
+])
 
 // 默认歌曲
-const audioIndex = ref(3)
+const audioIndex = ref(0)
 
 
 // 获取audio dom
@@ -157,12 +158,15 @@ watch(audioIndex, (val, prevVal) => {
         audioIndex.value = len - 1
     }
 })
+
+onMounted(() => {
+})
 </script>
 
 <style scoped lang='less'>
 .Music-container {
+    width: 100%;
     flex: 1;
-    width: 90%;
     background-color: #2c3051;
     padding: 2rem 0;
     display: flex;
@@ -270,7 +274,7 @@ watch(audioIndex, (val, prevVal) => {
     }
 
     .progressBar {
-        width: 390px;
+        width: 393px;
         height: .5rem;
         background: rgba(255, 255, 255, 0.1);
         margin-top: 10px;

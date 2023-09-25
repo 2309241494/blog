@@ -23,7 +23,7 @@ onMounted(() => {
     justify-content: flex-start;
     flex-direction: column;
     align-items: center;
-    padding: 1.3rem 0;
+    padding: 20px;
     overflow: hidden;
 
     &::-webkit-scrollbar {
