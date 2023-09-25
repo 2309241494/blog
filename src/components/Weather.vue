@@ -12,7 +12,7 @@
         <div class="weather">
             <span class="hour">{{ hourTime }}</span>
             <span>{{ weatherArr.arr.weather }}</span>
-            <span>{{ weaterTitle }}</span>
+            <span>{{ weaterTitle === 0 ? "上午好" : weaterTitle === 1 ? "下午好" : "晚上好" }}</span>
             <span>{{ weatherArr.arr.temperature }}­°C</span>
             <span>{{ nowTime }}</span>
             <span> 空气湿度{{ weatherArr.arr.humidity }}</span>
@@ -24,7 +24,7 @@
 import { ref, onMounted, reactive, watch } from 'vue';
 import { getWeather } from '../api/request';
 import { hour } from '../utils/util';
-
+import { ElNotification } from 'element-plus'
 // 天气信息
 let weatherArr: any = reactive({ arr: {} });
 
@@ -45,21 +45,29 @@ onMounted(async () => {
 const backgroundWeather = reactive(["https://img.zcool.cn/community/01cb8657dd13690000012e7e082455.jpg@1280w_1l_2o_100sh.jpg",
     "https://bpic.588ku.com/back_our/20210318/bg/ecef85d079003.png",
     "https://img-qn-0.51miz.com/preview/video/00/00/13/46/V-134610-6B323855.jpg"])
-let weaterTitle = ref()
+let weaterTitle = ref<number>(0)
 function getTimePeriod(): string {
     const currentTime = new Date();
     const currentHour = currentTime.getHours();
     if (currentHour < 12) {
-        weaterTitle.value = "早上好 ！"
-        return backgroundWeather[0]
+        weaterTitle.value = 0
     } else if (currentHour < 18) {
-        weaterTitle.value = "下午好 ！"
-        return backgroundWeather[1]
+        weaterTitle.value = 1
     } else {
-        weaterTitle.value = "晚上好 ！"
-        return backgroundWeather[2]
+        weaterTitle.value = 2
     }
+    return backgroundWeather[weaterTitle.value]
 }
+watch(weaterTitle, (newValue, oldValue) => {
+    // 在这里可以处理 weatherTitle 变化时的逻辑
+    ElNotification({
+        title: weaterTitle.value === 0 ? "上午好" : weaterTitle.value === 1 ? "下午好" : "晚上好",
+        position: 'top-left',
+        message: weaterTitle.value === 0 ? "上午好！拥抱清晨的阳光，享受新的开始！" : weaterTitle.value === 1 ? "希望您度过一个愉快而充实的下午，保持精力充沛，继续努力并享受每一刻的美好！" : "忙碌一天，尽早入眠，让疲惫瞬间消散，为明天的精彩绽放！",
+        duration: 2000,
+        type: 'success',
+    })
+});
 </script>
 
 <style scoped lang='less'>
