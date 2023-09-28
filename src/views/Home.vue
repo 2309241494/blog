@@ -4,8 +4,10 @@
         <div class="left">
             <Sidebar />
         </div>
-        <!-- 主区域 -->
-        <div class="main">
+        <!-- 可视化主区域 -->
+        <Visualization v-show="changeModule === 0" />
+        <!-- 菜单页主区域 -->
+        <div class="main" v-show="changeModule === 1">
             <!-- 标题 -->
             <div class="title">
                 <Title />
@@ -24,12 +26,11 @@
 
 <script setup lang="ts">
 import { ref, onMounted, reactive, computed } from 'vue';
-import { RouterLink, RouterView } from "vue-router";
 import Sidebar from '../components/Sidebar.vue';
 import Title from "../components/Title.vue"
 import Menu from '../components/Menu.vue';
-import MiniComponents from './MiniComponent.vue';
-
+import Visualization from '../components/Visualization.vue';
+import { useMain } from '../store/index';
 // 传递给菜单组件的菜单项
 const menuArr = [{ icon: "icon-guanyuwo", title: "ABOUT", mainTitle: "ME", path: "/about", color: "#fa709a" },
 { icon: "icon-xiangmu", title: "MY", mainTitle: "PROJECT", path: "/project", color: "#43e97b" },
@@ -40,6 +41,8 @@ const menuArr = [{ icon: "icon-guanyuwo", title: "ABOUT", mainTitle: "ME", path:
 const textArr = [
     'Web Developer',
 ];
+const mainStore = useMain();
+const changeModule = computed(() => mainStore.getChangeModule)
 
 const typingSpeed = 200;
 const landingSpeed = 50;
@@ -76,7 +79,6 @@ const currentText = computed(() => {
 
     .main {
         flex: 1;
-        overflow-y: scroll;
 
         &::-webkit-scrollbar {
             width: 0;

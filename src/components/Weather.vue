@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, reactive, watch } from 'vue';
+import { ref, onMounted, reactive, watch, watchEffect } from 'vue';
 import { getWeather } from '../api/request';
 import { hour } from '../utils/util';
 import { ElNotification } from 'element-plus'
