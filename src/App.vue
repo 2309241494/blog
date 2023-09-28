@@ -3,6 +3,7 @@
 	<div class='App-container'>
 		<div class="main-container">
 			<div class="left-container">
+				<h1>你好啊</h1>
 				<router-view v-slot="{ Component }">
 					<transition name="slide-fade" mode="out-in">
 						<keep-alive>
