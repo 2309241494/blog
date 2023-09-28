@@ -7,5 +7,5 @@ export default defineConfig({
   build: {
     minify: false,
   },
-  base: process.env.NODE_ENV === "production" ? "/vite-blog/" : "/vite-blog/",
+  base: process.env.NODE_ENV === "production" ? "/vite-blog/" : "/",
 });
