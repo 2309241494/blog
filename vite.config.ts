@@ -4,4 +4,8 @@ import vue from "@vitejs/plugin-vue";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue()],
+  build: {
+    minify: false,
+  },
+  base: process.env.NODE_ENV === "production" ? "/vite-blog/" : "/vite-blog/",
 });
