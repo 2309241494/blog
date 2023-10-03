@@ -32,10 +32,10 @@ import Menu from '../components/Menu.vue';
 import Visualization from '../components/Visualization.vue';
 import { useMain } from '../store/index';
 // 传递给菜单组件的菜单项
-const menuArr = [{ icon: "icon-guanyuwo", title: "ABOUT", mainTitle: "ME", path: "/about", color: "#fa709a" },
-{ icon: "icon-xiangmu", title: "MY", mainTitle: "PROJECT", path: "/project", color: "#43e97b" },
-{ icon: "icon-xiangce", title: "MY", mainTitle: "PHOTO", path: "/photo", color: "#f6d365" },
-{ icon: "icon-jurassic_message", title: "MY", mainTitle: "MESSAGE", path: "/message", color: "#6991c7" }
+const menuArr = [{ icon: "icon-guanyuwo", title: "ABOUT", mainTitle: "ME", path: "/vite-blog/about", color: "#fa709a" },
+{ icon: "icon-xiangmu", title: "MY", mainTitle: "PROJECT", path: "/vite-blog/project", color: "#43e97b" },
+{ icon: "icon-xiangce", title: "MY", mainTitle: "PHOTO", path: "/vite-blog/photo", color: "#f6d365" },
+{ icon: "icon-jurassic_message", title: "MY", mainTitle: "MESSAGE", path: "/vite-blog/message", color: "#6991c7" }
 ]
 // 打字机效果
 const textArr = [

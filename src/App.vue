@@ -23,6 +23,7 @@
 <script setup lang="ts">
 import { ref, onMounted, reactive, watch, computed } from 'vue';
 import MiniComponents from "./views/MiniComponent.vue"
+import router from './router';
 </script>
 
 <style scoped lang='less'>
