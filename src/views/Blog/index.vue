@@ -1,20 +1,16 @@
 <template>
     <div class='index-container container'>
         <div class="left">
-            <Sidebar icon="icon-xiangce" color="#f6d365" title="MY" main-title="PHOTO" />
+            <Sidebar icon="icon-xiangce" color="#f6d365" title="MY" main-title="NOTES" />
         </div>
         <div class="main">
             <i class="back iconfont icon-cuowu" @click="goBack"></i>
             <div class="title">
-                <Title title="About" main-title="ME" />
+                <Title title="MY" main-title="NOTES" />
             </div>
-            <Subhead title="生活碎片" bg-color="#f6d365" />
+            <Subhead title="开发笔记" bg-color="#f6d365" />
             <div class="content">
-                <div class="image-container mini-container">
-                    <div class="image-item" v-for="(item, index) in images" :key="index">
-                        <img :src="item.src" alt="">
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
@@ -29,19 +25,10 @@ const router = useRouter();
 const goBack = () => {
     router.back();
 }
-const images = [{ src: "https://ts1.cn.mm.bing.net/th/id/R-C.b61e85948514dde6c8f2997871c60766?rik=WSmrFRL1fzIM2A&riu=http%3a%2f%2fpic1.bbzhi.com%2ffengjingbizhi%2fdiqiuguibaodachicunziranfengjingbizhijingxuandiyiji%2fnature_2008_landscape_1680_desktop_01_20183_11.jpg&ehk=UHw5ouJjdlJ4utvTAdWd8UZTuIpkI%2fMSeyoP%2fjtTbpQ%3d&risl=&pid=ImgRaw&r=0", },
-{ src: "https://tse4-mm.cn.bing.net/th/id/OIP-C.xq6cOv82ubIhJY9qkFd5AgHaEK?w=316&h=180&c=7&r=0&o=5&pid=1.7", },
-{ src: "https://tse1-mm.cn.bing.net/th/id/OIP-C.De4iKAMeTvWwPQxXNK74ZgHaE8?w=241&h=180&c=7&r=0&o=5&pid=1.7", },
-{ src: "https://tse1-mm.cn.bing.net/th/id/OIP-C.7-6n_pwnAPz_IkgyRuRI2wHaEo?w=255&h=183&c=7&r=0&o=5&pid=1.7", },
-{ src: "https://ts1.cn.mm.bing.net/th/id/R-C.8b5a06e831ae5806110eb424a6f459c9?rik=nPKd57IQk5a3gw&riu=http%3a%2f%2fwww.waibao123.com%2fUploads%2fphoto%2f2014-07-16%2fff544162748b2ddf1d362b908737387f_big.jpg&ehk=bSsTClUJFllXvpJ8jjQH%2f8L6khOAnKYImCV4lSmrtYg%3d&risl=&pid=ImgRaw&r=0", },
-{ src: "https://tse1-mm.cn.bing.net/th/id/OIP-C.UkVFnEg1kA8wGDvr7LPLVQHaL2?w=115&h=180&c=7&r=0&o=5&pid=1.7", },
-{ src: "https://tse1-mm.cn.bing.net/th/id/OIP-C.RLXQLqOuMFuWxC1F-zijHAHaGl?w=183&h=180&c=7&r=0&o=5&pid=1.7", }]
-
 </script>
 
 <style scoped lang='less'>
 .index-container {
-
     .left {
         flex: 0 0 5%;
     }

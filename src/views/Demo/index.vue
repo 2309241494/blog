@@ -1,37 +1,37 @@
 <template>
     <div class='index-container container'>
         <div class="left">
-            <Sidebar icon="icon-jurassic_message" color="#6991c7" title="MY" main-title="MESSAGE" />
+            <Sidebar icon="icon-jurassic_message" color="#6991c7" title="MY" main-title="DEMO" />
         </div>
         <div class="main">
             <i class="back iconfont icon-cuowu" @click="goBack"></i>
             <div class="title">
-                <Title title="About" main-title="MY" />
+                <Title title="MY" main-title="DEMO" />
             </div>
-            <Subhead title="留言" bg-color="#6991c7" />
-            <div class="content" v-if="notFound">
-                <div class="mini-container">
-                    <p>想聊聊吗？留下你的联系方式</p>
-                    <form class="from" @submit="handleSubmit">
-                        <div class="top">
-                            <input type="text" class="name" placeholder="怎么称呼？" v-model="from.name">
-                            <input type="text" class="email" placeholder="联系方式" v-model="from.contactWay">
+            <Subhead title="小组件" bg-color="#6991c7" />
+            <div class="content">
+                <a href="https://www.mythrillfiction.com/the-dark-rider" alt="Mythrill" target="_blank">
+                    <div class="card">
+                        <div class="wrapper">
+                            <img src="https://ggayane.github.io/css-experiments/cards/dark_rider-cover.jpg"
+                                class="cover-image" />
                         </div>
-                        <div class="bottom">
-                            <textarea name="" id="" cols="30" rows="10" placeholder="留言信息"
-                                v-model="from.message"></textarea>
-                        </div>
-                        <button type="submit">提交留言</button>
-                    </form>
-                    <div class="message" v-for="(item, index) in message" :key="index">
-                        <div class="msg-item"><i class="iconfont icon-tubiaoji2_zhixiang"></i>{{ item.name }}
-                            ：{{ item.message }}</div>
-                        <span>{{ item.time }}</span>
+                        <img src="https://ggayane.github.io/css-experiments/cards/dark_rider-title.png" class="title" />
+                        <img src="https://ggayane.github.io/css-experiments/cards/dark_rider-character.webp"
+                            class="character" />
                     </div>
-                </div>
-            </div>
-            <div class="not-found" v-else>
-                <i class="iconfont icon-jieguo-404"></i>
+                </a>
+                <a href="https://www.mythrillfiction.com/force-mage" alt="Mythrill" target="_blank">
+                    <div class="card">
+                        <div class="wrapper">
+                            <img src="https://ggayane.github.io/css-experiments/cards/force_mage-cover.jpg"
+                                class="cover-image" />
+                        </div>
+                        <img src="https://ggayane.github.io/css-experiments/cards/force_mage-title.png" class="title" />
+                        <img src="https://ggayane.github.io/css-experiments/cards/force_mage-character.webp"
+                            class="character" />
+                    </div>
+                </a>
             </div>
         </div>
     </div>
@@ -85,6 +85,98 @@ function getData() {
 </script>
 
 <style scoped lang='less'>
+.card {
+    width: var(--card-width);
+    height: var(--card-height);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 0 36px;
+    perspective: 2500px;
+    margin: 0 50px;
+}
+
+.cover-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.wrapper {
+    transition: all 0.5s;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+}
+
+.card:hover .wrapper {
+    transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
+    box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+}
+
+.wrapper::before,
+.wrapper::after {
+    content: "";
+    opacity: 0;
+    width: 100%;
+    height: 80px;
+    transition: all 0.5s;
+    position: absolute;
+    left: 0;
+}
+
+.wrapper::before {
+    top: 0;
+    height: 100%;
+    background-image: linear-gradient(to top,
+            transparent 46%,
+            rgba(12, 13, 19, 0.5) 68%,
+            rgba(12, 13, 19) 97%);
+}
+
+.wrapper::after {
+    bottom: 0;
+    opacity: 1;
+    background-image: linear-gradient(to bottom,
+            transparent 46%,
+            rgba(12, 13, 19, 0.5) 68%,
+            rgba(12, 13, 19) 97%);
+}
+
+.card:hover .wrapper::before,
+.wrapper::after {
+    opacity: 1;
+}
+
+.card:hover .wrapper::after {
+    height: 120px;
+}
+
+.title {
+    width: 100%;
+    transition: transform 0.5s;
+}
+
+.card:hover .title {
+    transform: translate3d(0%, -50px, 100px);
+}
+
+.character {
+    width: 100%;
+    opacity: 0;
+    transition: all 0.5s;
+    position: absolute;
+    z-index: -1;
+}
+
+.card:hover .character {
+    opacity: 1;
+    transform: translate3d(0%, -30%, 100px);
+}
+
 .index-container {
 
     .left {
