@@ -34,8 +34,8 @@ import { useMain } from '../store/index';
 // 传递给菜单组件的菜单项
 const menuArr = [{ icon: "icon-guanyuwo", title: "ABOUT", mainTitle: "ME", path: "/vite-blog/about", color: "#fa709a" },
 { icon: "icon-xiangmu", title: "MY", mainTitle: "PROJECT", path: "/vite-blog/project", color: "#43e97b" },
-{ icon: "icon-biji", title: "MY", mainTitle: "NOTES", path: "/vite-blog/blog", color: "#01f8e4" },
-{ icon: "icon-zujianhua", title: "MY", mainTitle: "DEMO", path: "/vite-blog/demo", color: "#6991c7" }
+{ icon: "icon-xiangce", title: "MY", mainTitle: "PHOTO", path: "/vite-blog/photo", color: "#01f8e4" },
+{ icon: "icon-zujianhua", title: "MY", mainTitle: "NOTES", path: "/vite-blog/blog", color: "#6991c7" }
 ]
 // 打字机效果
 const textArr = [

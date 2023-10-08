@@ -6,11 +6,11 @@
         <div class="main">
             <i class="back iconfont icon-cuowu" @click="goBack"></i>
             <div class="title">
-                <Title title="MY" main-title="NOTES" />
+                <Title title="MY" main-title="PHOTO" />
             </div>
-            <Subhead title="开发笔记" bg-color="#f6d365" />
+            <Subhead title="生活碎片" bg-color="#f6d365" />
             <div class="content">
-
+                <ImgCard />
             </div>
         </div>
     </div>
@@ -21,6 +21,7 @@ import { useRouter } from 'vue-router';
 import Sidebar from '../../components/Sidebar.vue';
 import Title from '../../components/Title.vue';
 import Subhead from '../../components/Subhead.vue'
+import ImgCard from '../../components/ImgCard.vue';
 const router = useRouter();
 const goBack = () => {
     router.back();
