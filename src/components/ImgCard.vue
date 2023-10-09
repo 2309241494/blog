@@ -1,57 +1,33 @@
 <template>
     <div class="card-container ">
-        <el-row :gutter="20">
-            <el-col :span="6" v-for="(item, index) in cards" :key="index">
-                <div class="card-wrap" @mousemove="handleMouseMove" @mouseenter="handleMouseEnter"
-                    @mouseleave="handleMouseLeave" ref="card">
-                    <div class="card" :style="cardStyle">
-                        <div class="card-bg" :style="[cardBgTransform, { backgroundImage: `url(${item.image})` }]">
-                        </div>
-                        <div class="card-info">
-                            <h1 class="header">{{ item.title }}</h1>
-                            <p class="content">{{ item.content }}</p>
-                        </div>
-                    </div>
+        <div class="card-wrap" @mousemove="handleMouseMove" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave"
+            ref="card">
+            <div class="card" :style="cardStyle">
+                <div class="card-bg" :style="[cardBgTransform, { backgroundImage: `url(${cardList!.image})` }]">
                 </div>
-            </el-col>
-        </el-row>
+                <div class="card-info">
+                    <h1 class="header">{{ cardList!.title }}</h1>
+                    <p class="content">{{ cardList!.content }}</p>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref, onMounted, computed } from 'vue';
-const cards = ref([
-    {
-        id: 1,
-        image: 'https://ts1.cn.mm.bing.net/th/id/R-C.0b252730e8510abe3c463fb0f27f0b9c?rik=dAy4ymsEfIrFoQ&riu=http%3a%2f%2fimg.pconline.com.cn%2fimages%2fupload%2fupc%2ftx%2fitbbs%2f2008%2f04%2fc13%2f224039149_1596549434777.jpg&ehk=7xk0QeWwb%2ba4Pth1%2f8U9Ir3d08qiA8N6mGgPCRF67KI%3d&risl=&pid=ImgRaw&r=0',
-        title: 'Canyons',
-        content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
-    },
-    {
-        id: 2,
-        image: 'https://img.zcool.cn/community/01a0c75d6c7d84a801211f9e461bb6.jpg@3000w_1l_0o_100sh.jpg',
-        title: 'Beaches',
-        content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
-    },
-    {
-        id: 3,
-        image: 'https://img.zcool.cn/community/01f3855d6c7d7da801211f9ebfce8f.jpg@1280w_1l_2o_100sh.jpg',
-        title: 'Trees',
-        content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
-    },
-    {
-        id: 4,
-        image: 'https://img.zcool.cn/community/019dee5d6c7d80a80120526dbaca47.jpg@1280w_1l_2o_100sh.jpg',
-        title: 'Lakes',
-        content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
-    }
-])
+import { ref, onMounted, computed, defineProps } from 'vue';
+interface Props {
+    cardList?: { image: string; title: string; content: string }
+}
+const props = withDefaults(defineProps<Props>(), {
+})
+
 let mouseX = ref(0);
 let mouseY = ref(0);
-let card = ref(null);
+let card = ref();
 let width = ref(0);
 let height = ref(0);
-let mouseLeaveDelay = ref(null)
+let mouseLeaveDelay = ref()
 
 let mousePX = computed(() => {
     return mouseX.value / width.value;
@@ -75,15 +51,11 @@ let cardBgTransform = computed(() => {
     };
 });
 
-let cardBgImage = computed((img) => {
-    return {
-        backgroundImage: `url(${img})`,
-    };
-});
 
 let handleMouseMove = (e: any) => {
-    mouseX.value = e.pageX - card.value[0].offsetLeft - width.value / 2;
-    mouseY.value = e.pageY - card.value[0].offsetTop - height.value / 2;
+    mouseX.value = (e.pageX - card.value.offsetLeft - width.value) / 2 - 30;
+    mouseY.value = (e.pageY - card.value.offsetTop - height.value) / 2 - 40;
+    console.log(mouseX.value, mouseY.value);
 };
 
 let handleMouseEnter = () => {
@@ -97,9 +69,9 @@ let handleMouseLeave = () => {
     }, 1000);
 };
 onMounted(() => {
-    width.value = card.value[0].offsetWidth;
-    height.value = card.value[0].offsetHeight;
-    console.log(width.value)
+    width.value = card.value.offsetWidth;
+    height.value = card.value.offsetHeight;
+    console.log(width.value);
 })
 </script>
 
@@ -184,7 +156,7 @@ p+p {
 
 .card {
     width: 100%;
-    height: 320px;
+    height: 350px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -207,8 +179,8 @@ p+p {
 .card-bg {
     opacity: 0.5;
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 120%;
+    height: 120%;
     padding: 20px;
     background-repeat: no-repeat;
     background-position: center;
@@ -246,7 +218,6 @@ p+p {
         z-index: 0;
         width: 100%;
         height: 100%;
-        background-image: linear-gradient(to bottom, transparent 0%, rgba(#000, 0.6) 100%);
         background-blend-mode: overlay;
         opacity: 0;
         transform: translateY(100%);

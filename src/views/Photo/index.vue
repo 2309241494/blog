@@ -1,22 +1,27 @@
 <template>
     <div class='index-container container'>
         <div class="left">
-            <Sidebar icon="icon-xiangce" color="#f6d365" title="MY" main-title="NOTES" />
+            <Sidebar icon="icon-xiangce" color="#893b5b" title="MY" main-title="PHOTO" />
         </div>
         <div class="main">
             <i class="back iconfont icon-cuowu" @click="goBack"></i>
             <div class="title">
                 <Title title="MY" main-title="PHOTO" />
             </div>
-            <Subhead title="生活碎片" bg-color="#f6d365" />
+            <Subhead title="生活碎片" bg-color="#893b5b" />
             <div class="content">
-                <ImgCard />
+                <el-row :gutter="20">
+                    <el-col :span="6" v-for="(item, index) in cards" :key="index">
+                        <ImgCard :cardList="cards[index]" />
+                    </el-col>
+                </el-row>
             </div>
         </div>
     </div>
 </template>
 
 <script lang="ts" setup>
+import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import Sidebar from '../../components/Sidebar.vue';
 import Title from '../../components/Title.vue';
@@ -26,6 +31,48 @@ const router = useRouter();
 const goBack = () => {
     router.back();
 }
+const cards = ref([
+    {
+        image: 'https://w.wallhaven.cc/full/j5/wallhaven-j57z5m.jpg',
+        title: 'Jett',
+        content: '捷风'
+    },
+    {
+        image: 'https://w.wallhaven.cc/full/gp/wallhaven-gp97xl.png',
+        title: 'Neon',
+        content: '霓虹'
+    },
+    {
+        image: 'https://w.wallhaven.cc/full/lm/wallhaven-lmp1ml.jpg',
+        title: 'viper',
+        content: '蝰蛇'
+    },
+    {
+        image: 'https://w.wallhaven.cc/full/l3/wallhaven-l3zzg2.jpg',
+        title: 'Sova',
+        content: '猎枭'
+    },
+    {
+        image: 'https://w.wallhaven.cc/full/rd/wallhaven-rdepgm.jpg',
+        title: 'Rez',
+        content: '雷兹'
+    },
+    {
+        image: 'https://w.wallhaven.cc/full/pk/wallhaven-pkwld3.jpg',
+        title: 'K/O',
+        content: '机器人'
+    },
+    {
+        image: 'https://w.wallhaven.cc/full/g8/wallhaven-g8r8je.jpg',
+        title: 'Killjoy',
+        content: '奇乐'
+    },
+    {
+        image: 'https://w.wallhaven.cc/full/57/wallhaven-57v3d7.jpg',
+        title: 'Fade',
+        content: '黑梦'
+    },
+])
 </script>
 
 <style scoped lang='less'>
