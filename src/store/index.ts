@@ -25,7 +25,6 @@ export const useMain = defineStore("useStore", {
   actions: {
     setChangeModule(value: number) {
       this.changeModule = value;
-      console.log(this.changeModule);
     },
   },
 });

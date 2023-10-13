@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted, computed, defineProps } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 interface Props {
     cardList?: { image: string; title: string; content: string }
 }
@@ -54,8 +54,7 @@ let cardBgTransform = computed(() => {
 
 let handleMouseMove = (e: any) => {
     mouseX.value = (e.pageX - card.value.offsetLeft - width.value) / 2 - 30;
-    mouseY.value = (e.pageY - card.value.offsetTop - height.value) / 2 - 40;
-    console.log(mouseX.value, mouseY.value);
+    mouseY.value = (e.pageY - card.value.offsetTop - height.value) / 2 + 30;
 };
 
 let handleMouseEnter = () => {
@@ -71,7 +70,6 @@ let handleMouseLeave = () => {
 onMounted(() => {
     width.value = card.value.offsetWidth;
     height.value = card.value.offsetHeight;
-    console.log(width.value);
 })
 </script>
 

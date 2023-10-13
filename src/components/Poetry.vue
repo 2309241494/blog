@@ -13,7 +13,7 @@ import { ref, onMounted, reactive, watch } from 'vue';
 import { getPoetry } from "../api/request"
 let poetry: any = ref("")
 onMounted(async () => {
-    poetry.value = await getPoetry().then((res: any) => res)
+    poetry.value = await getPoetry()
 })
 
 </script>

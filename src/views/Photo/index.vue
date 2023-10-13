@@ -10,23 +10,41 @@
             </div>
             <Subhead title="生活碎片" bg-color="#893b5b" />
             <div class="content">
-                <el-row :gutter="20">
+                <div class="segmented-control">
+                    <input type="radio" name="radio2" value="3" id="tab-1" checked />
+                    <label for="tab-1" class="segmented-control__1">
+                        <p>游戏</p>
+                    </label>
+                    <input type="radio" name="radio2" value="4" id="tab-2" />
+                    <label for="tab-2" class="segmented-control__2">
+                        <p>风景</p>
+                    </label>
+                    <input type="radio" name="radio2" value="5" id="tab-3" />
+                    <label for="tab-3" class="segmented-control__3">
+                        <p>摄像</p>
+                    </label>
+                    <div class="segmented-control__color"></div>
+                </div>
+                <el-row :gutter="25">
                     <el-col :span="6" v-for="(item, index) in cards" :key="index">
                         <ImgCard :cardList="cards[index]" />
                     </el-col>
                 </el-row>
             </div>
+            <Paginate />
         </div>
     </div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import Sidebar from '../../components/Sidebar.vue';
 import Title from '../../components/Title.vue';
 import Subhead from '../../components/Subhead.vue'
 import ImgCard from '../../components/ImgCard.vue';
+import Paginate from '../../components/Paginate.vue';
+import { getHeroData } from '../../api/request';
 const router = useRouter();
 const goBack = () => {
     router.back();
@@ -73,9 +91,17 @@ const cards = ref([
         content: '黑梦'
     },
 ])
+
+onMounted(() => {
+    getHeroData()
+})
 </script>
 
 <style scoped lang='less'>
+@shadow: 0.3rem 0.3rem 0.6rem #000000a2, -0.2rem -0.2rem 0.5rem #000000;
+@inner-shadow: inset .2rem .2rem .5rem #181a2c,
+    inset -.2rem -.2rem .5rem #4450ac;
+
 .index-container {
     .left {
         flex: 0 0 5%;
@@ -85,6 +111,7 @@ const cards = ref([
         flex: 1;
         overflow-y: scroll;
         padding: 0 3rem;
+        padding-bottom: 50px;
 
         &::-webkit-scrollbar {
             width: 0;
@@ -115,6 +142,72 @@ const cards = ref([
         }
 
         .content {
+            .segmented-control {
+                grid-column: 3 / 4;
+                grid-row: 1 / 2;
+                width: 20.4rem;
+                height: 4rem;
+                box-shadow: @shadow;
+                border-radius: 1rem;
+                display: flex;
+                align-items: center;
+                position: relative;
+                margin: 25px 0 15px 0;
+
+                input {
+                    display: none;
+                }
+
+                >input:checked+label {
+                    transition: all .5s ease;
+                    color: #6d5dfc;
+                }
+
+                &__1,
+                &__2,
+                &__3 {
+                    width: 6.8rem;
+                    height: 3.6rem;
+                    font-size: 1.4rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+                    color: #9baacf;
+                    transition: all .5s ease;
+
+                    &:hover {
+                        color: #6d5dfc;
+                    }
+                }
+
+                &__color {
+                    position: absolute;
+                    height: 3.4rem;
+                    width: 6.2rem;
+                    margin-left: .3rem;
+                    border-radius: .8rem;
+                    box-shadow: @inner-shadow;
+                    pointer-events: none;
+                }
+            }
+
+            #tab-1:checked~.segmented-control__color {
+                transform: translateX(0);
+                transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+            }
+
+            #tab-2:checked~.segmented-control__color {
+                transform: translateX(6.8rem);
+                transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+            }
+
+            #tab-3:checked~.segmented-control__color {
+                transform: translateX(13.6rem);
+                transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+            }
+
+
             .image-container {
                 display: flex;
                 flex-wrap: wrap;
@@ -133,13 +226,8 @@ const cards = ref([
                         height: 100%;
                     }
                 }
-
-
-
             }
-
         }
     }
-
 }
 </style>

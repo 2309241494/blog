@@ -15,7 +15,7 @@
             <span>{{ weaterTitle === 0 ? "上午好" : weaterTitle === 1 ? "下午好" : "晚上好" }}</span>
             <span>{{ weatherArr.arr.temperature }}­°C</span>
             <span>{{ nowTime }}</span>
-            <span> 空气湿度{{ weatherArr.arr.humidity }}</span>
+            <span> 空气湿度 {{ weatherArr.arr.humidity }}</span>
         </div>
     </div>
 </template>
@@ -27,19 +27,22 @@ import { hour } from '../utils/util';
 import { ElNotification } from 'element-plus'
 // 天气信息
 let weatherArr: any = reactive({ arr: {} });
-
 // 获取当前时间(每秒刷新)
 let hourTime = ref()
 let nowTime = ref()
-hourTime.value = hour().slice(13, 18)
+hourTime.value = hour().slice(14, 19)
 nowTime.value = hour().slice(0, 13)
 setInterval(() => {
-    hourTime.value = hour().slice(13, 18)
-    nowTime.value = hour().slice(0, 13)
+    hourTime.value = hour().slice(14, 19)
+    nowTime.value = hour().slice(0, 14)
 }, 1000)
+
 onMounted(async () => {
-    weatherArr.arr = await getWeather().then((data: any) => data.lives[0])
+    weatherArr.arr = await getWeather().then((res: any) => {
+        return res.lives[0]
+    })
 })
+
 
 // 计算当前时间是早上下午晚上
 const backgroundWeather = reactive(["https://img.zcool.cn/community/01cb8657dd13690000012e7e082455.jpg@1280w_1l_2o_100sh.jpg",
