@@ -8,7 +8,6 @@ import Axios, {
 // 创建一个自定义的Axios实例
 const instance: AxiosInstance = Axios.create({
   // 在这里设置默认的请求配置，例如 baseURL、timeout 等
-  baseURL: "",
 });
 
 // 定义请求拦截器

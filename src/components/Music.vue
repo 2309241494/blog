@@ -1,10 +1,9 @@
 <template>
-    <div class='Music-container'>
+    <div class='Music-container' v-if="audioList && audioList.length > 0">
         <div class="bg" :style="{ backgroundImage: `url(${audioList[audioIndex].imgUrl})` }"></div>
         <div class="cover">
             <img :class="[!play ? 'img-active' : '']" :src=audioList[audioIndex].imgUrl alt="">
         </div>
-        <!-- 歌曲描述 -->
         <div class='title'>
             <h6>{{ audioList[audioIndex].name }}</h6>
             <p>音乐是灵魂的避风港</p>
@@ -23,75 +22,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, reactive, watch, computed } from 'vue';
-
+import { ref, onMounted, reactive, watch, computed, Ref } from 'vue';
+import { getMusicData } from '../api/request';
 // 歌曲数据
-const audioList = ref([
-    {
-        name: "AutumnLeaf - re:plus", audioUrl: "http://music.163.com/song/media/outer/url?id=26111937.mp3",
-        imgUrl: "https://p2.music.126.net/E323i3eNPwkTYqCgoRT6gQ==/2359551953231145.jpg?param=130y130"
-    },
-    {
-        name: "Sunroof - Nicky Youre / Dazy", audioUrl: "http://music.163.com/song/media/outer/url?id=1893514633",
-        imgUrl: "http://p1.music.126.net/OE6x5vHGHZqBAK0E1kXn0Q==/109951167870371370.jpg?param=130y130"
-    },
-    {
-        name: "昼念 - 罗浩文BF / 苏琛", audioUrl: "http://music.163.com/song/media/outer/url?id=1826191539",
-        imgUrl: "http://p2.music.126.net/yaG1zHzAeh3hNavJAV08JQ==/109951165792054236.jpg?param=120y120"
-    },
-    {
-        name: "Kiss Fight - Tülpa / BLANKTS / gnash", audioUrl: "http://music.163.com/song/media/outer/url?id=460112226",
-        imgUrl: "http://p1.music.126.net/e3Et4gSGaddRNiw9vLstKA==/109951166562842133.jpg?param=130y130"
-    },
-    {
-        name: "Already Gone - Sleeping at Last", audioUrl: "http://music.163.com/song/media/outer/url?id=35345004",
-        imgUrl: "http://p1.music.126.net/1-j3ys5s6ArANxWPwxzHvA==/3302932931079266.jpg?param=130y130"
-    },
-    {
-        name: "Twenty Something - Nightly", audioUrl: "http://music.163.com/song/media/outer/url?id=1371704145",
-        imgUrl: "http://p1.music.126.net/SqdM0R_IwFTZA580vsa7-A==/109951164145627069.jpg?param=130y130"
-    },
-    {
-        name: "Honest - rei brown", audioUrl: "http://music.163.com/song/media/outer/url?id=1458667025",
-        imgUrl: "http://p1.music.126.net/fk0xpraWVNIcwt8APsd03A==/109951165277456503.jpg?param=130y130"
-    },
-    {
-        name: "晚风 - 7copy / BT07", audioUrl: "http://music.163.com/song/media/outer/url?id=1441758494",
-        imgUrl: "http://p1.music.126.net/lCblKUB1hLND5FxiVI1_Lw==/109951164919449758.jpg?param=130y130"
-    },
-    {
-        name: "失落沙洲 - 高睿", audioUrl: "http://music.163.com/song/media/outer/url?id=1948817707",
-        imgUrl: "http://p2.music.126.net/XAed3b9j76FgNP8lOYqKMQ==/109951167478316677.jpg?param=130y130"
-    },
-    {
-        name: "Demons - Anthem Lights", audioUrl: "http://music.163.com/song/media/outer/url?id=1435100542",
-        imgUrl: "http://p1.music.126.net/cC4-KjMtdsnDnBhL-WYfrQ==/109951164850979773.jpg?param=130y130"
-    },
-    {
-        name: "Princess - XMASwu(吴骜)", audioUrl: "http://music.163.com/song/media/outer/url?id=1869248652.mp3",
-        imgUrl: "http://p2.music.126.net/jJT58QCcbrtrRvQ7Prcw3w==/109951166285330042.jpg?param=130y130"
-    },
-    {
-        name: "Sorry But - XMASwu(吴骜)", audioUrl: "http://music.163.com/song/media/outer/url?id=1818153740.mp3",
-        imgUrl: "http://p2.music.126.net/I-TvObgAOXZMowOAG2Cgrw==/109951165982469735.jpg?param=130y130"
-    },
-    {
-        name: "Star(反方向的钟) - XMASwu(吴骜)", audioUrl: "http://music.163.com/song/media/outer/url?id=1899705498.mp3",
-        imgUrl: "https://p2.music.126.net/6-F8k6AuCnsvMjDNKYHriw==/109951166677305699.jpg?param=130y130"
-    },
-    {
-        name: "没有理由 - 永彬Ryan.B / 周延英（英子-effie）", audioUrl: "http://music.163.com/song/media/outer/url?id=550138197.mp3",
-        imgUrl: "https://p1.music.126.net/VAux0wpbTJz6timFFHVgLQ==/109951163237307291.jpg?param=130y130"
-    },
-    {
-        name: "泡沫 - Swang多雷", audioUrl: "http://music.163.com/song/media/outer/url?id=518682659.mp3",
-        imgUrl: "https://p2.music.126.net/-mrB7euJ09Fazbu85R6wgQ==/109951164764975405.jpg?param=130y130"
-    },
-    {
-        name: "英雄联盟台词鉴赏 - 人生导师卡密尔（青钢影）", audioUrl: "http://music.163.com/song/media/outer/url?id=1910038914.mp3",
-        imgUrl: "http://p2.music.126.net/ndmiknAsBwoymMasVysNgQ==/109951168536773914.jpg?param=130y130"
-    },
-])
+let audioList: Ref<MusicData[]> = ref([])
 
 // 默认歌曲
 const audioIndex = ref(0)
@@ -158,8 +92,19 @@ watch(audioIndex, (val, prevVal) => {
         audioIndex.value = len - 1
     }
 })
-
+interface MusicData {
+    name: string;
+    audioUrl: string;
+    imgUrl: string;
+}
+interface MusicDataResponse {
+    data: MusicData[]; // 音乐数据数组
+    // 其他属性...
+}
 onMounted(() => {
+    getMusicData().then((res: MusicDataResponse) => {
+        audioList.value = res.data;;
+    })
 })
 </script>
 

@@ -3,11 +3,11 @@
         <div class="card-wrap" @mousemove="handleMouseMove" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave"
             ref="card">
             <div class="card" :style="cardStyle">
-                <div class="card-bg" :style="[cardBgTransform, { backgroundImage: `url(${cardList!.image})` }]">
+                <div class="card-bg" :style="[cardBgTransform, { backgroundImage: `url(${cardList!.icon})` }]">
                 </div>
                 <div class="card-info">
-                    <h1 class="header">{{ cardList!.title }}</h1>
-                    <p class="content">{{ cardList!.content }}</p>
+                    <h1 class="header">{{ cardList!.e_name }}</h1>
+                    <p class="content">{{ cardList!.name }}</p>
                 </div>
             </div>
         </div>
@@ -17,7 +17,7 @@
 <script lang="ts" setup>
 import { ref, onMounted, computed } from 'vue';
 interface Props {
-    cardList?: { image: string; title: string; content: string }
+    cardList?: { icon: string; e_name: string; name: string }
 }
 const props = withDefaults(defineProps<Props>(), {
 })
@@ -54,7 +54,7 @@ let cardBgTransform = computed(() => {
 
 let handleMouseMove = (e: any) => {
     mouseX.value = (e.pageX - card.value.offsetLeft - width.value) / 2 - 30;
-    mouseY.value = (e.pageY - card.value.offsetTop - height.value) / 2 + 30;
+    mouseY.value = (e.pageY - height.value) / 2 + 30;
 };
 
 let handleMouseEnter = () => {
@@ -177,8 +177,8 @@ p+p {
 .card-bg {
     opacity: 0.5;
     position: absolute;
-    width: 120%;
-    height: 120%;
+    width: 110%;
+    height: 110%;
     padding: 20px;
     background-repeat: no-repeat;
     background-position: center;
