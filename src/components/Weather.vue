@@ -61,19 +61,14 @@ function getTimePeriod(): string {
     }
     return backgroundWeather[weaterTitle.value]
 }
-watch(weaterTitle, (newValue, oldValue) => {
-    // 在这里可以处理 weatherTitle 变化时的逻辑
-    ElNotification({
-        title: weaterTitle.value === 0 ? "上午好" : weaterTitle.value === 1 ? "下午好" : "晚上好",
-        position: 'top-left',
-        message: weaterTitle.value === 0 ? "上午好！拥抱清晨的阳光，享受新的开始！" : weaterTitle.value === 1 ? "希望您度过一个愉快而充实的下午，保持精力充沛，继续努力并享受每一刻的美好！" : "忙碌一天，尽早入眠，让疲惫瞬间消散，为明天的精彩绽放！",
-        duration: 2000,
-        type: 'success',
-    })
-});
 </script>
 
 <style scoped lang='less'>
+.el-notification {
+    opacity: 1 !important;
+    background-color: #2c3051 !important;
+}
+
 .weather-container {
     width: 100%;
     flex: 0 0 20%;

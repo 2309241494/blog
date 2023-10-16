@@ -13,3 +13,22 @@ export const hour = (): string => {
     date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
   return `${year}年${Month}月${day}日${str}${h}:${m}`;
 };
+
+/**
+ * 打乱数组顺序
+ * @关键字
+ */
+type Item = {
+  e_name: string;
+  icon: string;
+  id: number;
+  name: string;
+  type: number;
+};
+export const shuffleArray = (array: Item[]) => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+};

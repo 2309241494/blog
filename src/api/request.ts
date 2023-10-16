@@ -1,5 +1,6 @@
 import instance from "../utils/request";
-import Mock from "mockjs"; // 导入 mockjs
+// import Mock from "mockjs"; // 导入 mockjs
+
 // 获取天气数据
 export function getWeather() {
   return instance({
@@ -17,14 +18,15 @@ export function getPoetry() {
 }
 
 // 获取英雄数据
-export function getHeroData() {
+export function getHeroData(data: object) {
   return instance({
     url: "/getPhoto",
-    method: "GET",
+    method: "POST",
+    data,
   });
 }
 
-// 获取英雄数据
+// 获取音乐数据
 export function getMusicData() {
   return instance({
     url: "/getMusic",

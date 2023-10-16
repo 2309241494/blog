@@ -11,17 +11,20 @@
             <Subhead title="生活碎片" bg-color="#893b5b" />
             <div class="content">
                 <div class="segmented-control">
-                    <input type="radio" name="radio2" value="3" id="tab-1" checked />
+                    <input type="radio" v-model="queryObj.type" name="radio2" value="0" id="tab-1"
+                        @change="handleChangeMenu" checked />
                     <label for="tab-1" class="segmented-control__1">
+                        <p>全部</p>
+                    </label>
+                    <input @change="handleChangeMenu" type="radio" v-model="queryObj.type" name="radio2" value="1"
+                        id="tab-2" />
+                    <label for="tab-2" class="segmented-control__2">
                         <p>游戏</p>
                     </label>
-                    <input type="radio" name="radio2" value="4" id="tab-2" />
-                    <label for="tab-2" class="segmented-control__2">
-                        <p>风景</p>
-                    </label>
-                    <input type="radio" name="radio2" value="5" id="tab-3" />
+                    <input @change="handleChangeMenu" type="radio" v-model="queryObj.type" name="radio2" value="2"
+                        id="tab-3" />
                     <label for="tab-3" class="segmented-control__3">
-                        <p>摄像</p>
+                        <p>风景</p>
                     </label>
                     <div class="segmented-control__color"></div>
                 </div>
@@ -31,7 +34,7 @@
                     </el-col>
                 </el-row>
             </div>
-            <Paginate />
+            <Paginate @changeCurrentPage="handleCurrentPag" :currentPage="currentPage" :totalPage="totalPage" />
         </div>
     </div>
 </template>
@@ -50,11 +53,33 @@ const goBack = () => {
     router.back();
 }
 let cards = ref([])
-
-onMounted(() => {
-    getHeroData().then((res: any) => {
-        cards.value = res.heroList
+let queryObj = ref({
+    page: 1,
+    size: 8,
+    type: 0
+})
+let currentPage = ref(0)
+let totalPage = ref(0)
+const handleCurrentPag = (value: number) => {
+    queryObj.value.page = value
+    initData()
+}
+const handleChangeMenu = (e: any) => {
+    queryObj.value.type = Number(e.target.value)
+    queryObj.value.page = 1
+    initData()
+}
+const initData = () => {
+    getHeroData(queryObj.value).then((res: any) => {
+        const { current_data, current_page, total_page } = res.data
+        cards.value = current_data
+        currentPage.value = current_page - 1
+        totalPage.value = total_page
+        console.log("a")
     })
+}
+onMounted(() => {
+    // initData()
 })
 </script>
 

@@ -45,7 +45,7 @@ let cardStyle = computed(() => {
 
 let cardBgTransform = computed(() => {
     let tX = mousePX.value * -40;
-    let tY = mousePY.value * -40;
+    let tY = mousePY.value * -30;
     return {
         transform: `translateX(${tX}px) translateY(${tY}px)`,
     };
@@ -54,7 +54,7 @@ let cardBgTransform = computed(() => {
 
 let handleMouseMove = (e: any) => {
     mouseX.value = (e.pageX - card.value.offsetLeft - width.value) / 2 - 30;
-    mouseY.value = (e.pageY - height.value) / 2 + 30;
+    mouseY.value = (e.pageY - height.value) / 2 + -30;
 };
 
 let handleMouseEnter = () => {

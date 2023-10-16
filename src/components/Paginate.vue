@@ -11,18 +11,33 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
-
+interface PaginateProps {
+    /** 当前页码 */
+    currentPage: number;
+    /** 总页数 */
+    totalPage: number;
+}
+const props = withDefaults(defineProps<PaginateProps>(), {
+});
+import { ref, computed, onMounted, watch, toRef } from 'vue';
 const left = ref<HTMLElement | null>(null);
 const right = ref<HTMLElement | null>(null);
 let index = ref(0);
-const total = 5;
-
+let total = ref(0);
 const isLeftDisabled = computed(() => index.value === 0);
-const isRightDisabled = computed(() => index.value === total - 1);
+const isRightDisabled = computed(() => index.value === total.value - 1);
 
+watch(
+    [toRef(props, 'currentPage'), toRef(props, 'totalPage')],
+    ([currentPage, totalPage]) => {
+        index.value = currentPage;
+        total.value = totalPage;
+    }
+);
+const emit = defineEmits(["changeCurrentPage"])
 function slide(offset: any) {
-    index.value = Math.min(Math.max(index.value + offset, 0), total - 1);
+    index.value = Math.min(Math.max(index.value + offset, 0), total.value);
+    emit('changeCurrentPage', index.value + 1);
 }
 slide(0);
 </script>
