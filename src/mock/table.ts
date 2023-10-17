@@ -1,5 +1,12 @@
 export const HERO_LIST = [
   {
+    e_name: "临近夜晚",
+    icon: " https://wallpaperaccess.com/full/2964914.jpg",
+    id: 29,
+    name: "高清壁纸",
+    type: 2,
+  },
+  {
     e_name: "高山",
     icon: "https://ts1.cn.mm.bing.net/th/id/R-C.f8e5d218d29d0343b2f4811e1d1102c7?rik=yJwoN46shAM15w&riu=http%3a%2f%2fpic4.bbzhi.com%2ffengjingbizhi%2fwaiguoziranfengjingzhuomianbizhi%2fwaiguoziranfengjingzhuomianbizhi_405111_5.jpg&ehk=Qxw0LiYdelKhoy6fOFoP8sO8xRrayewQU2MaaKJxOMc%3d&risl=&pid=ImgRaw&r=0",
     id: 23,
@@ -85,7 +92,7 @@ export const HERO_LIST = [
   },
   {
     e_name: "Sage",
-    icon: "https://wallpaperaccess.com/full/3712606.jpg",
+    icon: "https://wallpaperaccess.com/full/3712605.jpg",
     id: 7,
     name: "贤者",
     type: 1,
@@ -141,7 +148,7 @@ export const HERO_LIST = [
   },
   {
     e_name: "Astra",
-    icon: "https://wallpaperaccess.com/full/6773328.jpg",
+    icon: "https://wallpaperaccess.com/full/6773335.jpg",
     id: 15,
     name: "星礈",
     type: 1,
@@ -175,24 +182,10 @@ export const HERO_LIST = [
     type: 1,
   },
   {
-    e_name: "Harbor",
-    icon: "https://game.gtimg.cn/images/val/agamezlk/portrait/20.png",
-    id: 20,
-    name: "海神",
-    type: 1,
-  },
-  {
     e_name: "Gekko",
     icon: "https://wallpaperaccess.com/full/8961077.jpg",
     id: 21,
     name: "盖可",
-    type: 1,
-  },
-  {
-    e_name: "Deadlock",
-    icon: "https://game.gtimg.cn/images/val/agamezlk/portrait/22.png",
-    id: 22,
-    name: "钢锁",
     type: 1,
   },
 ];

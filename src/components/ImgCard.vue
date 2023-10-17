@@ -3,8 +3,8 @@
         <div class="card-wrap" @mousemove="handleMouseMove" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave"
             ref="card">
             <div class="card" :style="cardStyle">
-                <div class="card-bg" :style="[cardBgTransform, { backgroundImage: `url(${cardList!.icon})` }]">
-                </div>
+                <el-image class="card-bg" fit="cover" :src="cardList!.icon" :style="[cardBgTransform]">
+                </el-image>
                 <div class="card-info">
                     <h1 class="header">{{ cardList!.e_name }}</h1>
                     <p class="content">{{ cardList!.name }}</p>
@@ -135,7 +135,7 @@ p+p {
             transition:
                 0.6s @hoverEasing,
                 opacity 5s @hoverEasing;
-            opacity: 0.8;
+            opacity: 1;
         }
 
         .card {
@@ -154,7 +154,7 @@ p+p {
 
 .card {
     width: 100%;
-    height: 350px;
+    height: 320px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -177,14 +177,10 @@ p+p {
 .card-bg {
     opacity: 0.5;
     position: absolute;
-    width: 110%;
-    height: 110%;
+    width: 130%;
+    height: 130%;
     padding: 20px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    transition:
-        1s @returnEasing,
+    transition: all 1s @returnEasing,
         opacity 5s 1s @returnEasing;
     pointer-events: none;
 }

@@ -29,7 +29,7 @@
                     <div class="segmented-control__color"></div>
                 </div>
                 <el-row :gutter="25">
-                    <el-col :span="6" v-for="(item, index) in cards" :key="index">
+                    <el-col :span="12" v-for="(item, index) in cards" :key="index">
                         <ImgCard :cardList="cards[index]" />
                     </el-col>
                 </el-row>
