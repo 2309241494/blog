@@ -3,8 +3,8 @@
         <div class="card-wrap" @mousemove="handleMouseMove" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave"
             ref="card">
             <div class="card" :style="cardStyle">
-                <el-image class="card-bg" fit="cover" :src="cardList!.icon" :style="[cardBgTransform]">
-                </el-image>
+                <dvi class="card-bg" fit="cover" :style="[cardBgTransform, { backgroundImage: `url(${cardList!.icon})` }]">
+                </dvi>
                 <div class="card-info">
                     <h1 class="header">{{ cardList!.e_name }}</h1>
                     <p class="content">{{ cardList!.name }}</p>
@@ -154,7 +154,7 @@ p+p {
 
 .card {
     width: 100%;
-    height: 320px;
+    height: 300px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -177,8 +177,12 @@ p+p {
 .card-bg {
     opacity: 0.5;
     position: absolute;
-    width: 130%;
-    height: 130%;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    width: 110%;
+    height: 110%;
     padding: 20px;
     transition: all 1s @returnEasing,
         opacity 5s 1s @returnEasing;

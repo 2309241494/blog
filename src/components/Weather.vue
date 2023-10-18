@@ -1,11 +1,3 @@
-<!--
- * @Author: 黎浪 lil@creatoo.cn
- * @Date: 2023-09-08 10:15:13
- * @LastEditors: 黎浪 lil@creatoo.cn
- * @LastEditTime: 2023-09-15 17:30:40
- * @FilePath: \vite-blog\src\components\Weather.vue
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
--->
 <template>
     <div class='weather-container' :style="{ backgroundImage: `url(${getTimePeriod()})` }">
         <h5 class="title">{{ weatherArr.arr.province }}-{{ weatherArr.arr.city }}</h5>
@@ -24,7 +16,6 @@
 import { ref, onMounted, reactive, watch, watchEffect } from 'vue';
 import { getWeather } from '../api/request';
 import { hour } from '../utils/util';
-import { ElNotification } from 'element-plus'
 // 天气信息
 let weatherArr: any = reactive({ arr: {} });
 // 获取当前时间(每秒刷新)

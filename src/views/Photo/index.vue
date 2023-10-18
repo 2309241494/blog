@@ -55,7 +55,7 @@ const goBack = () => {
 let cards = ref([])
 let queryObj = ref({
     page: 1,
-    size: 8,
+    size: 4,
     type: 0
 })
 let currentPage = ref(0)

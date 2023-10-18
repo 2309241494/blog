@@ -57,7 +57,7 @@ export const HERO_LIST = [
   },
   {
     e_name: "Jett",
-    icon: "https://wallpaperaccess.com/full/5907224.jpg",
+    icon: "https://wallpaperaccess.com/full/3911003.jpg",
     id: 2,
     name: "捷风",
     type: 1,
@@ -85,7 +85,7 @@ export const HERO_LIST = [
   },
   {
     e_name: "Phoenix",
-    icon: "https://wallpaperaccess.com/full/3909944.png",
+    icon: "https://wallpaperaccess.com/full/3909950.jpg",
     id: 6,
     name: "不死鸟",
     type: 1,
@@ -187,6 +187,13 @@ export const HERO_LIST = [
     id: 21,
     name: "盖可",
     type: 1,
+  },
+  {
+    e_name: "天空",
+    icon: "https://wallpaperaccess.com/full/296104.jpg",
+    id: 29,
+    name: "大海",
+    type: 2,
   },
 ];
 
