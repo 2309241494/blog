@@ -21,7 +21,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
     icon: 'icon-shouye',
-    color: "#ffbf8d",
+    color: "#008c8c",
     title: "HELLO",
     mainTitle: "World"
 })

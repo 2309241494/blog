@@ -6,21 +6,6 @@
         </div>
         <!-- 可视化主区域 -->
         <Visualization v-show="changeModule === 0" />
-        <!-- 菜单页主区域 -->
-        <div class="main" v-show="changeModule === 1">
-            <!-- 标题 -->
-            <div class="title">
-                <Title />
-                <div class="typewriter">
-                    <span>As a </span>
-                    <span>{{ currentText }}</span>
-                </div>
-            </div>
-            <!-- 内容区域 -->
-            <div class="content">
-                <Menu :menu-list="menuArr" />
-            </div>
-        </div>
     </div>
 </template>
 
@@ -28,7 +13,6 @@
 import { ref, onMounted, reactive, computed } from 'vue';
 import Sidebar from '../components/Sidebar.vue';
 import Title from "../components/Title.vue"
-import Menu from '../components/Menu.vue';
 import Visualization from '../components/Visualization.vue';
 import { useMain } from '../store/index';
 // 传递给菜单组件的菜单项

@@ -10,6 +10,7 @@
 						</keep-alive>
 					</transition>
 				</router-view>
+				<Menu />
 			</div>
 			<div class="right-container">
 				<keep-alive>
@@ -21,9 +22,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, reactive, watch, computed } from 'vue';
 import MiniComponents from "./views/MiniComponent.vue"
-import router from './router';
+import Menu from './components/Menu.vue';
 </script>
 
 <style scoped lang='less'>
@@ -44,6 +44,7 @@ import router from './router';
 		height: 90%;
 
 		.left-container {
+			position: relative;
 			flex: 1;
 			height: 100%;
 		}
@@ -67,7 +68,6 @@ import router from './router';
 
 .slide-fade-enter-from,
 .slide-fade-leave-to {
-	transform: translateY(40px);
 	opacity: 0;
 }
 

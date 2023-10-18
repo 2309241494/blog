@@ -1,16 +1,16 @@
 <template>
     <div class='index-container container'>
         <div class="left">
-            <Sidebar icon="icon-jurassic_message" color="#6991c7" title="MY" main-title="DEMO" />
+            <Sidebar icon="icon-jurassic_message" color="#5757f9" title="MY" main-title="DEMO" />
         </div>
         <div class="main">
             <i class="back iconfont icon-cuowu" @click="goBack"></i>
             <div class="title">
                 <Title title="MY" main-title="DEMO" />
             </div>
-            <Subhead title="小组件" bg-color="#6991c7" />
+            <Subhead title="笔记" bg-color="#5757f9" />
             <div class="content">
-                <a href="https://www.mythrillfiction.com/the-dark-rider" alt="Mythrill" target="_blank">
+                <!-- <a href="https://www.mythrillfiction.com/the-dark-rider" alt="Mythrill" target="_blank">
                     <div class="card">
                         <div class="wrapper">
                             <img src="https://ggayane.github.io/css-experiments/cards/dark_rider-cover.jpg"
@@ -31,7 +31,7 @@
                         <img src="https://ggayane.github.io/css-experiments/cards/force_mage-character.webp"
                             class="character" />
                     </div>
-                </a>
+                </a> -->
             </div>
         </div>
     </div>
@@ -186,7 +186,7 @@ function getData() {
     .main {
         flex: 1;
         overflow-y: scroll;
-        padding: 0 3rem;
+        padding: 30px 30px 130px 30px;
 
         &::-webkit-scrollbar {
             width: 0;

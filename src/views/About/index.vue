@@ -1,14 +1,14 @@
 <template>
   <div class='index-container container'>
     <div class="left">
-      <Sidebar icon="icon-guanyuwo" color="#fa709a" title="ABOUT" main-title="ME" />
+      <Sidebar icon="icon-guanyuwo" color="#f54888" title="ABOUT" main-title="ME" />
     </div>
     <div class="main">
       <i class="back iconfont icon-cuowu" @click="goBack"></i>
       <div class="title">
         <Title title="About" main-title="ME" />
       </div>
-      <Subhead title="基本信息" bg-color="#fa709a" />
+      <Subhead title="基本信息" bg-color="#f54888" />
       <div class="content">
         <div class="mini-container content-container">
           <p>
@@ -125,7 +125,7 @@ const project = ref([{
   .main {
     flex: 1;
     overflow-y: scroll;
-    padding: 0 3rem;
+    padding: 30px 30px 130px 30px;
 
     &::-webkit-scrollbar {
       width: 0;

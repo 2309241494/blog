@@ -18,7 +18,7 @@ onMounted(() => {
 <style scoped lang='less'>
 .visualization-container {
     width: 100%;
-    padding: 30px;
+    padding: 30px 30px 130px 30px;
     overflow-y: scroll;
 
     &::-webkit-scrollbar {

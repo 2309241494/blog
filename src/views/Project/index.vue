@@ -1,14 +1,14 @@
 <template>
     <div class='index-container container'>
         <div class="left">
-            <Sidebar icon="icon-xiangmu" color="#43e97b" title="MY" main-title="PROJECT" />
+            <Sidebar icon="icon-xiangmu" color="#f5cae6" title="MY" main-title="PROJECT" />
         </div>
         <div class="main">
             <i class="back iconfont icon-cuowu" @click="goBack"></i>
             <div class="title">
                 <Title title="MY" main-title="PROJECT" />
             </div>
-            <Subhead title="项目列表" bg-color="#43e97b" />
+            <Subhead title="项目列表" bg-color="#f5cae6" />
             <div class="content">
                 <div class="mini-container menu-container">
                     <div class="menu">
@@ -109,7 +109,7 @@ const newList = [...projectList.value]
     .main {
         flex: 1;
         overflow-y: scroll;
-        padding: 0 3rem;
+        padding: 30px 30px 130px 30px;
 
         &::-webkit-scrollbar {
             width: 0;

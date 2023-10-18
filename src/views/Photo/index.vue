@@ -1,14 +1,14 @@
 <template>
     <div class='index-container container'>
         <div class="left">
-            <Sidebar icon="icon-xiangce" color="#893b5b" title="MY" main-title="PHOTO" />
+            <Sidebar icon="icon-xiangce" color="#65ddb7" title="MY" main-title="PHOTO" />
         </div>
         <div class="main">
             <i class="back iconfont icon-cuowu" @click="goBack"></i>
             <div class="title">
                 <Title title="MY" main-title="PHOTO" />
             </div>
-            <Subhead title="生活碎片" bg-color="#893b5b" />
+            <Subhead title="生活碎片" bg-color="#65ddb7" />
             <div class="content">
                 <div class="segmented-control">
                     <input type="radio" v-model="queryObj.type" name="radio2" value="0" id="tab-1"
@@ -93,11 +93,14 @@ onMounted(() => {
         flex: 0 0 5%;
     }
 
+    ::v-deep .el-col {
+        margin-bottom: 20px;
+    }
+
     .main {
         flex: 1;
         overflow-y: scroll;
-        padding: 0 3rem;
-        padding-bottom: 50px;
+        padding: 30px 30px 130px 30px;
 
         &::-webkit-scrollbar {
             width: 0;
