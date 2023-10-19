@@ -95,7 +95,7 @@ onMounted(() => {
         flex: 0 0 5%;
     }
 
-    ::v-deep .el-col {
+    :deep(.el-col) {
         margin-bottom: 20px;
     }
 

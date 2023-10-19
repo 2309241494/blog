@@ -1,37 +1,24 @@
 <template>
     <div class='index-container container'>
         <div class="left">
-            <Sidebar icon="icon-jurassic_message" color="#5757f9" title="MY" main-title="DEMO" />
+            <Sidebar icon="icon-jurassic_message" color="#5757f9" title="MY" main-title="BLOG" />
         </div>
         <div class="main">
             <i class="back iconfont icon-cuowu" @click="goBack"></i>
             <div class="title">
-                <Title title="MY" main-title="DEMO" />
+                <Title title="MY" main-title="BLOG" />
             </div>
             <Subhead title="笔记" bg-color="#5757f9" />
             <div class="content">
-                <!-- <a href="https://www.mythrillfiction.com/the-dark-rider" alt="Mythrill" target="_blank">
-                    <div class="card">
-                        <div class="wrapper">
-                            <img src="https://ggayane.github.io/css-experiments/cards/dark_rider-cover.jpg"
-                                class="cover-image" />
+                <el-row :gutter="40" class="panel-group">
+                    <el-col :xs="12" :sm="12" :lg="16" class="card-panel-col">
+                        <Waterfall :blog-list="blogList" />
+                    </el-col>
+                    <el-col :xs="12" :sm="12" :lg="8" class="card-panel-col">
+                        <div class="search-box">
                         </div>
-                        <img src="https://ggayane.github.io/css-experiments/cards/dark_rider-title.png" class="title" />
-                        <img src="https://ggayane.github.io/css-experiments/cards/dark_rider-character.webp"
-                            class="character" />
-                    </div>
-                </a>
-                <a href="https://www.mythrillfiction.com/force-mage" alt="Mythrill" target="_blank">
-                    <div class="card">
-                        <div class="wrapper">
-                            <img src="https://ggayane.github.io/css-experiments/cards/force_mage-cover.jpg"
-                                class="cover-image" />
-                        </div>
-                        <img src="https://ggayane.github.io/css-experiments/cards/force_mage-title.png" class="title" />
-                        <img src="https://ggayane.github.io/css-experiments/cards/force_mage-character.webp"
-                            class="character" />
-                    </div>
-                </a> -->
+                    </el-col>
+                </el-row>
             </div>
         </div>
     </div>
@@ -43,142 +30,30 @@ import { ref, onMounted, reactive } from 'vue';
 import Sidebar from '../../components/Sidebar.vue';
 import Title from '../../components/Title.vue';
 import Subhead from '../../components/Subhead.vue';
+import { getBlogData } from "../../api/request";
+import Waterfall from '../../components/Waterfall.vue';
 
-const from: any = ref({ name: "", contactWay: "", message: "" })
-const message = ref([{ name: "黎浪", contactWay: "+62800000000", message: "你好！", time: "" }])
 const router = useRouter()
-const notFound = false
+
 const goBack = () => {
     router.back();
 }
-onMounted(() => {
+const blogList: any = ref([])
+onMounted(async () => {
+    blogList.value = await getBlogData({})
+    console.log(blogList.value)
 })
-const handleSubmit = (event: any) => {
-    event.preventDefault()
-    if (!checkForm()) {
-        alert('请完整填写表单');
-        return;
-    } else {
-        from.value.time = getData()
-        message.value.unshift(from.value)
-        from.value = {}
-    }
-}
-function checkForm() {
-    for (let key in from.value) {
-        if (!from.value[key]) {
-            return false; // 存在空值，返回 false
-        }
-    }
-    return true; // 表单数据全部非空，返回 true
-}
-function getData() {
-    const now = new Date();
-    const year = now.getFullYear();
-    const month = (now.getMonth() + 1).toString().padStart(2, '0');
-    const day = now.getDate().toString().padStart(2, '0');
-    const hour = now.getHours().toString().padStart(2, '0');
-    const minute = now.getMinutes().toString().padStart(2, '0');
-    const datetime = `${year}年${month}月${day}日${hour}时${minute}分`;
-    return datetime;
-}
 </script>
 
 <style scoped lang='less'>
-.card {
-    width: var(--card-width);
-    height: var(--card-height);
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    padding: 0 36px;
-    perspective: 2500px;
-    margin: 0 50px;
-}
-
-.cover-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.wrapper {
-    transition: all 0.5s;
-    position: absolute;
-    width: 100%;
-    z-index: -1;
-}
-
-.card:hover .wrapper {
-    transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
-    box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
-    -webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
-}
-
-.wrapper::before,
-.wrapper::after {
-    content: "";
-    opacity: 0;
-    width: 100%;
-    height: 80px;
-    transition: all 0.5s;
-    position: absolute;
-    left: 0;
-}
-
-.wrapper::before {
-    top: 0;
-    height: 100%;
-    background-image: linear-gradient(to top,
-            transparent 46%,
-            rgba(12, 13, 19, 0.5) 68%,
-            rgba(12, 13, 19) 97%);
-}
-
-.wrapper::after {
-    bottom: 0;
-    opacity: 1;
-    background-image: linear-gradient(to bottom,
-            transparent 46%,
-            rgba(12, 13, 19, 0.5) 68%,
-            rgba(12, 13, 19) 97%);
-}
-
-.card:hover .wrapper::before,
-.wrapper::after {
-    opacity: 1;
-}
-
-.card:hover .wrapper::after {
-    height: 120px;
-}
-
-.title {
-    width: 100%;
-    transition: transform 0.5s;
-}
-
-.card:hover .title {
-    transform: translate3d(0%, -50px, 100px);
-}
-
-.character {
-    width: 100%;
-    opacity: 0;
-    transition: all 0.5s;
-    position: absolute;
-    z-index: -1;
-}
-
-.card:hover .character {
-    opacity: 1;
-    transform: translate3d(0%, -30%, 100px);
-}
-
 .index-container {
     border-radius: 15px 0px 0px 15px;
+
+    .search-box {
+        width: 100%;
+        height: 500px;
+        background-color: #1f1f1f;
+    }
 
     .left {
         flex: 0 0 5%;

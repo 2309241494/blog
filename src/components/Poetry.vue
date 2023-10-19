@@ -10,8 +10,9 @@
 
 <script setup lang="ts">
 import { ref, onMounted, reactive, watch } from 'vue';
-import { getPoetry } from "../api/request"
+import { getPoetry, } from "../api/request"
 let poetry: any = ref("")
+
 onMounted(async () => {
     poetry.value = await getPoetry()
 })

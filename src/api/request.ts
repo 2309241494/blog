@@ -33,3 +33,12 @@ export function getMusicData() {
     method: "GET",
   });
 }
+
+// 获取笔记数据
+export function getBlogData(data: object) {
+  return instance({
+    url: "/getBlog",
+    method: "POST",
+    data,
+  });
+}

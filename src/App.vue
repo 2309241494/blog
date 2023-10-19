@@ -40,8 +40,8 @@ import Menu from './components/Menu.vue';
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		width: 90%;
-		height: 90%;
+		width: 95%;
+		height: 93%;
 
 		.left-container {
 			position: relative;
