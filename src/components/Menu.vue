@@ -21,8 +21,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, reactive, computed } from 'vue';
+import { ref, onMounted, reactive, computed, watch } from 'vue';
 import router from '../router';
+import { useRouter } from 'vue-router';
 const menuItems = ref([
     {
         bgColorItem: '#008c8c', viewBox: '0 0 24 24', paths: [
@@ -52,7 +53,7 @@ const menuItems = ref([
         ]
     },
     {
-        bgColorItem: '#65ddb7', viewBox: '0 0 24 24', paths: [
+        bgColorItem: '#409eff', viewBox: '0 0 24 24', paths: [
             'M5.1,3.9h13.9c0.6,0,1.2,0.5,1.2,1.2v13.9c0,0.6-0.5,1.2-1.2,1.2H5.1c-0.6,0-1.2-0.5-1.2-1.2V5.1C3.9, 4.4, 4.4, 3.9, 5.1, 3.9z',
             'M5.5,20l9.9-9.9l4.7,4.7',
             'M10.4,8.8c0,0.9-0.7,1.6-1.6,1.6c-0.9,0-1.6-0.7-1.6-1.6C7.3,8,8,7.3,8.9,7.3C9.7,7.3,10.4,8,10.4,8.8z'
@@ -69,8 +70,12 @@ const getColor = computed(() => {
         return menuItems.value[index].bgColorItem
     }
 });
+const route = useRouter();
+const isMenuClick = ref(false); // 添加一个标识，初始值为false
 function offsetMenuBorder(index: number) {
     changeIndex.value = index
+    isMenuClick.value = true; // 设置标识为true，表示是菜单项点击引起的路由变化
+    console.log("执行了")
     if (index === 0) {
         router.push('/vite-blog')
     } else if (index === 1) {
@@ -89,6 +94,17 @@ function offsetMenuBorder(index: number) {
         menuBorderRef.value.style.left = (left) + 'px';
     }
 }
+watch(
+    () => route.currentRoute.value,
+    (to, from) => {
+        if (!(isMenuClick.value as boolean)) {
+            const index = to.meta.index; // 获取路由元信息中的index值
+            offsetMenuBorder(index as number); // 调用offsetMenuBorder函数，并传入index值
+        }
+        // 重置标识为false，以便下一次路由变化时正常执行offsetMenuBorder函数
+        isMenuClick.value = false;
+    }
+);
 onMounted(() => {
     offsetMenuBorder(changeIndex.value);
 });
@@ -138,6 +154,7 @@ body {
     z-index: 999;
     box-shadow:
         0px 0px 37px rgba(0, 0, 0, 0.51);
+    border-radius: 0 0 0 15px;
 
     &__item {
         all: unset;

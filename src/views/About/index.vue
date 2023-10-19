@@ -68,7 +68,7 @@
             <p>{{ item.described }}</p>
           </div>
         </div>
-        <Button title="前往个人项目" router="/project" />
+        <Button title="前往项目页" router="/vite-blog/project" />
       </div>
     </div>
   </div>
@@ -117,6 +117,7 @@ const project = ref([{
 
 <style scoped lang='less'>
 .index-container {
+  border-radius: 15px 0px 0px 15px;
 
   .left {
     flex: 0 0 5%;

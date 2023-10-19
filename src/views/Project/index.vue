@@ -101,6 +101,7 @@ const newList = [...projectList.value]
 
 <style scoped lang='less'>
 .index-container {
+    border-radius: 15px 0px 0px 15px;
 
     .left {
         flex: 0 0 5%;

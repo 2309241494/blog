@@ -36,9 +36,9 @@ onMounted(async () => {
 
 
 // 计算当前时间是早上下午晚上
-const backgroundWeather = reactive(["https://img.zcool.cn/community/01cb8657dd13690000012e7e082455.jpg@1280w_1l_2o_100sh.jpg",
-    "https://bpic.588ku.com/back_our/20210318/bg/ecef85d079003.png",
-    "https://img-qn-0.51miz.com/preview/video/00/00/13/46/V-134610-6B323855.jpg"])
+const backgroundWeather = reactive(["https://wallpaperaccess.com/full/5576477.jpg",
+    "https://wallpaperaccess.com/full/6111693.jpg",
+    "https://wallpaperaccess.com/full/5705490.jpg"])
 let weaterTitle = ref<number>(0)
 function getTimePeriod(): string {
     const currentTime = new Date();
@@ -67,12 +67,13 @@ function getTimePeriod(): string {
     border-radius: 5px;
     margin-bottom: 1rem;
     padding: 1.2rem;
-    background-color: #2c3051;
     box-shadow: 5px 5px 17px #252844,
         -5px -5px 17px #33385e;
     background-repeat: no-repeat;
-    background-size: cover;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    background-size: 100% 100%;
+    background-position: center;
+    object-fit: cover;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 
     .title {
         font-size: .8rem;

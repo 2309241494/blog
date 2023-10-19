@@ -1,14 +1,14 @@
 <template>
     <div class='index-container container'>
         <div class="left">
-            <Sidebar icon="icon-xiangce" color="#65ddb7" title="MY" main-title="PHOTO" />
+            <Sidebar icon="icon-xiangce" color="#409eff" title="MY" main-title="PHOTO" />
         </div>
         <div class="main">
             <i class="back iconfont icon-cuowu" @click="goBack"></i>
             <div class="title">
                 <Title title="MY" main-title="PHOTO" />
             </div>
-            <Subhead title="生活碎片" bg-color="#65ddb7" />
+            <Subhead title="生活碎片" bg-color="#409eff" />
             <div class="content">
                 <div class="segmented-control">
                     <input type="radio" v-model="queryObj.type" name="radio2" value="0" id="tab-1"
@@ -89,6 +89,8 @@ onMounted(() => {
     inset -.2rem -.2rem .5rem #4450ac;
 
 .index-container {
+    border-radius: 15px 0px 0px 15px;
+
     .left {
         flex: 0 0 5%;
     }

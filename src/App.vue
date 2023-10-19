@@ -53,6 +53,7 @@ import Menu from './components/Menu.vue';
 			background-color: #363b5f;
 			flex: 0 0 25%;
 			height: 100%;
+			border-radius: 0px 15px 15px 0px;
 		}
 	}
 
