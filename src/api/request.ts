@@ -42,3 +42,19 @@ export function getBlogData(data: object) {
     data,
   });
 }
+
+// 获取最新笔记数据
+export function getNewBlog() {
+  return instance({
+    url: "/getNewBlog",
+    method: "get",
+  });
+}
+
+// 获取笔记标签数据
+export function getBlogTitle() {
+  return instance({
+    url: "/getBlogTitle",
+    method: "get",
+  });
+}

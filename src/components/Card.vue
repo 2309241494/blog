@@ -4,7 +4,7 @@
             <template #header>
                 <div class="card-header">
                     <span class="card-title">笔记</span>
-                    <button class="custom-btn btn-12"><span @click="handleMenu">Click!</span><span>前往菜单页</span></button>
+                    <button class="custom-btn btn-12"><span @click="handleMenu">Click!</span><span>前往BLOG</span></button>
                 </div>
             </template>
             <el-row class="card-item-container">
@@ -27,10 +27,12 @@
 <script lang="ts" setup>
 import { ref, onMounted, reactive } from 'vue';
 import { useMain } from '../store/index';
+import router from '../router';
 const mainStore = useMain();
 const handleMenu = () => {
-    mainStore.setChangeModule(1);  // 调用 actions 方法改变 changeModule 的值
-    console.log(mainStore.getChangeModule)
+    // mainStore.setChangeModule(1);  // 调用 actions 方法改变 changeModule 的值
+    router.push('/vite-blog/blog')
+
 }
 const cardList = reactive([{
     name: 'Vue模型渲染',

@@ -306,10 +306,63 @@ export const BLOG_LIST = [
     color: "#41b883",
     icon: "icon-vue",
     desc: "Vue 的模型渲染是指 Vue.js 框架中通过数据绑定将数据模型渲染到视图上。Vue 使用了响应式的数据绑定机制，当数据发生变化时，模型会自动更新视图，反之亦然。",
-    type: "VUE",
-    date: "2022-03-14",
+    tag: ["VUE", "3D模型", "Babylon.js"],
+    date: "2022-03-20",
     cover:
-      "https://swansoftwaresolutions.com/wp-content/uploads/2020/01/Benefits-of-Using-VUE.JS.jpeg",
+      "https://img.zcool.cn/community/01505c586f4926a8012060c85e2adb.jpg@2o.jpg",
+    md: `
+## 卸载node
+
+### windows
+
+进入添加和删除程序进行卸载
+
+### mac
+
+https://www.jianshu.com/p/88cd55296983
+
+## 下载安装 nvm
+
+### windows
+
+链接: https://pan.baidu.com/s/1uoxlk8CVNHV2KTCwIGbQMQ?pwd=yi5m 
+
+提取码: yi5m 
+
+### mac
+
+修改 HOSTS（建议使用 SwitchHosts）
+
+\`\`\`javascript
+? raw.githubusercontent.com
+? objects.githubusercontent.com
+? pkg-containers.githubusercontent.com
+\`\`\`
+
+> ？位置需要通过 https://www.ipaddress.com/ 查询 ip
+
+打开终端运行下面的命令
+
+\`\`\`shell
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
+\`\`\`
+
+## nvm 的基本使用
+
+\`\`\`shell
+# 查看当前安装和使用的 node 版本
+nvm list
+
+# 安装某个 node 版本
+nvm install 版本号
+
+# 切换 node 版本
+nvm use 版本号
+
+# 设置默认版本
+nvm alias v12.22.12
+\`\`\`
+`,
   },
   {
     name: "闭包",
@@ -317,19 +370,126 @@ export const BLOG_LIST = [
     color: "#f5dd1e",
     icon: "icon-JavaScript",
     desc: "JavaScript闭包详解",
-    type: "JS",
-    date: "2022-03-14",
-    cover: "https://img.sj33.cn/uploads/202010/7-201006100252127.jpg",
+    tag: ["JS", "核心知识"],
+    date: "2022-04-14",
+    cover:
+      "https://st0.dancf.com/csc/3965/topics/11410/20210630-121338-6c85.jpg?x-oss-process=image/resize,w_1110/sharpen,110/interlace,1",
+    md: `
+## 卸载node
+
+### windows
+
+进入添加和删除程序进行卸载
+
+### mac
+
+https://www.jianshu.com/p/88cd55296983
+
+## 下载安装 nvm
+
+### windows
+
+链接: https://pan.baidu.com/s/1uoxlk8CVNHV2KTCwIGbQMQ?pwd=yi5m 
+
+提取码: yi5m 
+
+### mac
+
+修改 HOSTS（建议使用 SwitchHosts）
+
+\`\`\`javascript
+? raw.githubusercontent.com
+? objects.githubusercontent.com
+? pkg-containers.githubusercontent.com
+\`\`\`
+
+> ？位置需要通过 https://www.ipaddress.com/ 查询 ip
+
+打开终端运行下面的命令
+
+\`\`\`shell
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
+\`\`\`
+
+## nvm 的基本使用
+
+\`\`\`shell
+# 查看当前安装和使用的 node 版本
+nvm list
+
+# 安装某个 node 版本
+nvm install 版本号
+
+# 切换 node 版本
+nvm use 版本号
+
+# 设置默认版本
+nvm alias v12.22.12
+\`\`\`
+`,
   },
   {
-    name: "Hooks",
+    name: "为什么要引进Hooks,要解决什么问题",
     url: "https://developer.mozilla.org/zh-CN/",
     color: "#00bcd4",
     icon: "icon-react",
     desc: "Mozilla Developer Network",
-    type: "React",
-    date: "2022-03-14",
-    cover: "https://img.zcool.cn/community/01c3df5c7344a8a801203d225e7c6f.gif",
+    tag: ["React", "Hooks"],
+    date: "2022-05-18",
+    cover: "https://img95.699pic.com/photo/50128/3509.jpg_wh300.jpg",
+    md: `
+## 卸载node
+
+### windows
+
+进入添加和删除程序进行卸载
+
+### mac
+
+https://www.jianshu.com/p/88cd55296983
+
+## 下载安装 nvm
+
+### windows
+
+链接: https://pan.baidu.com/s/1uoxlk8CVNHV2KTCwIGbQMQ?pwd=yi5m 
+
+提取码: yi5m 
+
+### mac
+
+修改 HOSTS（建议使用 SwitchHosts）
+
+\`\`\`javascript
+? raw.githubusercontent.com
+? objects.githubusercontent.com
+? pkg-containers.githubusercontent.com
+\`\`\`
+
+> ？位置需要通过 https://www.ipaddress.com/ 查询 ip
+
+打开终端运行下面的命令
+
+\`\`\`shell
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
+\`\`\`
+
+## nvm 的基本使用
+
+\`\`\`shell
+# 查看当前安装和使用的 node 版本
+nvm list
+
+# 安装某个 node 版本
+nvm install 版本号
+
+# 切换 node 版本
+nvm use 版本号
+
+# 设置默认版本
+nvm alias v12.22.12
+\`\`\`
+`,
   },
   {
     name: "属性值的计算过程",
@@ -337,9 +497,63 @@ export const BLOG_LIST = [
     color: "#4bbfeb",
     icon: "icon-css",
     desc: "Mozilla Developer Network",
-    type: "CSS",
-    date: "2022-03-14",
-    cover: "https://wallpaperaccess.com/full/97650.jpg",
+    tag: ["CSS", "属性值"],
+    date: "2022-09-24",
+    cover:
+      "https://ts1.cn.mm.bing.net/th/id/R-C.0e3e0c18b45f7d76243bdcab157e5efe?rik=G7cU6KfhPOfoHQ&riu=http%3a%2f%2fwww.njwtjj.com%2fuploadfiles%2fpictures%2fproduct%2f20170512110717_8073.jpg&ehk=O1dxKNjIkHlpmsSWuRpQhMeTIfA3N398tw%2fdFSiIeGc%3d&risl=&pid=ImgRaw&r=0",
+    md: `
+## 卸载node
+
+### windows
+
+进入添加和删除程序进行卸载
+
+### mac
+
+https://www.jianshu.com/p/88cd55296983
+
+## 下载安装 nvm
+
+### windows
+
+链接: https://pan.baidu.com/s/1uoxlk8CVNHV2KTCwIGbQMQ?pwd=yi5m 
+
+提取码: yi5m 
+
+### mac
+
+修改 HOSTS（建议使用 SwitchHosts）
+
+\`\`\`javascript
+? raw.githubusercontent.com
+? objects.githubusercontent.com
+? pkg-containers.githubusercontent.com
+\`\`\`
+
+> ？位置需要通过 https://www.ipaddress.com/ 查询 ip
+
+打开终端运行下面的命令
+
+\`\`\`shell
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
+\`\`\`
+
+## nvm 的基本使用
+
+\`\`\`shell
+# 查看当前安装和使用的 node 版本
+nvm list
+
+# 安装某个 node 版本
+nvm install 版本号
+
+# 切换 node 版本
+nvm use 版本号
+
+# 设置默认版本
+nvm alias v12.22.12
+\`\`\`
+`,
   },
   {
     name: "H5新特性",
@@ -347,9 +561,63 @@ export const BLOG_LIST = [
     color: "#f7622c",
     icon: "icon-html",
     desc: "Mozilla Developer Network",
-    type: "HTML",
-    date: "2022-03-14",
-    cover: "https://wallpaperaccess.com/full/47089.jpg",
+    tag: ["HTML", "CSS"],
+    date: "2022-10-14",
+    cover:
+      "https://img.zcool.cn/community/012b765f50444611013e3187326fc8.jpg@2o.jpg",
+    md: `
+## 卸载node
+
+### windows
+
+进入添加和删除程序进行卸载
+
+### mac
+
+https://www.jianshu.com/p/88cd55296983
+
+## 下载安装 nvm
+
+### windows
+
+链接: https://pan.baidu.com/s/1uoxlk8CVNHV2KTCwIGbQMQ?pwd=yi5m 
+
+提取码: yi5m 
+
+### mac
+
+修改 HOSTS（建议使用 SwitchHosts）
+
+\`\`\`javascript
+? raw.githubusercontent.com
+? objects.githubusercontent.com
+? pkg-containers.githubusercontent.com
+\`\`\`
+
+> ？位置需要通过 https://www.ipaddress.com/ 查询 ip
+
+打开终端运行下面的命令
+
+\`\`\`shell
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
+\`\`\`
+
+## nvm 的基本使用
+
+\`\`\`shell
+# 查看当前安装和使用的 node 版本
+nvm list
+
+# 安装某个 node 版本
+nvm install 版本号
+
+# 切换 node 版本
+nvm use 版本号
+
+# 设置默认版本
+nvm alias v12.22.12
+\`\`\`
+`,
   },
   {
     name: "小程序开发规范",
@@ -357,8 +625,62 @@ export const BLOG_LIST = [
     color: "#00b240",
     icon: "icon-xiaochengxu",
     desc: "Mozilla Developer Network",
-    type: "小程序",
-    date: "2022-03-14",
-    cover: "https://wallpaperaccess.com/full/36389.jpg",
+    tag: ["小程序", "uniapp"],
+    date: "2022-02-14",
+    cover:
+      "https://img-qn.51miz.com/preview/photo/00/01/54/57/P-1545766-7582C5E8.jpg",
+    md: `
+## 卸载node
+
+### windows
+
+进入添加和删除程序进行卸载
+
+### mac
+
+https://www.jianshu.com/p/88cd55296983
+
+## 下载安装 nvm
+
+### windows
+
+链接: https://pan.baidu.com/s/1uoxlk8CVNHV2KTCwIGbQMQ?pwd=yi5m 
+
+提取码: yi5m 
+
+### mac
+
+修改 HOSTS（建议使用 SwitchHosts）
+
+\`\`\`javascript
+? raw.githubusercontent.com
+? objects.githubusercontent.com
+? pkg-containers.githubusercontent.com
+\`\`\`
+
+> ？位置需要通过 https://www.ipaddress.com/ 查询 ip
+
+打开终端运行下面的命令
+
+\`\`\`shell
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
+\`\`\`
+
+## nvm 的基本使用
+
+\`\`\`shell
+# 查看当前安装和使用的 node 版本
+nvm list
+
+# 安装某个 node 版本
+nvm install 版本号
+
+# 切换 node 版本
+nvm use 版本号
+
+# 设置默认版本
+nvm alias v12.22.12
+\`\`\`
+`,
   },
 ];

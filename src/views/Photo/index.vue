@@ -4,7 +4,6 @@
             <Sidebar icon="icon-xiangce" color="#409eff" title="MY" main-title="PHOTO" />
         </div>
         <div class="main">
-            <i class="back iconfont icon-cuowu" @click="goBack"></i>
             <div class="title">
                 <Title title="MY" main-title="PHOTO" />
             </div>
@@ -41,17 +40,12 @@
 
 <script lang="ts" setup>
 import { ref, onMounted, reactive } from 'vue';
-import { useRouter } from 'vue-router';
 import Sidebar from '../../components/Sidebar.vue';
 import Title from '../../components/Title.vue';
 import Subhead from '../../components/Subhead.vue'
 import ImgCard from '../../components/ImgCard.vue';
 import Paginate from '../../components/Paginate.vue';
 import { getHeroData } from '../../api/request';
-const router = useRouter();
-const goBack = () => {
-    router.back();
-}
 let cards = ref([])
 let queryObj = ref({
     page: 1,
@@ -117,20 +111,6 @@ onMounted(() => {
             padding: 1rem 3rem 0 3rem;
         }
 
-        .back {
-            cursor: pointer;
-            font-size: 2.4rem;
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-end;
-            color: rgb(214, 214, 214);
-            transition: all .5s;
-            margin-top: 2rem;
-
-            &:hover {
-                color: aliceblue;
-            }
-        }
 
         .content {
             .segmented-control {

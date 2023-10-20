@@ -37,7 +37,7 @@ onMounted(async () => {
 
 // 计算当前时间是早上下午晚上
 const backgroundWeather = reactive(["https://wallpaperaccess.com/full/5576477.jpg",
-    "https://wallpaperaccess.com/full/6111693.jpg",
+    "https://ts1.cn.mm.bing.net/th/id/R-C.e854b4b29a9a75a9a313d627f4e67331?rik=V%2b%2fENjavnQH2wQ&riu=http%3a%2f%2fpic.qqbizhi.com%2fallimg%2fbbpic%2f97%2f2897.jpg&ehk=pz9VnhWMDw96LdqvkRAqOLGAI20gt3Ky9vkxLfbhyLs%3d&risl=&pid=ImgRaw&r=0",
     "https://wallpaperaccess.com/full/5705490.jpg"])
 let weaterTitle = ref<number>(0)
 function getTimePeriod(): string {

@@ -75,7 +75,6 @@ const isMenuClick = ref(false); // 添加一个标识，初始值为false
 function offsetMenuBorder(index: number) {
     changeIndex.value = index
     isMenuClick.value = true; // 设置标识为true，表示是菜单项点击引起的路由变化
-    console.log("执行了")
     if (index === 0) {
         router.push('/vite-blog')
     } else if (index === 1) {

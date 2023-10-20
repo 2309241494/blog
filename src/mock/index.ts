@@ -38,9 +38,43 @@ Mock.mock("/getPhoto", "post", (option) => {
 });
 
 // 获取音乐数据
-Mock.mock("/getBlog", "post", () => {
-  return BLOG_LIST;
+Mock.mock("/getMusic", "get", MUSIC_LIST);
+
+// 获取笔记数据
+Mock.mock("/getBlog", "post", (options) => {
+  const { name, tags } = JSON.parse(options.body);
+  console.log(name, tags);
+  let filteredData = BLOG_LIST;
+  if (name !== "") {
+    filteredData = filteredData.filter((blog) => blog.name.includes(name));
+  }
+  if (Array.isArray(tags) && tags.length > 0) {
+    filteredData = filteredData.filter((blog) => {
+      return tags.every((tag) => blog.tag.includes(tag));
+    });
+  }
+  return filteredData;
 });
 
-// 获取音乐数据
-Mock.mock("/getMusic", "get", MUSIC_LIST);
+// 获取最新笔记数据
+Mock.mock("/getNewBlog", "get", () => {
+  // 创建一个副本以避免修改原始数据
+  const sortedData = [...BLOG_LIST];
+  // 根据日期字段进行降序排序
+  sortedData.sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
+  // 取出最新发布的五条数据
+  const latestData = sortedData.slice(0, 5);
+  return latestData;
+});
+
+// 获取笔记标签数据
+Mock.mock("/getBlogTitle", "get", () => {
+  const tagSet = new Set<string>();
+  BLOG_LIST.forEach((item) => {
+    item.tag.forEach((tag) => tagSet.add(tag));
+  });
+  const tags = Array.from(tagSet);
+  return tags;
+});

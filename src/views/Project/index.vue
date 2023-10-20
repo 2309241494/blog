@@ -4,7 +4,6 @@
             <Sidebar icon="icon-xiangmu" color="#f5cae6" title="MY" main-title="PROJECT" />
         </div>
         <div class="main">
-            <i class="back iconfont icon-cuowu" @click="goBack"></i>
             <div class="title">
                 <Title title="MY" main-title="PROJECT" />
             </div>
@@ -36,11 +35,8 @@
 </template>
 
 <script lang="ts" setup>
-import { useRouter } from 'vue-router';
 import { ref, onMounted, reactive } from 'vue';
 import Sidebar from '../../components/Sidebar.vue';
-import Weather from '../../components/Weather.vue';
-import Poetry from '../../components/Poetry.vue';
 import Title from '../../components/Title.vue';
 import Subhead from '../../components/Subhead.vue';
 import Detail from './Detail.vue';
@@ -70,11 +66,6 @@ const changeShow = (e: any) => {
     show.value = e;
 }
 
-// 路由回退方法
-const router = useRouter();
-const goBack = () => {
-    router.back();
-}
 
 //项目列表项
 const projectList = ref([
@@ -123,21 +114,6 @@ const newList = [...projectList.value]
             flex-direction: column;
             align-items: center;
             padding: 1rem 3rem 0 3rem;
-        }
-
-        .back {
-            cursor: pointer;
-            font-size: 2.4rem;
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-end;
-            color: rgb(214, 214, 214);
-            transition: all .5s;
-            margin-top: 2rem;
-
-            &:hover {
-                color: aliceblue;
-            }
         }
 
         .content {

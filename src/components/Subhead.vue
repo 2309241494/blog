@@ -22,7 +22,7 @@ onMounted(() => {
 <style scoped lang='less'>
 .Subhead-container {
     display: flex;
-    margin-top: 4rem;
+    margin-top: 1rem;
     position: relative;
     margin-bottom: 2rem;
 
