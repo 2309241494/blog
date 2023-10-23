@@ -50,7 +50,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted, reactive } from 'vue';
+import { ref, onMounted } from 'vue';
 import Sidebar from '../../components/Sidebar.vue';
 import Title from '../../components/Title.vue';
 import Subhead from '../../components/Subhead.vue';
@@ -111,6 +111,7 @@ onMounted(async () => {
 .index-container {
     border-radius: 15px 0px 0px 15px;
 
+
     .search-box {
         width: 100%;
         background-color: #1f1f1f;
@@ -120,7 +121,7 @@ onMounted(async () => {
 
         .tag {
             .active-tag {
-                border: 1px solid #00b240 !important;
+                border: 1px solid #00ff5e !important;
             }
 
             :deep(.el-tag) {
@@ -135,6 +136,7 @@ onMounted(async () => {
                 margin-bottom: 10px;
                 color: rgba(255, 255, 255, 0.65);
                 font-weight: 600;
+                transition: border 0.3s linear;
             }
         }
 

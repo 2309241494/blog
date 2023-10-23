@@ -40,7 +40,6 @@ onMounted(async () => {
         width: 100%;
         height: 100%;
         position: absolute;
-        background: url("https://picsum.photos/200");
         background-size: cover;
         background-repeat: no-repeat;
         filter: blur(10px);

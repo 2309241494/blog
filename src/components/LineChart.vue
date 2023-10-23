@@ -16,172 +16,162 @@ onMounted(
 const init = () => {
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('main'));
-    // 指定图表的配置项和数据
-    var xData = (function () {
-        var data = [];
-        for (var i = 1; i <= 12; i++) {
-            data.push(i + "月");
-        }
-        return data;
-    })();
-    var option = {
-        backgroundColor: "#363b5f",
+    var charts = {
+        // 按顺序排列从大到小
+        cityList: ["笔记资源", "图片资源", "项目资源", "16号点", "24号点"],
+        cityData: [7500, 6200, 5700, 4200, 3500],
+    };
+    var top10CityList = charts.cityList;
+    var top10CityData = charts.cityData;
+    var color = [
+        "rgba(248,195,248",
+        "rgba(100,255,249",
+        "rgba(135,183,255",
+        "rgba(67,67,245",
+        "rgba(245,72,136",
+    ];
 
-        tooltip: {
-            trigger: "axis",
-            axisPointer: {
-                type: "shadow",
-                textStyle: {
-                    color: "#fff",
+    let lineY = [];
+    for (var i = 0; i < charts.cityList.length; i++) {
+        var x = i;
+        if (x > color.length - 1) {
+            x = color.length - 1;
+        }
+        var data = {
+            name: charts.cityList[i],
+            color: color[x] + ")",
+            value: top10CityData[i],
+            itemStyle: {
+                normal: {
+                    show: true,
+                    color: new echarts.graphic.LinearGradient(
+                        0,
+                        0,
+                        1,
+                        0,
+                        [
+                            {
+                                offset: 0,
+                                color: color[x] + ", 0.3)",
+                            },
+                            {
+                                offset: 1,
+                                color: color[x] + ", 1)",
+                            },
+                        ],
+                        false
+                    ),
+                    barBorderRadius: 10,
+                },
+                emphasis: {
+                    shadowBlur: 15,
+                    shadowColor: "rgba(0, 0, 0, 0.1)",
                 },
             },
+        };
+        lineY.push(data);
+    }
+    var option: any = {
+        backgroundColor: "#363b5f",
+        title: {
+            show: false,
+        },
+        tooltip: {
+            trigger: "item",
         },
         grid: {
             borderWidth: 0,
-            top: 90,
-            bottom: 95,
-            textStyle: {
-                color: "#fff",
-            },
+            top: "10%",
+            left: "5%",
+            // right: "15%",
+            bottom: "3%",
         },
-        legend: {
-            x: "46%",
-            top: "11%",
-            textStyle: {
-                color: "#90979c",
+        color: color,
+        yAxis: [
+            {
+                type: "category",
+                inverse: true,
+                axisTick: {
+                    show: false,
+                },
+                axisLine: {
+                    show: false,
+                },
+                axisLabel: {
+                    show: false,
+                    inside: false,
+                },
+                data: top10CityList,
             },
-            data: ["访问量", "站内资源"],
-        },
-
-        calculable: true,
-        xAxis: [
             {
                 type: "category",
                 axisLine: {
-                    lineStyle: {
-                        color: "rgba(204,187,225,0.5)",
-                    },
-                },
-                splitLine: {
                     show: false,
                 },
                 axisTick: {
                     show: false,
                 },
-                data: xData,
-            },
-        ],
-
-        yAxis: [
-            {
-                type: "value",
+                axisLabel: {
+                    show: true,
+                    inside: false,
+                    textStyle: {
+                        color: "#b3ccf8",
+                        fontSize: "14",
+                        fontFamily: "PingFangSC-Regular",
+                    },
+                    formatter: function (val: any) {
+                        console.log(val)
+                        return `${val} 项`;
+                    },
+                },
+                splitArea: {
+                    show: false,
+                },
                 splitLine: {
                     show: false,
                 },
-                axisLine: {
-                    lineStyle: {
-                        color: "rgba(204,187,225,0.5)",
-                    },
-                },
+                data: top10CityData.reverse(),
             },
         ],
-        dataZoom: [
-            {
-                show: true,
-                height: 30,
-                xAxisIndex: [0],
-                bottom: 30,
-
-                start: 10,
-                end: 80,
-                handleIcon:
-                    "path://M306.1,413c0,2.2-1.8,4-4,4h-59.8c-2.2,0-4-1.8-4-4V200.8c0-2.2,1.8-4,4-4h59.8c2.2,0,4,1.8,4,4V413z",
-                handleSize: "110%",
-                handleStyle: {
-                    color: "#5B3AAE",
-                },
-                textStyle: {
-                    color: "rgba(204,187,225,0.5)",
-                },
-                fillerColor: "rgba(67,55,160,0.4)",
-                borderColor: "rgba(204,187,225,0.5)",
+        xAxis: {
+            type: "value",
+            axisTick: {
+                show: false,
             },
-            {
-                type: "inside",
-                show: true,
-                height: 15,
-                start: 1,
-                end: 35,
+            axisLine: {
+                show: false,
             },
-        ],
+            splitLine: {
+                show: false,
+            },
+            axisLabel: {
+                show: false,
+            },
+        },
         series: [
             {
-                name: "访问量",
-                type: "line",
-                symbolSize: 10,
-                symbol: "circle",
-                itemStyle: {
-                    color: "#6f7de3",
-                },
-                markPoint: {
-                    label: {
-                        normal: {
-                            textStyle: {
-                                color: "#fff",
-                            },
+                name: "",
+                type: "bar",
+                zlevel: 2,
+                barWidth: "10px",
+                data: lineY,
+                animationDuration: 1500,
+                label: {
+                    normal: {
+                        color: "#b3ccf8",
+                        show: true,
+                        position: [0, "-24px"],
+                        textStyle: {
+                            fontSize: 16,
+                        },
+                        formatter: function (a: { name: any; }, b: any) {
+                            return a.name;
                         },
                     },
-                    data: [
-                        {
-                            type: "max",
-                            name: "最大值",
-                        },
-                        {
-                            type: "min",
-                            name: "最小值",
-                        },
-                    ],
                 },
-                data: [
-                    509, 917, 2455, 2610, 2719, 3033, 3044, 3085, 2708, 2809, 2117, 2000,
-                    1455, 1210, 719, 733, 944, 2285, 2208, 3372, 3936, 3693, 2962, 2810,
-                    3519, 2455, 2610, 2719, 2484, 2078,
-                ],
-            },
-            {
-                name: "站内资源",
-                type: "line",
-                symbolSize: 10,
-                symbol: "circle",
-                itemStyle: {
-                    color: "#c257F6",
-                },
-                markPoint: {
-                    label: {
-                        normal: {
-                            textStyle: {
-                                color: "#fff",
-                            },
-                        },
-                    },
-                    data: [
-                        {
-                            type: "max",
-                            name: "最大值",
-                        },
-                        {
-                            type: "min",
-                            name: "最小值",
-                        },
-                    ],
-                },
-                data: [
-                    2136, 3693, 2962, 3810, 3519, 3484, 3915, 3823, 3455, 4310, 4019, 3433,
-                    3544, 3885, 4208, 3372, 3484, 3915, 3748, 3675, 4009, 4433, 3544, 3285,
-                    4208, 3372, 3484, 3915, 3823, 4265, 4298,
-                ],
             },
         ],
+        animationEasing: "cubicOut",
     };
     // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
@@ -193,5 +183,7 @@ const init = () => {
     box-shadow: 5px 5px 17px #252844,
         -5px -5px 17px #33385e;
     margin-bottom: 30px;
+    border-radius: 5px;
+    overflow: hidden;
 }
 </style>

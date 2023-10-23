@@ -27,7 +27,7 @@
                         <div class="card-panel-text">
                             学习时间
                         </div>
-                        <count-to :start-val="0" suffix="天" :end-val="2000" :duration="2000" class="card-panel-num" />
+                        <count-to :start-val="0" suffix="D" :end-val="2000" :duration="2000" class="card-panel-num" />
                     </div>
                 </div>
             </el-col>
@@ -42,7 +42,7 @@
                         <div class="card-panel-text">
                             工作时间
                         </div>
-                        <count-to :start-val="0" suffix="天" :end-val="1200" :duration="2000" class="card-panel-num" />
+                        <count-to :start-val="0" suffix="D" :end-val="1200" :duration="2000" class="card-panel-num" />
                     </div>
                 </div>
             </el-col>

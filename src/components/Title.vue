@@ -24,6 +24,7 @@ onMounted(() => {
     display: flex;
     font-size: 2.5rem;
     Letter-spacing: .1rem;
+    margin-bottom: 50px;
 
     h2 {
         &:last-child {

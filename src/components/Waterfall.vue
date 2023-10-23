@@ -1,6 +1,7 @@
 <template>
     <div class="masonry">
-        <div class="item" v-for="(item, index) in blogList" :key="index">
+        <div class="item" ref="waterfall" v-for="(item, index) in blogList" :key="index"
+            @mouseenter="handleMouseOver(index)" @mouseleave="handleMouseOut">
             <el-image class="img" loading="lazy" :preview-src-list="[item.cover]" :src="item.cover" />
             <div class="title">
                 <div class="tag">
@@ -51,12 +52,29 @@ const getHoverColor = (item: any) => {
     return hoverColors.get(item) || ""
 }
 
-onMounted(() => {
-})
+// 处理鼠标移入blur模糊效果
+const waterfall = ref<HTMLElement[]>([])
+const handleMouseOver = (item: number) => {
+    if (waterfall.value) {
+        waterfall.value.forEach((element, index) => {
+            if (index !== item) {
+                element.style.filter = 'blur(10px)';
+            }
+        });
+    }
+}
+const handleMouseOut = () => {
+    if (waterfall.value) {
+        waterfall.value.forEach((element, index) => {
+            element.style.filter = 'none';
+        });
+    }
+}
 </script>
 
 <style scoped lang='less'>
 @border-color: 1px solid rgba(255, 255, 255, 0.1);
+
 
 .masonry {
     width: 100%;
@@ -71,6 +89,7 @@ onMounted(() => {
         border-radius: 15px;
         padding: 15px 0;
         border: @border-color;
+        transition: filter 0.3s ease-out;
 
         .title {
             padding: 0 30px;
