@@ -1,7 +1,7 @@
 <template>
     <div class='visualization-container'>
         <PanelGroup />
-        <LineChart />
+        <BarChart />
         <Card />
     </div>
 </template>
@@ -9,7 +9,7 @@
 <script setup lang="ts">
 import { ref, onMounted, reactive } from 'vue';
 import PanelGroup from './PanelGroup.vue';
-import LineChart from './LineChart.vue';
+import BarChart from './BarChart.vue';
 import Card from './Card.vue';
 onMounted(() => {
 })
