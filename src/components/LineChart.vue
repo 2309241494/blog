@@ -1,6 +1,6 @@
 <template>
     <div class='LineChart-container'>
-        <div id="line" style="width: 100%; height: 300px"></div>
+        <div id="line" style="width: 100%"></div>
     </div>
 </template>
 
@@ -25,8 +25,8 @@ const init = () => {
         //     },
         // },
         grid: {
-            width: "60%",
-            height: "70%",
+            width: "100%",
+            height: "80%",
         },
         xAxis: {
             show: false,
@@ -220,5 +220,6 @@ const init = () => {
     margin-bottom: 30px;
     border-radius: 5px;
     overflow: hidden;
+    height: 25rem
 }
 </style>

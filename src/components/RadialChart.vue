@@ -1,6 +1,6 @@
 <template>
     <div class='LineChart-container'>
-        <div id="radar" style="width: 100%; height: 300px"></div>
+        <div id="radar" style="width: 100%"></div>
     </div>
 </template>
 
@@ -139,5 +139,6 @@ const init = () => {
     margin-bottom: 30px;
     border-radius: 5px;
     overflow: hidden;
+    height: 25rem
 }
 </style>
