@@ -1,11 +1,14 @@
 <template>
     <div class='mark-container' v-show="isMark">
-        <div class="main">
+        <div class="main" ref="main">
             <mavon-editor class="mavon-editor" v-model="text" :subfield="false" :defaultOpen="setting.defaultOpen"
                 :toolbarsFlag="setting.toolbarsFlag" :previewBackground="setting.previewBackground"
                 :codeStyle="setting.codeStyle" :editable="setting.editable" :scrollStyle="setting.scrollStyle" />
-            <el-icon class="circle-close" @click="markClose">
-                <CircleCloseFilled />
+            <el-icon class="circle-close icon" @click="markClose">
+                <Close />
+            </el-icon>
+            <el-icon class="full-screen icon" @click="handleFullScreen">
+                <FullScreen />
             </el-icon>
         </div>
     </div>
@@ -13,13 +16,23 @@
 
 <script setup lang="ts" >
 import { ref, onMounted, reactive, watch } from 'vue';
-import { CircleCloseFilled } from '@element-plus/icons-vue'
+import { Close, FullScreen } from '@element-plus/icons-vue'
 interface Props {
     isMark?: Boolean,
     markDown?: String
 }
 const props = withDefaults(defineProps<Props>(), {
 })
+// 处理全屏
+const main = ref<HTMLElement>()
+const handleFullScreen = () => {
+    const element = main.value;
+    if (element) {
+        if (element.requestFullscreen) {
+            element.requestFullscreen();
+        }
+    }
+}
 let text = ref("")
 watch(() => props.isMark, (newVal) => {
     // 处理 isMark 变化的逻辑
@@ -27,7 +40,6 @@ watch(() => props.isMark, (newVal) => {
         text.value = props.markDown as string
     }
 });
-
 const setting = {
     subfield: false,// 单双栏模式
     defaultOpen: 'preview',//edit： 默认展示编辑区域 ， preview： 默认展示预览区域 
@@ -45,6 +57,52 @@ const markClose = () => {
 </script>
 
 <style scoped lang='less'>
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    10% {
+        transform: translateX(-10px);
+    }
+
+    20% {
+        transform: translateX(10px);
+    }
+
+    30% {
+        transform: translateX(-10px);
+    }
+
+    40% {
+        transform: translateX(10px);
+    }
+
+    50% {
+        transform: translateX(-10px);
+    }
+
+    60% {
+        transform: translateX(10px);
+    }
+
+    70% {
+        transform: translateX(-10px);
+    }
+
+    80% {
+        transform: translateX(10px);
+    }
+
+    90% {
+        transform: translateX(-10px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
 .mark-container {
     position: fixed;
     width: 100%;
@@ -58,25 +116,34 @@ const markClose = () => {
 
     .main {
         position: relative;
-        width: 90%;
+        width: 91%;
         height: 90%;
         overflow-y: scroll;
-        padding: 50px 100px;
+        padding: 70px 100px;
         border-radius: 5px;
         background-color: rgb(206, 206, 206);
 
-        .circle-close {
+        .icon {
             position: fixed;
-            top: 7%;
-            right: 3%;
-            font-size: 80px;
+            top: 6%;
+            right: 130px;
+            font-size: 60px;
             cursor: pointer;
-            color: white;
+            color: #cecece;
             transition: all 0.3s;
+            padding: 10px;
+            background-color: #f4f4f5;
+            border-radius: 50%;
 
             &:hover {
-                color: black;
+                animation: shake 1s infinite;
             }
+        }
+
+        .circle-close {}
+
+        .full-screen {
+            top: 12%;
         }
 
         &::-webkit-scrollbar {

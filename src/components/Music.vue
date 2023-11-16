@@ -120,7 +120,6 @@ onMounted(() => {
     flex-direction: column;
     position: relative;
     border-radius: 5px;
-    margin-top: .5rem;
     overflow: hidden;
 
 

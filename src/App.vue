@@ -24,6 +24,10 @@
 <script setup lang="ts">
 import MiniComponents from "./views/MiniComponent.vue"
 import Menu from './components/Menu.vue';
+import ZoomRatio from './utils/zoom'
+import DevicePixelRatio from './utils/devicePixelRatio'
+new DevicePixelRatio().init()
+new ZoomRatio().init()
 </script>
 
 <style scoped lang='less'>
@@ -31,10 +35,10 @@ import Menu from './components/Menu.vue';
 	width: 100vw;
 	height: 100vh;
 	color: aliceblue;
-	justify-content: center;
 	align-items: center;
 	display: flex;
 	animation: start 0.5s ease-in-out;
+	position: relative;
 
 	.main-container {
 		display: flex;
@@ -42,6 +46,10 @@ import Menu from './components/Menu.vue';
 		align-items: center;
 		width: 95%;
 		height: 93%;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
 
 		.left-container {
 			position: relative;
@@ -54,6 +62,7 @@ import Menu from './components/Menu.vue';
 			flex: 0 0 25%;
 			height: 100%;
 			border-radius: 0px 15px 15px 0px;
+			padding: 10px
 		}
 	}
 

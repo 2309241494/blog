@@ -8,6 +8,7 @@ import "./mock/index";
 import "element-plus/dist/index.css";
 import mavonEditor from "mavon-editor";
 import "mavon-editor/dist/css/index.css";
+import "./utils/rem";
 createApp(App)
   .use(router)
   .use(ElementPlus)

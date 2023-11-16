@@ -1,14 +1,18 @@
 <template>
     <div class='weather-container' :style="{ backgroundImage: `url(${getTimePeriod()})` }">
         <h5 class="title">{{ weatherArr.arr.province }}-{{ weatherArr.arr.city }}</h5>
-        <div class="weather">
-            <span class="hour">{{ hourTime }}</span>
-            <span>{{ weatherArr.arr.weather }}</span>
-            <span>{{ weaterTitle === 0 ? "上午好" : weaterTitle === 1 ? "下午好" : "晚上好" }}</span>
-            <span>{{ weatherArr.arr.temperature }}­°C</span>
-            <span>{{ nowTime }}</span>
-            <span> 空气湿度 {{ weatherArr.arr.humidity }}</span>
-        </div>
+        <el-row class="weather">
+            <el-col :span="12">
+                <span class="hour">{{ hourTime }}</span>
+                <span style="margin: 0;">{{ nowTime }}</span>
+                <span style="margin: 0;">{{ weaterTitle === 0 ? "上午好" : weaterTitle === 1 ? "下午好" : "晚上好" }}</span>
+            </el-col>
+            <el-col :span="12" class="right">
+                <span>{{ weatherArr.arr.weather }}</span>
+                <span class="degree-centigrade">{{ weatherArr.arr.temperature }}­°C</span>
+                <span>空气湿度 {{ weatherArr.arr.humidity }}</span>
+            </el-col>
+        </el-row>
     </div>
 </template>
 
@@ -36,9 +40,9 @@ onMounted(async () => {
 
 
 // 计算当前时间是早上下午晚上
-const backgroundWeather = reactive(["https://wallpaperaccess.com/full/5576477.jpg",
-    "https://ts1.cn.mm.bing.net/th/id/R-C.e854b4b29a9a75a9a313d627f4e67331?rik=V%2b%2fENjavnQH2wQ&riu=http%3a%2f%2fpic.qqbizhi.com%2fallimg%2fbbpic%2f97%2f2897.jpg&ehk=pz9VnhWMDw96LdqvkRAqOLGAI20gt3Ky9vkxLfbhyLs%3d&risl=&pid=ImgRaw&r=0",
-    "https://wallpaperaccess.com/full/5705490.jpg"])
+const backgroundWeather = reactive(["https://gss0.baidu.com/7Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/f2deb48f8c5494ee5786d30f29f5e0fe99257e04.jpg",
+    "https://img.zcool.cn/community/0138e45ab47f5da80120be14e84c52.jpg?x-oss-process=image/format,webp",
+    "https://gss0.baidu.com/7Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/f2deb48f8c5494ee5786d30f29f5e0fe99257e04.jpg"])
 let weaterTitle = ref<number>(0)
 function getTimePeriod(): string {
     const currentTime = new Date();
@@ -62,18 +66,15 @@ function getTimePeriod(): string {
 
 .weather-container {
     width: 100%;
-    flex: 0 0 20%;
+    height: 100%;
     color: rgb(255, 255, 255);
-    border-radius: 5px;
+    border-radius: 18px;
     margin-bottom: 1rem;
     padding: 1.2rem;
-    box-shadow: 5px 5px 17px #252844,
-        -5px -5px 17px #33385e;
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    background-position: center;
+    background-position: cover;
     object-fit: cover;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 
     .title {
         font-size: .8rem;
@@ -82,38 +83,29 @@ function getTimePeriod(): string {
 
     .weather {
         margin-top: 1rem;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
         font-size: .8rem;
 
-        span {
-            flex-basis: 50%;
-            flex-shrink: 0;
+        .hour {
+            font-size: 54px;
+            margin-bottom: 18px !important;
         }
 
-        & span:nth-child(odd) {
-            text-align: left;
-        }
-
-        & span:nth-child(even) {
+        .right {
             text-align: right;
         }
 
-        & span:nth-child(1) {
-            font-size: 2.8rem;
-        }
+        .el-col-12 {
+            display: flex;
+            flex-direction: column;
 
-        & span:nth-child(3) {
-            margin-top: .6rem;
-        }
+            .degree-centigrade {
+                font-size: 30px;
+            }
 
-        & span:nth-child(4) {
-            font-size: 1.6rem;
+            span {
+                margin: 5px;
+            }
         }
-
     }
 
 }

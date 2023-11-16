@@ -1,6 +1,6 @@
 <template>
     <div class='LineChart-container'>
-        <div id="main" style="width: 100%; height: 400px"></div>
+        <div id="main" style="width: 100%"></div>
     </div>
 </template>
 
@@ -185,5 +185,6 @@ const init = () => {
     margin-bottom: 30px;
     border-radius: 5px;
     overflow: hidden;
+    height: 500px;
 }
 </style>
