@@ -1,0 +1,158 @@
+<template>
+    <div class='login-container'>
+        <!-- <i class="lock iconfont icon-lock"></i>
+        <div class="date">
+            <h1>{{ hourTime }}</h1>
+            <span>{{ date }} {{ weekday }}</span>
+            <p>{{ `距离今年结束还剩${daysLeftInYear()}天` }}</p>
+        </div> -->
+        <div class="lock-password-container">
+            <div class="lock-password">
+                <div class="title">请输入6位密码</div>
+                <div class="dot">
+                    <el-progress :show-text="false" :text-inside="true" :stroke-width="20" :percentage="percentage"
+                        :color="customColors" />
+                </div>
+                <div class="keyboard">
+                    <el-row :gutter="20">
+                        <el-col :span="8" v-for="(item, index) in 10" :key="index">
+                            <div>{{ index }}</div>
+                        </el-col>
+                    </el-row>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script setup lang="ts">
+import { ref, onMounted, reactive } from 'vue';
+import { hour } from '../../../utils/util';
+// 获取当前时间(每秒刷新)
+let hourTime = ref(hour().slice(14, 19))
+let date = ref(hour().slice(5, 11))
+let weekday = ref(hour().slice(11, 14))
+
+const percentage = ref(20)
+const customColors = [
+    { color: '#f56c6c', percentage: 20 },
+    { color: '#e6a23c', percentage: 40 },
+    { color: '#5cb87a', percentage: 60 },
+    { color: '#1989fa', percentage: 80 },
+    { color: '#6f7ad3', percentage: 100 },
+]
+const daysLeftInYear = () => {
+    const today = new Date();
+    const endOfYear = new Date(today.getFullYear(), 11, 31);
+    const timeDiff = endOfYear.getTime() - today.getTime();
+    const daysLeft = Math.ceil(timeDiff / (1000 * 3600 * 24));
+    return daysLeft;
+}
+setInterval(() => {
+    hourTime.value = hour().slice(14, 19)
+    date.value = hour().slice(5, 11)
+    weekday.value = hour().slice(11, 14)
+}, 1000)
+</script>
+
+<style scoped lang='less'>
+:deep(.el-progress) {
+    width: 200px;
+}
+
+:deep(.el-col-8) {
+    margin: 5px 0;
+    font-size: 2rem;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    div {
+        padding: 15px;
+        border-radius: 50%;
+        transition: all .3s;
+        color: white;
+
+        &:hover {
+            background-color: white;
+            color: rgb(180, 180, 180);
+        }
+    }
+}
+
+.login-container {
+    background-image: url('https://ts1.cn.mm.bing.net/th/id/R-C.110b3d53dbce442ed74a24ebaaa5c95f?rik=qT4JpKRH1bQ7Hg&riu=http%3a%2f%2fimg1.mydrivers.com%2fimg%2f20200623%2ff52e6f929fac4750b2ba53e1fb44621c.png&ehk=cXQTeToUGX1yN%2f0chtP%2b9hg%2fjOR%2bBQORrE5btiklRzU%3d&risl=&pid=ImgRaw&r=0');
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    background-size: cover;
+    position: relative;
+    cursor: pointer;
+
+    .lock-password-container {
+        position: absolute;
+        backdrop-filter: blur(4px);
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .lock-password {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            .dot {
+                margin-bottom: 9px;
+            }
+
+            .title {
+                font-size: .8rem;
+                margin-bottom: 3px;
+            }
+
+            .keyboard {
+                width: 300px;
+            }
+        }
+    }
+
+    .lock {
+        position: absolute;
+        font-weight: bold;
+        font-size: 2.5rem;
+        top: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0.8;
+    }
+
+    .date {
+        font-weight: bold;
+        position: absolute;
+        top: 15%;
+        right: 3%;
+        display: flex;
+        flex-direction: column;
+        text-align: right;
+        opacity: 0.8;
+
+        h1 {
+            font-size: 4.5rem;
+        }
+
+        span {
+            font-size: 1.7rem;
+        }
+
+        p {
+            margin-top: 10px;
+            font-size: .7rem;
+        }
+    }
+}
+</style>

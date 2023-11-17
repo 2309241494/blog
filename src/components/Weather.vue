@@ -1,5 +1,5 @@
 <template>
-    <div class='weather-container' :style="{ backgroundImage: `url(${getTimePeriod()})` }">
+    <div class='weather-container'>
         <h5 class="title">{{ weatherArr.arr.province }}-{{ weatherArr.arr.city }}</h5>
         <el-row class="weather">
             <el-col :span="12">
@@ -74,6 +74,7 @@ function getTimePeriod(): string {
     background-size: 100% 100%;
     background-position: cover;
     object-fit: cover;
+    background: linear-gradient(45deg, rgba(229, 197, 253, 0.7), rgba(139, 196, 253, 0.7));
 
     .title {
         font-size: 14px;

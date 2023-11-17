@@ -14,7 +14,7 @@
 			</div>
 			<div class="right-container">
 				<keep-alive>
-					<MiniComponents />
+					<Phone />
 				</keep-alive>
 			</div>
 		</div>
@@ -22,8 +22,8 @@
 </template>
 
 <script setup lang="ts">
-import MiniComponents from "./views/MiniComponent.vue"
-import Menu from './components/Menu.vue';
+import Phone from "./views/Phone/index.vue"
+import Menu from './components/Menu.vue'
 </script>
 
 <style scoped lang='less'>
