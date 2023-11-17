@@ -183,7 +183,7 @@ onMounted(() => {
             .image-container {
                 display: flex;
                 flex-wrap: wrap;
-                justify-content: start;
+                justify-content: flex-start;
                 gap: 4rem;
 
                 .image-item {

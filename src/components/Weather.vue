@@ -4,8 +4,8 @@
         <el-row class="weather">
             <el-col :span="12">
                 <span class="hour">{{ hourTime }}</span>
-                <span style="margin: 0;">{{ nowTime }}</span>
-                <span style="margin: 0;">{{ weaterTitle === 0 ? "上午好" : weaterTitle === 1 ? "下午好" : "晚上好" }}</span>
+                <span>{{ nowTime }}</span>
+                <span class="call">{{ weaterTitle === 0 ? "上午好" : weaterTitle === 1 ? "下午好" : "晚上好" }}</span>
             </el-col>
             <el-col :span="12" class="right">
                 <span>{{ weatherArr.arr.weather }}</span>
@@ -40,8 +40,8 @@ onMounted(async () => {
 
 
 // 计算当前时间是早上下午晚上
-const backgroundWeather = reactive(["https://gss0.baidu.com/7Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/f2deb48f8c5494ee5786d30f29f5e0fe99257e04.jpg",
-    "https://img.zcool.cn/community/0138e45ab47f5da80120be14e84c52.jpg?x-oss-process=image/format,webp",
+const backgroundWeather = reactive(["https://marketplace.canva.cn/EADcCtEsBHQ/1/0/1600w/canva-%E8%93%9D%E8%89%B2%E6%B8%90%E5%8F%98%E7%85%A7%E7%89%87%E5%AE%A3%E4%BC%A0%E8%83%8C%E6%99%AF--3Tw5BHY5yE.jpg",
+    "https://marketplace.canva.cn/EADcCtEsBHQ/1/0/1600w/canva-%E8%93%9D%E8%89%B2%E6%B8%90%E5%8F%98%E7%85%A7%E7%89%87%E5%AE%A3%E4%BC%A0%E8%83%8C%E6%99%AF--3Tw5BHY5yE.jpg",
     "https://gss0.baidu.com/7Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/f2deb48f8c5494ee5786d30f29f5e0fe99257e04.jpg"])
 let weaterTitle = ref<number>(0)
 function getTimePeriod(): string {
@@ -69,25 +69,28 @@ function getTimePeriod(): string {
     height: 100%;
     color: rgb(255, 255, 255);
     border-radius: 18px;
-    margin-bottom: 1rem;
-    padding: 1.2rem;
+    padding: 10px;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-position: cover;
     object-fit: cover;
 
     .title {
-        font-size: .8rem;
+        font-size: 14px;
         text-align: center;
     }
 
     .weather {
-        margin-top: 1rem;
-        font-size: .8rem;
+        margin-top: 10px;
+        font-size: .5rem;
 
         .hour {
-            font-size: 54px;
-            margin-bottom: 18px !important;
+            font-size: 2rem;
+            margin-bottom: 5px !important;
+        }
+
+        .call {
+            margin-top: -6px !important;
         }
 
         .right {
@@ -98,12 +101,12 @@ function getTimePeriod(): string {
             display: flex;
             flex-direction: column;
 
-            .degree-centigrade {
-                font-size: 30px;
+            span {
+                margin: 1px;
             }
 
-            span {
-                margin: 5px;
+            .degree-centigrade {
+                font-size: 30px;
             }
         }
     }

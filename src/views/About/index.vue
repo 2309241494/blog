@@ -140,7 +140,7 @@ const project = ref([{
 
         p {
           color: #9c9c9c;
-          font-size: .8rem;
+          font-size: .7rem;
           text-indent: 2em;
         }
 
@@ -162,6 +162,7 @@ const project = ref([{
 
 
           .personal-item {
+            font-size: .9rem;
             flex-basis: 50%;
             flex-shrink: 0;
             margin-top: 2rem;
@@ -172,7 +173,7 @@ const project = ref([{
 
             .iconfont {
               color: #00ffff;
-              font-size: 1.3rem;
+              font-size: 1rem;
               vertical-align: bottom;
               margin-right: .5rem;
             }
@@ -185,7 +186,7 @@ const project = ref([{
           align-items: flex-start;
 
           .iconfont {
-            font-size: 1.5rem;
+            font-size: 1rem;
             color: black;
             margin-right: 1rem;
             background-color: white;
@@ -204,7 +205,7 @@ const project = ref([{
 
     .back {
       cursor: pointer;
-      font-size: 2.4rem;
+      font-size: 2rem;
       display: flex;
       flex-direction: row;
       justify-content: flex-end;
@@ -239,12 +240,12 @@ const project = ref([{
 
           p {
             margin: .5rem 0;
-            font-size: .9rem;
+            font-size: .8rem;
             color: #9c9c9c;
 
             .iconfont {
               color: #00ffff;
-              font-size: 1.5rem;
+              font-size: 1rem;
               vertical-align: bottom;
               margin-right: .5rem;
             }
@@ -256,7 +257,7 @@ const project = ref([{
 
           & p:last-child {
             color: #9c9c9c;
-            font-size: .9rem;
+            font-size: .7rem;
             width: 50rem;
           }
 

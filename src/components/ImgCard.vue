@@ -154,7 +154,7 @@ p+p {
 
 .card {
     width: 100%;
-    height: 450px;
+    height: 350px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

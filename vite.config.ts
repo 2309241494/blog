@@ -1,14 +1,6 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import { viteMockServe } from "vite-plugin-mock";
-import px2rem from "postcss-px2rem";
-// 引入等比适配插件
-
-// 配置基本大小
-const postcss = px2rem({
-  // 基准大小 baseSize，需要和rem.js中相同
-  remUnit: 16,
-});
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -22,11 +14,4 @@ export default defineConfig({
     minify: false,
   },
   base: "/vite-blog",
-  css: {
-    preprocessorOptions: {
-      postcss: {
-        plugins: [postcss],
-      },
-    },
-  },
 });

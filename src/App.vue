@@ -24,10 +24,6 @@
 <script setup lang="ts">
 import MiniComponents from "./views/MiniComponent.vue"
 import Menu from './components/Menu.vue';
-import ZoomRatio from './utils/zoom'
-import DevicePixelRatio from './utils/devicePixelRatio'
-new DevicePixelRatio().init()
-new ZoomRatio().init()
 </script>
 
 <style scoped lang='less'>

@@ -90,7 +90,7 @@ function offsetMenuBorder(index: number) {
     let menuItem = menuItems && menuItems[index];
     let left = menuItem?.offsetLeft;
     if (menuBorderRef.value !== null) {
-        menuBorderRef.value.style.left = (left || 0) + 5 + 'px';
+        menuBorderRef.value.style.left = (left || 0) - 20 + 'px';
     }
 }
 watch(
@@ -144,7 +144,7 @@ body {
     font-size: 1.5em;
     padding: 0 20px;
     position: absolute;
-    bottom: 0;
+    bottom: -1px;
     left: 50%;
     transform: translateX(-50%);
     align-items: center;

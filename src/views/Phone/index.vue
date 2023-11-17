@@ -22,11 +22,11 @@ onMounted(() => {
     background-repeat: no-repeat;
     object-fit: cover;
     background-size: cover;
-    padding: 0 30px;
+    padding: 0 20px;
 
     .weather {
         height: 17%;
-        margin-top: 70px;
+        margin-top: 80px;
     }
 }
 </style>

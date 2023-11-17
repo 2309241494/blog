@@ -51,13 +51,13 @@ onMounted(() => {
     justify-content: flex-start;
     flex-direction: column;
     align-items: center;
-    padding: 35px 40px;
+    padding: 27px 34px;
     overflow: hidden;
     position: relative;
 
     .header {
         position: absolute;
-        top: 45px;
+        top: 25px;
         height: 37px;
         width: 80%;
         display: flex;
@@ -66,9 +66,10 @@ onMounted(() => {
         font-size: 12px;
         z-index: 99;
         padding: 20px;
+        padding-right: 10px;
 
         .left {
-            margin-left: 14px;
+            margin-left: 8px;
             font-size: 15px;
         }
 

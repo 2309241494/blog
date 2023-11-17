@@ -185,6 +185,6 @@ const init = () => {
     margin-bottom: 30px;
     border-radius: 5px;
     overflow: hidden;
-    height: 500px;
+    height: 400px;
 }
 </style>

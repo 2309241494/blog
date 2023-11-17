@@ -51,12 +51,13 @@ const handleMenu = () => {
 }
 
 .card-title {
-    font-size: 20px;
+    font-size: 1rem;
     font-weight: bold;
 }
 
 :deep(.el-card__header) {
     border-bottom: none;
+    padding: 25px;
 }
 
 :deep(.el-card__body) {
