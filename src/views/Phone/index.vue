@@ -53,7 +53,7 @@ onMounted(() => {
     justify-content: flex-start;
     flex-direction: column;
     align-items: center;
-    padding: 27px 34px;
+    padding: 27px 30px;
     overflow: hidden;
     position: relative;
 

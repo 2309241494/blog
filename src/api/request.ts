@@ -58,3 +58,11 @@ export function getBlogTitle() {
     method: "get",
   });
 }
+
+// 登录
+export function login() {
+  return instance({
+    url: "/login",
+    method: "get",
+  });
+}

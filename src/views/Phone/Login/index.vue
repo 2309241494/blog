@@ -15,8 +15,9 @@
                 </div>
                 <div class="keyboard">
                     <el-row :gutter="20">
-                        <el-col :span="8" v-for="(item, index) in 10" :key="index">
-                            <div>{{ index }}</div>
+                        <el-col :span="8" :class="[item.value === 11 || item.value === 10 ? 'delect' : '']"
+                            v-for="(item, index) in passwordList" :key="index" @click="handleClickDot(item.value)">
+                            <div>{{ item.name }}</div>
                         </el-col>
                     </el-row>
                 </div>
@@ -26,14 +27,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, reactive } from 'vue';
+import { ref, onMounted, reactive, Ref, watch } from 'vue';
 import { hour } from '../../../utils/util';
+import { login } from '../../../api/request';
 // 获取当前时间(每秒刷新)
 let hourTime = ref(hour().slice(14, 19))
 let date = ref(hour().slice(5, 11))
 let weekday = ref(hour().slice(11, 14))
-
-const percentage = ref(20)
+const percentage = ref(0)
 const customColors = [
     { color: '#f56c6c', percentage: 20 },
     { color: '#e6a23c', percentage: 40 },
@@ -48,6 +49,50 @@ const daysLeftInYear = () => {
     const daysLeft = Math.ceil(timeDiff / (1000 * 3600 * 24));
     return daysLeft;
 }
+const passwordList = ref([
+    { name: 1, value: 1 },
+    { name: 2, value: 2 },
+    { name: 3, value: 3 },
+    { name: 4, value: 4 },
+    { name: 5, value: 5 },
+    { name: 6, value: 6 },
+    { name: 7, value: 7 },
+    { name: 8, value: 8 },
+    { name: 9, value: 9 },
+    { name: "删除", value: 10 },
+    { name: 0, value: 0 },
+    { name: "返回", value: 11 },
+])
+let pwd: Ref<number[]> = ref([])
+const handleClickDot = (value: number) => {
+    if (value === 10) {
+        // 删除
+        if (pwd.value.length > 0) {
+            pwd.value.pop();
+            percentage.value = pwd.value.length / 6 * 100;
+        }
+    } else if (value === 11) {
+        // 返回
+    } else {
+        // 密码
+        if (pwd.value.length <= 6) {
+            pwd.value.push(value)
+            percentage.value = pwd.value.length / 6 * 100
+        }
+    }
+}
+watch(() => pwd.value, (newVal) => {
+    // 处理 isMark 变化的逻辑
+    if (newVal) {
+        console.log(newVal);
+        if (newVal.length === 6) {
+            // 调用登录方法
+            login().then(res => {
+                console.log(res)
+            })
+        }
+    }
+}, { deep: true });
 setInterval(() => {
     hourTime.value = hour().slice(14, 19)
     date.value = hour().slice(5, 11)
@@ -58,6 +103,10 @@ setInterval(() => {
 <style scoped lang='less'>
 :deep(.el-progress) {
     width: 200px;
+}
+
+.delect {
+    font-size: .9rem !important;
 }
 
 :deep(.el-col-8) {

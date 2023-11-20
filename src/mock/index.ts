@@ -78,3 +78,11 @@ Mock.mock("/getBlogTitle", "get", () => {
   const tags = Array.from(tagSet);
   return tags;
 });
+
+// 登录
+Mock.mock("/login", "get", () => {
+  return {
+    code: 200,
+    msg: "操作成功",
+  };
+});
