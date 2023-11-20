@@ -36,11 +36,12 @@ let date = ref(hour().slice(5, 11))
 let weekday = ref(hour().slice(11, 14))
 const percentage = ref(0)
 const customColors = [
-    { color: '#f56c6c', percentage: 20 },
-    { color: '#e6a23c', percentage: 40 },
-    { color: '#5cb87a', percentage: 60 },
-    { color: '#1989fa', percentage: 80 },
-    { color: '#6f7ad3', percentage: 100 },
+    { color: '#f56c6c', percentage: 17 },
+    { color: '#e6a23c', percentage: 33 },
+    { color: '#5cb87a', percentage: 50 },
+    { color: '#1989fa', percentage: 67 },
+    { color: '#6f7ad3', percentage: 83 },
+    { color: '#4343f4', percentage: 100 },
 ]
 const daysLeftInYear = () => {
     const today = new Date();
@@ -69,7 +70,7 @@ const handleClickDot = (value: number) => {
         // 删除
         if (pwd.value.length > 0) {
             pwd.value.pop();
-            percentage.value = pwd.value.length / 6 * 100;
+            percentage.value = Math.round(pwd.value.length / 6 * 100)
         }
     } else if (value === 11) {
         // 返回
@@ -77,7 +78,8 @@ const handleClickDot = (value: number) => {
         // 密码
         if (pwd.value.length <= 6) {
             pwd.value.push(value)
-            percentage.value = pwd.value.length / 6 * 100
+            percentage.value = Math.round(pwd.value.length / 6 * 100)
+            console.log(percentage.value)
         }
     }
 }
@@ -87,9 +89,12 @@ watch(() => pwd.value, (newVal) => {
         console.log(newVal);
         if (newVal.length === 6) {
             // 调用登录方法
-            login().then(res => {
-                console.log(res)
-            })
+            setTimeout(() => {
+                login().then(res => {
+                    pwd.value = []
+                    percentage.value = Math.round(pwd.value.length / 6 * 100)
+                })
+            }, 1000)
         }
     }
 }, { deep: true });
