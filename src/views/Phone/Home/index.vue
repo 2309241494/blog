@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted, reactive } from 'vue';
-import Weather from '../../../components/Weather.vue';
+import Weather from '@/components/Weather.vue';
 onMounted(() => {
 })
 </script>

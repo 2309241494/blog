@@ -28,8 +28,8 @@
 
 <script setup lang="ts">
 import { ref, onMounted, reactive, Ref, watch } from 'vue';
-import { hour } from '../../../utils/util';
-import { login } from '../../../api/request';
+import { hour } from '@/utils/util';
+import { login } from '@/api/request';
 // 获取当前时间(每秒刷新)
 let hourTime = ref(hour().slice(14, 19))
 let date = ref(hour().slice(5, 11))

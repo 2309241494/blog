@@ -18,8 +18,8 @@
 
 <script setup lang="ts">
 import { ref, onMounted, reactive, watch, watchEffect } from 'vue';
-import { getWeather } from '../api/request';
-import { hour } from '../utils/util';
+import { getWeather } from '@/api/request';
+import { hour } from '@/utils/util';
 // 天气信息
 let weatherArr: any = reactive({ arr: {} });
 // 获取当前时间(每秒刷新)

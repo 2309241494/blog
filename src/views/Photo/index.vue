@@ -40,12 +40,12 @@
 
 <script lang="ts" setup>
 import { ref, onMounted, reactive } from 'vue';
-import Sidebar from '../../components/Sidebar.vue';
-import Title from '../../components/Title.vue';
-import Subhead from '../../components/Subhead.vue'
-import ImgCard from '../../components/ImgCard.vue';
-import Paginate from '../../components/Paginate.vue';
-import { getHeroData } from '../../api/request';
+import Sidebar from '@/components/Sidebar.vue';
+import Title from '@/components/Title.vue';
+import Subhead from '@/components/Subhead.vue'
+import ImgCard from '@/components/ImgCard.vue';
+import Paginate from '@/components/Paginate.vue';
+import { getHeroData } from '@/api/request';
 let cards = ref([])
 let queryObj = ref({
     page: 1,
@@ -69,11 +69,10 @@ const initData = () => {
         cards.value = current_data
         currentPage.value = current_page - 1
         totalPage.value = total_page
-        console.log("a")
     })
 }
 onMounted(() => {
-    // initData()
+    initData()
 })
 </script>
 

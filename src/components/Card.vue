@@ -21,8 +21,8 @@
 
 <script lang="ts" setup>
 import { ref, onMounted, reactive } from 'vue';
-import { useMain } from '../store/index';
-import router from '../router';
+import { useMain } from '@/store';
+import router from '@/router';
 import RadialChart from './RadialChart.vue';
 import LineChart from './LineChart.vue';
 const mainStore = useMain();

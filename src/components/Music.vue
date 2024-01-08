@@ -23,7 +23,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted, reactive, watch, computed, Ref } from 'vue';
-import { getMusicData } from '../api/request';
+import { getMusicData } from '@/api/request';
 // 歌曲数据
 let audioList: Ref<MusicData[]> = ref([])
 

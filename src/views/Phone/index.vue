@@ -20,7 +20,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-import { hour } from "../../utils/util";
+import { hour } from "@/utils/util";
 import { ElMessage } from "element-plus";
 import Login from "./Login/index.vue";
 

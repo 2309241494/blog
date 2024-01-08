@@ -5,15 +5,15 @@
         <router-view v-slot="{ Component }">
           <transition name="slide-fade" mode="out-in">
             <keep-alive>
-              <component :is="Component" />
+              <component :is="Component"/>
             </keep-alive>
           </transition>
         </router-view>
-        <Menu />
+        <Menu/>
       </div>
       <div class="right-container">
         <keep-alive>
-          <Phone />
+          <Phone/>
         </keep-alive>
       </div>
     </div>
@@ -21,11 +21,19 @@
 </template>
 
 <script setup lang="ts">
-import Phone from "./views/Phone/index.vue";
-import Menu from "./components/Menu.vue";
+import Phone from "@/views/Phone/index.vue";
+import Menu from "@/components/Menu.vue";
 </script>
 
 <style scoped lang="less">
+:deep(.el-loading-mask) {
+  z-index: 900;
+}
+:deep(.el-loading-spinner .path){
+  stroke: #363b5f;
+}
+/* 隐藏滚动条 */
+
 .App-container {
   width: 100vw;
   height: 100vh;
@@ -56,7 +64,7 @@ import Menu from "./components/Menu.vue";
       background-color: #363b5f;
       flex: 0 0 25%;
       height: 100%;
-      border-radius: 0px 15px 15px 0px;
+      border-radius: 0 15px 15px 0;
       padding: 10px;
     }
   }

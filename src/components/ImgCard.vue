@@ -82,7 +82,6 @@ onMounted(() => {
 }
 
 .title {
-    font-family: "Raleway";
     font-size: 24px;
     font-weight: 700;
     color: #5D4037;

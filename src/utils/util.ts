@@ -1,6 +1,5 @@
 /**
  * 返回当前时间
- * @关键字
  */
 export const hour = (): string => {
   const date: Date = new Date();

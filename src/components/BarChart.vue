@@ -15,15 +15,15 @@ onMounted(
 )
 const init = () => {
     // 基于准备好的dom，初始化echarts实例
-    var myChart = echarts.init(document.getElementById('main'));
-    var charts = {
+    let myChart = echarts.init(document.getElementById('main'));
+    let charts = {
         // 按顺序排列从大到小
         cityList: ["笔记资源", "图片资源", "项目资源", "16号点", "24号点"],
         cityData: [7500, 6200, 5700, 4200, 3500],
     };
-    var top10CityList = charts.cityList;
-    var top10CityData = charts.cityData;
-    var color = [
+    let top10CityList = charts.cityList;
+    let top10CityData = charts.cityData;
+    let color = [
         "rgba(248,195,248",
         "rgba(100,255,249",
         "rgba(135,183,255",
@@ -32,17 +32,16 @@ const init = () => {
     ];
 
     let lineY = [];
-    for (var i = 0; i < charts.cityList.length; i++) {
-        var x = i;
+    for (let i = 0; i < charts.cityList.length; i++) {
+        let x = i;
         if (x > color.length - 1) {
             x = color.length - 1;
         }
-        var data = {
+        let data = {
             name: charts.cityList[i],
             color: color[x] + ")",
             value: top10CityData[i],
             itemStyle: {
-                normal: {
                     show: true,
                     color: new echarts.graphic.LinearGradient(
                         0,
@@ -62,7 +61,6 @@ const init = () => {
                         false
                     ),
                     barBorderRadius: 10,
-                },
                 emphasis: {
                     shadowBlur: 15,
                     shadowColor: "rgba(0, 0, 0, 0.1)",
@@ -71,7 +69,7 @@ const init = () => {
         };
         lineY.push(data);
     }
-    var option: any = {
+    let option: any = {
         backgroundColor: "#363b5f",
         title: {
             show: false,
@@ -114,13 +112,10 @@ const init = () => {
                 axisLabel: {
                     show: true,
                     inside: false,
-                    textStyle: {
                         color: "#b3ccf8",
                         fontSize: "14",
                         fontFamily: "PingFangSC-Regular",
-                    },
                     formatter: function (val: any) {
-                        console.log(val)
                         return `${val} 项`;
                     },
                 },
@@ -157,17 +152,13 @@ const init = () => {
                 data: lineY,
                 animationDuration: 1500,
                 label: {
-                    normal: {
                         color: "#b3ccf8",
                         show: true,
                         position: [0, "-24px"],
-                        textStyle: {
                             fontSize: 16,
-                        },
                         formatter: function (a: { name: any; }, b: any) {
                             return a.name;
                         },
-                    },
                 },
             },
         ],

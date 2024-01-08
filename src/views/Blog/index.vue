@@ -51,13 +51,13 @@
 
 <script lang="ts" setup>
 import { ref, onMounted } from 'vue';
-import Sidebar from '../../components/Sidebar.vue';
-import Title from '../../components/Title.vue';
-import Subhead from '../../components/Subhead.vue';
-import { getBlogData, getNewBlog, getBlogTitle } from "../../api/request";
-import Waterfall from '../../components/Waterfall.vue';
+import Sidebar from '@/components/Sidebar.vue';
+import Title from '@/components/Title.vue';
+import Subhead from '@/components/Subhead.vue';
+import { getBlogData, getNewBlog, getBlogTitle } from "@/api/request";
+import Waterfall from '@/components/Waterfall.vue';
 import { Search, Opportunity, Back } from '@element-plus/icons-vue'
-import MarkDown from '../../components/MarkDown.vue'
+import MarkDown from '@/components/MarkDown.vue'
 let isMark = ref(false)
 let md = ref()
 interface mdList {
