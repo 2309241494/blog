@@ -47,7 +47,7 @@ export function getBlogData(data: object) {
 export function getNewBlog() {
     return instance({
         url: "/getNewBlog",
-        method: "get",
+        method: "GET",
     });
 }
 
@@ -55,7 +55,7 @@ export function getNewBlog() {
 export function getBlogTitle() {
     return instance({
         url: "/getBlogTitle",
-        method: "get",
+        method: "GET",
     });
 }
 
@@ -63,7 +63,7 @@ export function getBlogTitle() {
 export function login() {
     return instance({
         url: "/login",
-        method: "get",
+        method: "GET",
     });
 }
 

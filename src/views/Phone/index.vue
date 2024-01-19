@@ -94,7 +94,7 @@ onMounted(() => {
   &::after {
     position: absolute;
     content: "";
-    background-image: url("/src/assets/img/phone.png");
+    background-image: url("/src/assets/images/phone.png");
     width: 100%;
     height: 100%;
     background-repeat: no-repeat;

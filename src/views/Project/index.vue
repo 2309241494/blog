@@ -62,9 +62,18 @@ const clickDetail = (item: object) => {
 const changeShow = (e: any) => {
   show.value = e;
 }
-
+interface Project {
+  imgUrl: string;
+  introduce: string;
+  online: string;
+  soundCode: string;
+  title: string;
+  type: number;
+}
+// 定义包含 Project 对象的数组类型
+type ProjectArray = Project[];
 //项目列表项
-const projectList = ref([])
+const projectList = ref<Project[]>([])
 let queryList = ref({
   type: 0
 })

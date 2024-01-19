@@ -2,7 +2,7 @@
     <div class='Music-container' v-if="audioList && audioList.length > 0">
         <div class="bg" :style="{ backgroundImage: `url(${audioList[audioIndex].imgUrl})` }"></div>
         <div class="cover">
-            <img :class="[!play ? 'img-active' : '']" :src=audioList[audioIndex].imgUrl alt="">
+            <img :class="[!play ? 'images-active' : '']" :src=audioList[audioIndex].imgUrl alt="">
         </div>
         <div class='title'>
             <h6>{{ audioList[audioIndex].name }}</h6>
