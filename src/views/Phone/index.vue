@@ -27,7 +27,7 @@ import {ElMessage} from "element-plus";
 import Login from "./Login/index.vue";
 import Home from "@/views/Phone/Home/index.vue";
 
-let isLogin: Ref<boolean> = ref(true)
+let isLogin: Ref<boolean> = ref(false)
 const handleLogin = (status: boolean) => {
   isLogin.value = status
 }

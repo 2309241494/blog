@@ -3,7 +3,7 @@
     <div class='Detail-container' v-show="show">
       <div class="main ">
         <i class="iconfont icon-cuowu" @click="changeShow"></i>
-        <el-image class="cover" :preview-src-list="[props.arr.imgUrl]" fit="cover" :src=props.arr.imgUrl alt=""/>
+        <el-image class="cover" :preview-teleported="true" :preview-src-list="[props.arr.imgUrl]" fit="cover" :src=props.arr.imgUrl alt=""/>
         <Subhead :title=props.arr.title bg-color="#5856e5"/>
         <div class="text-container">
           <p>{{ props.arr.introduce }}</p>

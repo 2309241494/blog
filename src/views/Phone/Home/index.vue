@@ -1,31 +1,43 @@
 <template>
-  <div class='phone-container'>
-    <div class="weather">
-      <Weather/>
-    </div>
-    <main class="main-menu">
-      <div class="item" v-for="(item,index) in menu" :key="index">
-        <i class="iconfont" :class="item.icon"></i>
-        <span>{{ item.title }}</span>
-      </div>
-    </main>
-    <div class="bottom">
-      <div class="menu">
-      </div>
-    </div>
+  <!--  <div class='phone-container'>-->
+  <!--    <div class="weather">-->
+  <!--      <Weather/>-->
+  <!--    </div>-->
+  <!--    <main class="main-menu">-->
+  <!--      <div class="item" v-for="(item,index) in menu" :key="index">-->
+  <!--        <i class="iconfont" :class="item.icon"></i>-->
+  <!--        <span>{{ item.title }}</span>-->
+  <!--      </div>-->
+  <!--    </main>-->
+  <!--    <div class="bottom">-->
+  <!--      <div class="menu">-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </div>-->
+  <div class="app-container">
+    <Music/>
   </div>
 </template>
 
 <script setup lang="ts">
 import {ref, onMounted, reactive} from 'vue';
 import Weather from '@/components/Weather/index.vue';
+import Music from '@/components/Music/index.vue';
 
-const menu = ref([{title: '音乐', icon: 'icon-music'}, {title: '音乐', icon: 'icon-music'}, {title: '首页', icon: 'icon-music'}, {title: '首页', icon: 'icon-music'}, {title: '首页', icon: 'icon-music'}])
+const menu = ref([{title: '音乐', icon: 'icon-music'}, {title: '音乐', icon: 'icon-music'}, {title: '首页', icon: 'icon-music'}, {title: '首页', icon: 'icon-music'}, {
+  title: '首页',
+  icon: 'icon-music'
+}])
 onMounted(() => {
 })
 </script>
 
 <style scoped lang='less'>
+.app-container {
+  width: 100%;
+  height: 100%;
+}
+
 .phone-container {
   //background-image: url('https://wallpaperaccess.com/full/1236301.jpg');
   background-image: url('https://mp-cd880b8b-a556-4424-ba3e-77537732bc82.cdn.bspapp.com/微信图片_20240122172226.jpg');

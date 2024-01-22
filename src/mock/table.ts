@@ -201,16 +201,16 @@ export const MUSIC_LIST = {
     status: 200,
     data: [
         {
-            name: "AutumnLeaf - re:plus",
-            audioUrl: "http://music.163.com/song/media/outer/url?id=26111937.mp3",
+            name: "Kiss Fight - Tülpa / BLANKTS / gnash",
+            audioUrl: "http://music.163.com/song/media/outer/url?id=460112226",
             imgUrl:
-                "https://p2.music.126.net/E323i3eNPwkTYqCgoRT6gQ==/2359551953231145.jpg?param=130y130",
+                "http://p1.music.126.net/e3Et4gSGaddRNiw9vLstKA==/109951166562842133.jpg?param=130y130",
         },
         {
-            name: "Sunroof - Nicky Youre / Dazy",
-            audioUrl: "http://music.163.com/song/media/outer/url?id=1893514633",
+            name: "My Stupid Heart - Walk off the Earth",
+            audioUrl: "http://music.163.com/song/media/outer/url?id=2105087382",
             imgUrl:
-                "http://p1.music.126.net/OE6x5vHGHZqBAK0E1kXn0Q==/109951167870371370.jpg?param=130y130",
+                "http://p2.music.126.net/sEGqPpZjzbf1a5iwLN9tvA==/109951168299771111.jpg?param=130y130",
         },
         {
             name: "昼念 - 罗浩文BF / 苏琛",
@@ -219,11 +219,18 @@ export const MUSIC_LIST = {
                 "http://p2.music.126.net/yaG1zHzAeh3hNavJAV08JQ==/109951165792054236.jpg?param=120y120",
         },
         {
-            name: "Kiss Fight - Tülpa / BLANKTS / gnash",
-            audioUrl: "http://music.163.com/song/media/outer/url?id=460112226",
+            name: "Sunroof - Nicky Youre / Dazy",
+            audioUrl: "http://music.163.com/song/media/outer/url?id=1893514633",
             imgUrl:
-                "http://p1.music.126.net/e3Et4gSGaddRNiw9vLstKA==/109951166562842133.jpg?param=130y130",
+                "http://p1.music.126.net/OE6x5vHGHZqBAK0E1kXn0Q==/109951167870371370.jpg?param=130y130",
         },
+        {
+            name: "Call It What You Want - Taylor Swift",
+            audioUrl: "http://music.163.com/song/media/outer/url?id=1444614767",
+            imgUrl:
+                "http://p1.music.126.net/fdh0myRe6FD87QNJtvGe_A==/109951163054654501.jpg?param=130y130",
+        },
+
         {
             name: "Already Gone - Sleeping at Last",
             audioUrl: "http://music.163.com/song/media/outer/url?id=35345004",
