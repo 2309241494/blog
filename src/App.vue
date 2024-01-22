@@ -22,7 +22,7 @@
 
 <script setup lang="ts">
 import Phone from "@/views/Phone/index.vue";
-import Menu from "@/components/Menu.vue";
+import Menu from "@/components/Menu/index.vue";
 </script>
 
 <style scoped lang="less">

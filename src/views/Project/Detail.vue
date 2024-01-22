@@ -25,7 +25,7 @@
 
 <script setup lang="ts">
 import {ref, onMounted, reactive} from 'vue';
-import Subhead from '@/components/Subhead.vue';
+import Subhead from '@/components/Subhead/index.vue';
 
 interface Props {
   show: boolean;

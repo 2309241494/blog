@@ -75,10 +75,10 @@
 
 <script lang="ts" setup>
 import { ref, onMounted, reactive } from 'vue';
-import Sidebar from '@/components/Sidebar.vue';
-import Title from '@/components/Title.vue';
-import Subhead from '@/components/Subhead.vue'
-import Button from '@/components/Button.vue'
+import Sidebar from '@/components/Sidebar/index.vue';
+import Title from '@/components/Title/index.vue';
+import Subhead from '@/components/Subhead/index.vue'
+import Button from '@/components/Button/index.vue'
 const introduce = ref("我叫黎浪，所学专业是大数据技术与应用。作为一名前端开发者，我拥有扎实的 HTML、CSS 和 JavaScript 技能。我能够从设计师给出的图稿中构建出无障碍的、兼容性良好的网站，并且能够在保持代码清晰易读的同时，使用最佳的性能实践进行开发。我的兴趣爱好包括探索新技术、阅读前端文章、写博客、贡献开源社区等，对前端开发抱有浓厚的热情。我具有良好的虚心好学，并且有过团队协作开发的经验。在生活中我愿意在业余时间提升自己，愿意花时间提升技术水平，钻研新技术等。")
 const personalData = reactive({
   arr: [

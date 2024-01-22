@@ -11,10 +11,10 @@
 
 <script setup lang="ts">
 import { ref, onMounted, reactive, computed } from "vue";
-import Sidebar from "../components/Sidebar.vue";
-import Title from "../components/Title.vue";
-import Visualization from "../components/Visualization.vue";
-import { useMain } from "../store";
+import Sidebar from "@/components/Sidebar/index.vue";
+import Title from "@/components/Title/index.vue";
+import Visualization from "@/components/Visualization/index.vue";
+import { useMain } from "@/store";
 // 传递给菜单组件的菜单项
 const menuArr = [
   {

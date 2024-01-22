@@ -35,9 +35,9 @@
 
 <script lang="ts" setup>
 import {ref, onMounted, reactive} from 'vue';
-import Sidebar from '@/components/Sidebar.vue';
-import Title from '@/components/Title.vue';
-import Subhead from '@/components/Subhead.vue';
+import Sidebar from '@/components/Sidebar/index.vue';
+import Title from '@/components/Title/index.vue';
+import Subhead from '@/components/Subhead/index.vue';
 import Detail from './Detail.vue';
 import {getProject} from '@/api/request'
 // 菜单项

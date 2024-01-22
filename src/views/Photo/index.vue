@@ -40,11 +40,11 @@
 
 <script lang="ts" setup>
 import { ref, onMounted, reactive } from 'vue';
-import Sidebar from '@/components/Sidebar.vue';
-import Title from '@/components/Title.vue';
-import Subhead from '@/components/Subhead.vue'
-import ImgCard from '@/components/ImgCard.vue';
-import Paginate from '@/components/Paginate.vue';
+import Sidebar from '@/components/Sidebar/index.vue';
+import Title from '@/components/Title/index.vue';
+import Subhead from '@/components/Subhead/index.vue'
+import ImgCard from '@/components/ImgCard/index.vue';
+import Paginate from '@/components/Paginate/index.vue';
 import { getHeroData } from '@/api/request';
 let cards = ref([])
 let queryObj = ref({

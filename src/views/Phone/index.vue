@@ -6,24 +6,31 @@
       </div>
       <div class="right">
         <i
-          class="iconfont"
-          :class="[isOnline ? 'icon-wifi' : 'icon-wifi-off']"
+            class="iconfont"
+            :class="[isOnline ? 'icon-wifi' : 'icon-wifi-off']"
         ></i>
         <i class="iconfont icon-battery"> </i>
         <span>{{ electricquantity }}</span>
       </div>
     </div>
-    <!-- <Home /> -->
-    <Login />
+    <Login v-show="isLogin" @login="handleLogin"/>
+    <transition name="fade">
+      <Home v-show="!isLogin"/>
+    </transition>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
-import { hour } from "@/utils/util";
-import { ElMessage } from "element-plus";
+import {ref, onMounted, Ref} from "vue";
+import {hour} from "@/utils/util";
+import {ElMessage} from "element-plus";
 import Login from "./Login/index.vue";
+import Home from "@/views/Phone/Home/index.vue";
 
+let isLogin: Ref<boolean> = ref(true)
+const handleLogin = (status: boolean) => {
+  isLogin.value = status
+}
 const isOnline = navigator.onLine;
 let electricquantity = ref("");
 let hourTime = ref();
@@ -47,6 +54,14 @@ onMounted(() => {
 </script>
 
 <style scoped lang="less">
+.fade-enter-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter {
+  opacity: 0;
+}
+
 .miniComponents-container {
   height: 100%;
   width: 100%;
@@ -68,8 +83,7 @@ onMounted(() => {
     justify-content: space-between;
     font-size: 0.5rem;
     z-index: 99;
-    padding: 20px;
-    padding-right: 10px;
+    padding: 20px 10px 20px 20px;
     opacity: 0.8;
 
     .left {
