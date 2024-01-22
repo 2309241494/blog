@@ -6,29 +6,29 @@ import Love from "@/views/Love/index.vue";
 import Home from "@/views/Home.vue";
 
 export default [
-    {path: "/vite-blog/", component: Home, meta: {keepAlive: true, index: 0}},
+    {path: "/blog/", component: Home, meta: {keepAlive: true, index: 0}},
     {
-        path: "/vite-blog/about",
+        path: "/blog/about",
         component: About,
         meta: {keepAlive: true, index: 1},
     },
     {
-        path: "/vite-blog/blog",
+        path: "/blog/notes",
         component: Blog,
         meta: {keepAlive: true, index: 2},
     },
     {
-        path: "/vite-blog/project",
+        path: "/blog/project",
         component: Project,
         meta: {keepAlive: true, index: 3},
     },
     {
-        path: "/vite-blog/photo",
+        path: "/blog/photo",
         component: Photo,
         meta: {keepAlive: true, index: 4},
     },
     {
-        path: "/vite-blog/love",
+        path: "/blog/love",
         component: Love,
         meta: {keepAlive: true, index: 5},
     },

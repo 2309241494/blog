@@ -2,47 +2,47 @@
   <div class="Home-container container">
     <!-- 左边区域 -->
     <div class="left">
-      <Sidebar />
+      <Sidebar/>
     </div>
     <!-- 可视化主区域 -->
-    <Visualization v-show="changeModule === 0" />
+    <Visualization v-show="changeModule === 0"/>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, reactive, computed } from "vue";
+import {ref, onMounted, reactive, computed} from "vue";
 import Sidebar from "@/components/Sidebar/index.vue";
 import Title from "@/components/Title/index.vue";
 import Visualization from "@/components/Visualization/index.vue";
-import { useMain } from "@/store";
+import {useMain} from "@/store";
 // 传递给菜单组件的菜单项
 const menuArr = [
   {
     icon: "icon-guanyuwo",
     title: "ABOUT",
     mainTitle: "ME",
-    path: "/vite-blog/about",
+    path: "/blog/about",
     color: "#fa709a",
   },
   {
     icon: "icon-xiangmu",
     title: "MY",
     mainTitle: "PROJECT",
-    path: "/vite-blog/project",
+    path: "/blog/project",
     color: "#43e97b",
   },
   {
     icon: "icon-xiangce",
     title: "MY",
     mainTitle: "PHOTO",
-    path: "/vite-blog/photo",
+    path: "/blog/photo",
     color: "#01f8e4",
   },
   {
     icon: "icon-zujianhua",
     title: "MY",
     mainTitle: "NOTES",
-    path: "/vite-blog/blog",
+    path: "/blog/notes",
     color: "#6991c7",
   },
 ];

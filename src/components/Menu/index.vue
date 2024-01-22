@@ -82,17 +82,17 @@ function offsetMenuBorder(index: number) {
   changeIndex.value = index
   isMenuClick.value = true; // 设置标识为true，表示是菜单项点击引起的路由变化
   if (index === 0) {
-    router.push('/vite-blog')
+    router.push('/blog')
   } else if (index === 1) {
-    router.push('/vite-blog/about')
+    router.push('/blog/about')
   } else if (index === 2) {
-    router.push('/vite-blog/blog')
+    router.push('/blog/notes')
   } else if (index === 3) {
-    router.push('/vite-blog/project')
+    router.push('/blog/project')
   } else if (index === 4) {
-    router.push('/vite-blog/photo')
+    router.push('/blog/photo')
   } else {
-    router.push('/vite-blog/love')
+    router.push('/blog/love')
   }
   let menuItems = menuItemRefs.value as HTMLElement[] | null;
   let menuItem = menuItems && menuItems[index];
