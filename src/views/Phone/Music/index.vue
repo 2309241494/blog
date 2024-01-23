@@ -136,6 +136,10 @@ interface MusicDataResponse {
 }
 
 onMounted(() => {
+  const phoneHeader: Element | null = document.querySelector(".phone-header")
+  if (phoneHeader !== null) {
+    (phoneHeader as HTMLElement).style.color = "black";
+  }
   getMusicData().then((res: MusicDataResponse) => {
     audioList.value = res.data;
   })

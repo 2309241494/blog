@@ -1,6 +1,6 @@
 <template>
   <div class="miniComponents-container">
-    <div class="header">
+    <div class="phone-header">
       <div class="left">
         <span>{{ hourTime }}</span>
       </div>
@@ -74,7 +74,7 @@ onMounted(() => {
   overflow: hidden;
   position: relative;
 
-  .header {
+  .phone-header {
     position: absolute;
     top: 25px;
     height: 37px;
@@ -85,6 +85,7 @@ onMounted(() => {
     font-size: 0.5rem;
     z-index: 99;
     padding: 20px 10px 20px 20px;
+    transition: color 0.5s;
     opacity: 0.8;
 
     .left {

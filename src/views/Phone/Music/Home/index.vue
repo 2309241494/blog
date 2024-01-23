@@ -13,7 +13,7 @@
     <div class="like">
       <div class="left">
         <el-image :src="audioList[audioIndex].imgUrl" fit="cover"></el-image>
-        <i class="iconfont " @click="handlePlay" :class="[play ? 'icon-zanting' : 'icon-bofang']"></i>
+        <i class="iconfont " @click="handlePlay" :class="[play ? 'icon-zanting' : 'icon-bofang1']"></i>
         <div class="song-information">
           <span class="song-name">{{ getSongInfo(audioList[audioIndex].name).name }}</span>
           <span class="song-singer">{{ getSongInfo(audioList[audioIndex].name).singer }}</span>
@@ -30,6 +30,36 @@
         </div>
       </div>
     </div>
+    <MusicTitle title="热门歌单" :handle-more="handleSongList"/>
+    <div class="song-list-container" ref="songListContainer" @mousedown="handleMouseDown" @mouseleave="handleMouseLeave" @mouseup="handleMouseUp" @mousemove="handleMouseMove">
+      <div class="song-list-item" v-for="(item,index) in audioList" :key="index" :style="{backgroundImage:`url(${item.imgUrl})`}">
+        <div class="song-list-item-info">
+          <div class="left">
+            <p class="song-name">{{ getSongInfo(item.name).name }}</p>
+            <p class="song-singer">{{ getSongInfo(item.name).singer }}</p>
+          </div>
+          <div class="right">
+            <i class="iconfont " @click="handlePlay" :class="[play ? 'icon-zanting' : 'icon-bofang1']"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <MusicTitle title="热门歌曲"/>
+    <div class="hot-song-list">
+      <div class="hot-song-list-item" v-for="(item,index) in audioList" :key="index">
+        <div class="hot-song-left">
+          <el-image :src="item.imgUrl" fit="cover" :preview-teleported="true" :preview-src-list="[item.imgUrl]"></el-image>
+          <div class="song-left-right">
+            <p class="song-name">{{ getSongInfo(item.name).name }}</p>
+            <p class="song-singer">{{ getSongInfo(item.name).singer }}</p>
+          </div>
+        </div>
+        <div class="hot-song-right">
+          <i class="iconfont " @click="handlePlay" :class="[play ? 'icon-zanting' : 'icon-bofang1']"></i>
+          <i class="iconfont icon-diandian "></i>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -38,10 +68,14 @@ import {ref, onMounted, watch, Ref} from 'vue';
 import MusicDetail from "./Detail.vue"
 import {getMusicData} from '@/api/request';
 import {CloseBold, Pointer} from "@element-plus/icons-vue";
+import MusicTitle from "../MusicTitle.vue"
 
 const navigationBar = ref([{icon: 'icon-zhuye05-F', value: 1}, {icon: 'icon-tongji-2', value: 2},
   {icon: 'icon-xiaoxi', value: 3}, {icon: 'icon-geren', value: 4}])
-
+// 处理更多歌单的点击事件
+const handleSongList = () => {
+  console.log("更多歌单")
+}
 // 歌曲数据
 let audioList: Ref<MusicData[]> = ref([])
 
@@ -129,6 +163,46 @@ interface MusicDataResponse {
   // 其他属性...
 }
 
+// 声明类型
+type SongItem = number;
+
+// 响应式变量
+const songListContainer: Ref<HTMLElement | null> = ref(null);
+const isDown: Ref<boolean> = ref(false);
+const startX: Ref<number> = ref(0);
+const scrollLeft: Ref<number> = ref(0);
+const items: Ref<SongItem[]> = ref([1, 2, 3, 4, 5, 6]); // 你的歌曲列表数据
+
+// 鼠标按下事件处理函数
+function handleMouseDown(e: MouseEvent) {
+  // 记录鼠标按下时的位置和滚动条位置
+  isDown.value = true;
+  startX.value = e.pageX - songListContainer.value!.offsetLeft;
+  scrollLeft.value = songListContainer.value!.scrollLeft;
+}
+
+// 鼠标离开事件处理函数
+function handleMouseLeave() {
+  // 鼠标离开时重置拖动状态
+  isDown.value = false;
+}
+
+// 鼠标松开事件处理函数
+function handleMouseUp() {
+  // 鼠标松开时重置拖动状态
+  isDown.value = false;
+}
+
+// 鼠标移动事件处理函数
+function handleMouseMove(e: MouseEvent) {
+  // 根据鼠标移动调整滚动位置
+  if (!isDown.value) return;
+  e.preventDefault();
+  const x = e.pageX - songListContainer.value!.offsetLeft;
+  const walk = (x - startX.value) * 3; // 控制滚动速度
+  songListContainer.value!.scrollLeft = scrollLeft.value - walk;
+}
+
 onMounted(() => {
   getMusicData().then((res: MusicDataResponse) => {
     audioList.value = res.data;
@@ -139,6 +213,12 @@ onMounted(() => {
 
 <style scoped lang="less">
 .music-home-container {
+  overflow: auto;
+  height: calc(100vh - 353px);
+
+  &::-webkit-scrollbar {
+    display: none
+  }
 
   .avatar {
     width: 100%;
@@ -169,7 +249,7 @@ onMounted(() => {
       :deep(.el-input__wrapper) {
         border-radius: 15px !important;
         position: relative;
-        box-shadow: 1px 0 80px rgba(0, 0, 0, 0.04);
+        box-shadow: 1px 0 80px rgba(0, 0, 0, 0.2);
 
         .el-input__suffix {
           position: absolute;
@@ -196,7 +276,7 @@ onMounted(() => {
           &::placeholder {
             text-align: center; /* 让placeholder文本居中 */
             letter-spacing: 1px;
-            font-size: 18px;
+            font-size: 14px;
             color: #d0d0d0;
           }
         }
@@ -209,7 +289,7 @@ onMounted(() => {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 20px;
+    margin: 20px 0;
     height: 180px;
 
     .left {
@@ -242,11 +322,12 @@ onMounted(() => {
         bottom: 0;
         left: 0;
         width: 100%;
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(15px);
-        padding: 2px 10px;
+        background: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(10px);
+        padding: 5px 12px;
         display: flex;
         flex-direction: column;
+        border-radius: 0 0 15px 15px;
 
         span {
           overflow: hidden;
@@ -257,13 +338,13 @@ onMounted(() => {
 
         .song-singer {
           letter-spacing: .5px;
-          font-size: 15px;
+          font-size: 10px;
           color: #d8d8d8;
         }
 
         .song-name {
           font-weight: bold;
-          font-size: 20px;
+          font-size: 16px;
         }
       }
 
@@ -292,15 +373,15 @@ onMounted(() => {
 
         .title {
           font-weight: bold;
-          font-size: 22px;
+          font-size: 18px;
           width: 75px;
-          margin-bottom: 3px;
+          margin-bottom: 6px;
         }
 
         .sub-title {
           width: 75px;
           text-align: center;
-          font-size: 12px;
+          font-size: 10px;
           background: rgba(255, 255, 255, 0.3);
           backdrop-filter: blur(5px);
           border-radius: 7px;
@@ -338,6 +419,152 @@ onMounted(() => {
             background-image: url("../images/gift.png");
             width: 60px;
             height: 65px;
+          }
+        }
+      }
+    }
+  }
+
+  .song-list-container {
+    padding: 0 25px;
+    width: 373px;
+    height: 115px;
+    overflow: hidden; /* 或 overflow: scroll; */
+    display: flex; /* 设置为 Flex 布局 */
+    cursor: pointer;
+    transition: all .5s;
+    margin-bottom: 20px;
+
+    .song-list-item {
+      flex: 0 0 auto; /* 设置为不可伸缩 */
+      width: 115px; /* 设置每个条目的宽度 */
+      height: 100%;
+      margin-right: 10px;
+      border-radius: 20px;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      object-fit: cover;
+      position: relative;
+
+      .song-list-item-info {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, .2);
+        backdrop-filter: blur(15px);
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        border-radius: 0 0 20px 20px;
+        height: 33px;
+        padding: 8px 15px;
+        align-items: center;
+
+        .left {
+          display: flex;
+          flex-direction: column;
+          width: 60px;
+
+          p {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+
+          .song-name {
+            font-weight: bold;
+            font-size: 10px;
+            margin-bottom: 3px;
+          }
+
+          .song-singer {
+            font-size: 8px;
+            color: #d8d8d8;
+          }
+        }
+
+        .right {
+          .iconfont {
+            background: #ffffff;
+            color: #df8d91;
+            padding: 5px;
+            font-size: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+  .hot-song-list {
+    padding: 0 25px 20px;
+    width: 100%;
+
+    .hot-song-list-item {
+      background: #ffffff;
+      border-radius: 20px;
+      margin-bottom: 10px;
+      height: 85px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+
+      .hot-song-left {
+        display: flex;
+        align-items: center;
+
+        .el-image {
+          width: 55px;
+          height: 55px;
+          border-radius: 15px;
+        }
+
+        .song-left-right {
+          margin-left: 10px;
+          width: 150px;
+
+          p {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+
+          .song-singer {
+            letter-spacing: .5px;
+            font-size: 10px;
+            color: #a3a2a2;
+          }
+
+          .song-name {
+            font-weight: bold;
+            font-size: 13px;
+            color: #333333;
+            margin-bottom: 5px;
+          }
+        }
+      }
+
+      .hot-song-right {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .icon-diandian {
+          color: #e8dded;
+          font-size: 28px;
+          margin-left: 2px;
+        }
+
+        .iconfont {
+          cursor: pointer;
+
+          &:first-child {
+            color: #ffffff;
+            padding: 8px;
+            background: #fe579b;
+            border-radius: 50%;
           }
         }
       }
