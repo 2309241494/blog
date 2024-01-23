@@ -1,5 +1,5 @@
 <template>
-  <div v-show="true" class='Music-container' v-if="audioList && audioList.length > 0">
+  <div v-show="false" class='Music-container' v-if="audioList && audioList.length > 0">
     <div class="bg" :style="{ backgroundImage: `url(${audioList[audioIndex].imgUrl})` }"></div>
     <div class="cover">
       <img :class="[!play ? 'images-active' : '']" :src=audioList[audioIndex].imgUrl alt="">

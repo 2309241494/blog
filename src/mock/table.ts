@@ -201,6 +201,30 @@ export const MUSIC_LIST = {
     status: 200,
     data: [
         {
+            name: "Call It What You Want - Taylor Swift",
+            audioUrl: "http://music.163.com/song/media/outer/url?id=1444614767",
+            imgUrl:
+                "http://p1.music.126.net/fdh0myRe6FD87QNJtvGe_A==/109951163054654501.jpg?param=130y130",
+        },
+        {
+            name: "Sunroof - Nicky Youre / Dazy",
+            audioUrl: "http://music.163.com/song/media/outer/url?id=1893514633",
+            imgUrl:
+                "http://p1.music.126.net/OE6x5vHGHZqBAK0E1kXn0Q==/109951167870371370.jpg?param=130y130",
+        },
+        {
+            name: "Star(反方向的钟) - XMASwu(吴骜)",
+            audioUrl: "http://music.163.com/song/media/outer/url?id=1899705498.mp3",
+            imgUrl:
+                "https://p2.music.126.net/6-F8k6AuCnsvMjDNKYHriw==/109951166677305699.jpg?param=130y130",
+        },
+        {
+            name: "失落沙洲 - 高睿",
+            audioUrl: "http://music.163.com/song/media/outer/url?id=1948817707",
+            imgUrl:
+                "http://p2.music.126.net/XAed3b9j76FgNP8lOYqKMQ==/109951167478316677.jpg?param=130y130",
+        },
+        {
             name: "Kiss Fight - Tülpa / BLANKTS / gnash",
             audioUrl: "http://music.163.com/song/media/outer/url?id=460112226",
             imgUrl:
@@ -218,19 +242,6 @@ export const MUSIC_LIST = {
             imgUrl:
                 "http://p2.music.126.net/yaG1zHzAeh3hNavJAV08JQ==/109951165792054236.jpg?param=120y120",
         },
-        {
-            name: "Sunroof - Nicky Youre / Dazy",
-            audioUrl: "http://music.163.com/song/media/outer/url?id=1893514633",
-            imgUrl:
-                "http://p1.music.126.net/OE6x5vHGHZqBAK0E1kXn0Q==/109951167870371370.jpg?param=130y130",
-        },
-        {
-            name: "Call It What You Want - Taylor Swift",
-            audioUrl: "http://music.163.com/song/media/outer/url?id=1444614767",
-            imgUrl:
-                "http://p1.music.126.net/fdh0myRe6FD87QNJtvGe_A==/109951163054654501.jpg?param=130y130",
-        },
-
         {
             name: "Already Gone - Sleeping at Last",
             audioUrl: "http://music.163.com/song/media/outer/url?id=35345004",
@@ -256,12 +267,6 @@ export const MUSIC_LIST = {
                 "http://p1.music.126.net/lCblKUB1hLND5FxiVI1_Lw==/109951164919449758.jpg?param=130y130",
         },
         {
-            name: "失落沙洲 - 高睿",
-            audioUrl: "http://music.163.com/song/media/outer/url?id=1948817707",
-            imgUrl:
-                "http://p2.music.126.net/XAed3b9j76FgNP8lOYqKMQ==/109951167478316677.jpg?param=130y130",
-        },
-        {
             name: "Demons - Anthem Lights",
             audioUrl: "http://music.163.com/song/media/outer/url?id=1435100542",
             imgUrl:
@@ -279,12 +284,7 @@ export const MUSIC_LIST = {
             imgUrl:
                 "http://p2.music.126.net/I-TvObgAOXZMowOAG2Cgrw==/109951165982469735.jpg?param=130y130",
         },
-        {
-            name: "Star(反方向的钟) - XMASwu(吴骜)",
-            audioUrl: "http://music.163.com/song/media/outer/url?id=1899705498.mp3",
-            imgUrl:
-                "https://p2.music.126.net/6-F8k6AuCnsvMjDNKYHriw==/109951166677305699.jpg?param=130y130",
-        },
+
         {
             name: "没有理由 - 永彬Ryan.B / 周延英（英子-effie）",
             audioUrl: "http://music.163.com/song/media/outer/url?id=550138197.mp3",

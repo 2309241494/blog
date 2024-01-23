@@ -22,7 +22,7 @@
 <script setup lang="ts">
 import {ref, onMounted, reactive} from 'vue';
 import Weather from '@/components/Weather/index.vue';
-import Music from '@/components/Music/index.vue';
+import Music from '../Music/index.vue';
 
 const menu = ref([{title: '音乐', icon: 'icon-music'}, {title: '音乐', icon: 'icon-music'}, {title: '首页', icon: 'icon-music'}, {title: '首页', icon: 'icon-music'}, {
   title: '首页',

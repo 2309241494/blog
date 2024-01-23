@@ -1,40 +1,47 @@
 <template>
-  <!--  <div class="music-home" v-if="audioList && audioList.length > 0">-->
-  <!--    <div class="avatar">-->
-  <!--      <el-image :preview-teleported="true" :preview-src-list="['https://mp-cd880b8b-a556-4424-ba3e-77537732bc82.cdn.bspapp.com/640.jpg']" fit="cover"-->
-  <!--                src="https://mp-cd880b8b-a556-4424-ba3e-77537732bc82.cdn.bspapp.com/640.jpg"></el-image>-->
-  <!--      <el-icon>-->
-  <!--        <CloseBold/>-->
-  <!--      </el-icon>-->
-  <!--    </div>-->
-  <!--    <div class="search">-->
-  <!--      <el-input placeholder="请搜索你想听的歌曲" :suffix-icon="Pointer"></el-input>-->
-  <!--    </div>-->
-  <!--    <div class="like">-->
-  <!--      <div class="left">-->
-  <!--        <el-image :src="audioList[audioIndex].imgUrl"></el-image>-->
-  <!--        <i class="iconfont " @click="handlePlay" :class="[play ? 'icon-zanting' : 'icon-bofang']"></i>-->
-  <!--        <div class="song-information">-->
-  <!--          <span class="song-singer">{{ getSongInfo(audioList[audioIndex].name).singer }}</span>-->
-  <!--          <span class="song-name">{{ getSongInfo(audioList[audioIndex].name).name }}</span>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--      <div class="right">-->
-  <!--        <div></div>-->
-  <!--        <div></div>-->
-  <!--      </div>-->
-  <!--    </div>-->
-  <!--    <audio @ended="handleNext" @timeupdate="handleProgressBar" ref="audio" id="" :src=audioList[audioIndex].audioUrl>-->
-  <!--    </audio>-->
-  <!--  </div>-->
-  <MusicDetail/>
+  <div class="music-home-container " v-if="audioList && audioList.length > 0">
+    <div class="avatar">
+      <el-image :preview-teleported="true" :preview-src-list="['https://mp-cd880b8b-a556-4424-ba3e-77537732bc82.cdn.bspapp.com/640.jpg']" fit="cover"
+                src="https://mp-cd880b8b-a556-4424-ba3e-77537732bc82.cdn.bspapp.com/640.jpg"></el-image>
+      <el-icon>
+        <CloseBold/>
+      </el-icon>
+    </div>
+    <div class="search">
+      <el-input placeholder="搜索你想听的歌曲" :suffix-icon="Pointer"></el-input>
+    </div>
+    <div class="like">
+      <div class="left">
+        <el-image :src="audioList[audioIndex].imgUrl" fit="cover"></el-image>
+        <i class="iconfont " @click="handlePlay" :class="[play ? 'icon-zanting' : 'icon-bofang']"></i>
+        <div class="song-information">
+          <span class="song-name">{{ getSongInfo(audioList[audioIndex].name).name }}</span>
+          <span class="song-singer">{{ getSongInfo(audioList[audioIndex].name).singer }}</span>
+        </div>
+      </div>
+      <div class="right">
+        <div>
+          <span class="title">我的喜欢</span>
+          <span class="sub-title">只属于你的歌单</span>
+        </div>
+        <div>
+          <span class="title">每日分享</span>
+          <span class="sub-title">分享音乐赢好礼</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
-import {ref, onMounted, reactive, watch, computed, Ref} from 'vue';
+import {ref, onMounted, watch, Ref} from 'vue';
 import MusicDetail from "./Detail.vue"
 import {getMusicData} from '@/api/request';
-import {CloseBold, Discount, Pointer} from "@element-plus/icons-vue";
+import {CloseBold, Pointer} from "@element-plus/icons-vue";
+
+const navigationBar = ref([{icon: 'icon-zhuye05-F', value: 1}, {icon: 'icon-tongji-2', value: 2},
+  {icon: 'icon-xiaoxi', value: 3}, {icon: 'icon-geren', value: 4}])
+
 // 歌曲数据
 let audioList: Ref<MusicData[]> = ref([])
 
@@ -102,7 +109,7 @@ const handleUp = () => {
   }, 1000)
 }
 
-watch(audioIndex, (val, prevVal) => {
+watch(audioIndex, (val) => {
   const len = audioList.value.length
   if (val >= len) {
     audioIndex.value = 0
@@ -129,12 +136,9 @@ onMounted(() => {
 })
 </script>
 
-<style scoped lang='less'>
-.music-home {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, #74297e 10%, #FFFFFF 90%);
-  padding-top: 50px;
+
+<style scoped lang="less">
+.music-home-container {
 
   .avatar {
     width: 100%;
@@ -151,8 +155,8 @@ onMounted(() => {
 
     .el-icon {
       cursor: pointer;
+      color: #521632
     }
-
   }
 
   .search {
@@ -165,13 +169,14 @@ onMounted(() => {
       :deep(.el-input__wrapper) {
         border-radius: 15px !important;
         position: relative;
+        box-shadow: 1px 0 80px rgba(0, 0, 0, 0.04);
 
         .el-input__suffix {
           position: absolute;
           right: -5px;
-          top: -2px;
+          top: -1px;
           width: 50px;
-          height: 45px;
+          height: 42px;
           background: #f14193;
           display: flex;
           align-items: center;
@@ -180,6 +185,7 @@ onMounted(() => {
           cursor: pointer;
           color: #ffffff;
           font-size: 30px;
+          box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
 
           .el-icon {
             margin-left: 0;
@@ -189,6 +195,9 @@ onMounted(() => {
         .el-input__inner {
           &::placeholder {
             text-align: center; /* 让placeholder文本居中 */
+            letter-spacing: 1px;
+            font-size: 18px;
+            color: #d0d0d0;
           }
         }
       }
@@ -201,7 +210,7 @@ onMounted(() => {
     align-items: center;
     justify-content: space-between;
     margin-top: 20px;
-    height: 170px;
+    height: 180px;
 
     .left {
       background: #492d3f;
@@ -223,7 +232,7 @@ onMounted(() => {
         padding: 5px 10px;
         border-radius: 15px;
         font-size: 20px;
-        background: rgba(255, 255, 255, 0.5);
+        background: rgba(255, 255, 255, 0.3);
         backdrop-filter: blur(5px);
         cursor: pointer;
       }
@@ -233,8 +242,8 @@ onMounted(() => {
         bottom: 0;
         left: 0;
         width: 100%;
-        background: rgba(255, 255, 255, 0.4);
-        backdrop-filter: blur(5px);
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(15px);
         padding: 2px 10px;
         display: flex;
         flex-direction: column;
@@ -246,13 +255,13 @@ onMounted(() => {
           text-shadow: 2px 2px 4px #000000;
         }
 
-        .song-name {
+        .song-singer {
           letter-spacing: .5px;
           font-size: 15px;
           color: #d8d8d8;
         }
 
-        .song-singer {
+        .song-name {
           font-weight: bold;
           font-size: 20px;
         }
@@ -273,19 +282,63 @@ onMounted(() => {
       justify-content: space-between;
 
       div {
-        background: #00ff5e;
         border-radius: 25px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 8px;
+        cursor: pointer;
+
+        .title {
+          font-weight: bold;
+          font-size: 22px;
+          width: 75px;
+          margin-bottom: 3px;
+        }
+
+        .sub-title {
+          width: 75px;
+          text-align: center;
+          font-size: 12px;
+          background: rgba(255, 255, 255, 0.3);
+          backdrop-filter: blur(5px);
+          border-radius: 7px;
+        }
+
+        &:before {
+          content: '';
+          position: absolute;
+          right: 8px;
+          background-repeat: no-repeat;
+          background-size: 100% 100%;
+          object-fit: cover;
+        }
 
         &:first-child {
           margin-bottom: 5px;
           height: calc(50% - 5px);
           background: linear-gradient(to top right, #f45888, #fa91b0);
+
+          &:before {
+            bottom: -2px;
+            background-image: url("../images/radio.png");
+            width: 60px;
+            height: 75px;
+          }
         }
 
         &:last-child {
           margin-top: 5px;
           height: calc(50% - 5px);
           background: linear-gradient(to top right, #43c8ed, #99e7fd);
+
+          &:before {
+            bottom: -5px;
+            background-image: url("../images/gift.png");
+            width: 60px;
+            height: 65px;
+          }
         }
       }
     }
