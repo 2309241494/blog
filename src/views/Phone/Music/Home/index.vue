@@ -338,7 +338,7 @@ onMounted(() => {
 
         .song-singer {
           letter-spacing: .5px;
-          font-size: 10px;
+          font-size: 14px;
           color: #d8d8d8;
         }
 

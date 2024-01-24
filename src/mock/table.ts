@@ -201,6 +201,12 @@ export const MUSIC_LIST = {
     status: 200,
     data: [
         {
+            name: "独行侠＋爱如潮水＋说散就散＋他 - 小鱼Fish",
+            audioUrl: "http://music.163.com/song/media/outer/url?id=1990582228",
+            imgUrl:
+                "https://img.zcool.cn/community/01d65c5544b8770000019ae9c15029.jpg@1280w_1l_2o_100sh.jpg",
+        },
+        {
             name: "Call It What You Want - Taylor Swift",
             audioUrl: "http://music.163.com/song/media/outer/url?id=1444614767",
             imgUrl:
@@ -276,7 +282,7 @@ export const MUSIC_LIST = {
             name: "Princess - XMASwu(吴骜)",
             audioUrl: "http://music.163.com/song/media/outer/url?id=1869248652.mp3",
             imgUrl:
-                "http://p2.music.126.net/jJT58QCcbrtrRvQ7Prcw3w==/109951166285330042.jpg?param=130y130",
+                "https://ts1.cn.mm.bing.net/th/id/R-C.4ab4a0cb89923419f5e74d11c0df819d?rik=ZgmSrU%2f4KfRfqQ&riu=http%3a%2f%2fp1.music.126.net%2fNj3E3VLoq_RhMYSnmLjNZQ%3d%3d%2f109951167558569228.jpg&ehk=McOK4qEVeoQ9zjXKJXn%2bCsyt8OW%2fqF0DD5bQuo4g1AM%3d&risl=&pid=ImgRaw&r=0",
         },
         {
             name: "Sorry But - XMASwu(吴骜)",
