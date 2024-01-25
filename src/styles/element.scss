@@ -1,30 +1,38 @@
-@forward "element-plus/theme-chalk/src/common/var.scss" with (
+@forward 'element-plus/theme-chalk/src/common/var.scss' with (
   $colors: (
-    "primary": (
-      "base": #010000,
+     'primary': (
+      'base': #008c8c,
     ),
-    "success": (
-      "base": #21ba45,
+    'success': (
+      'base': #67c23a,
     ),
-    "warning": (
-      "base": #f2711c,
+    'warning': (
+      'base': #e6a23c,
     ),
-    "danger": (
-      "base": #db2828,
+    'danger': (
+      'base': #f56c6c,
     ),
-    "error": (
-      "base": #db2828,
+    'error': (
+      'base': #f56c6c,
     ),
-    "info": (
-      "base": #42b8dd,
+    'info': (
+      'base': #909399,
     ),
   ),
-
-  $button-padding-horizontal: (
-    "default": 80px
-  )
 );
+@use "element-plus/theme-chalk/src/index.scss" as *;
+
 .el-dialog {
   border-radius: 12px !important;
   background: #252429 !important;
+  margin: 0;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  .el-dialog__header {
+    .el-dialog__title {
+      color: white;
+    }
+  }
 }

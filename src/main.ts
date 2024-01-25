@@ -9,6 +9,7 @@ import "element-plus/dist/index.css";
 import mavonEditor from "mavon-editor";
 import "mavon-editor/dist/css/index.css";
 import {setDomFontSize} from "@/utils/dom";
+import "@/styles/element.scss";
 
 setDomFontSize();
 createApp(App)

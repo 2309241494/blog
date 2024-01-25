@@ -9,9 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@babylonjs/core": "^6.40.0",
+    "@babylonjs/core": "^6.21.1",
     "@element-plus/icons-vue": "^2.1.0",
     "axios": "^1.5.1",
+    "babylonjs": "^6.21.1",
+    "babylonjs-loaders": "^6.21.1",
     "echarts": "^5.4.3",
     "element-plus": "^2.3.14",
     "mavon-editor": "^3.0.1",

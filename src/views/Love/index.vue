@@ -32,15 +32,6 @@ let queryObj = ref({
 })
 let currentPage = ref(0)
 let totalPage = ref(0)
-const handleCurrentPag = (value: number) => {
-  queryObj.value.page = value
-  initData()
-}
-const handleChangeMenu = (e: any) => {
-  queryObj.value.type = Number(e.target.value)
-  queryObj.value.page = 1
-  initData()
-}
 const initData = () => {
   getHeroData(queryObj.value).then((res: any) => {
     const {current_data, current_page, total_page} = res.data
