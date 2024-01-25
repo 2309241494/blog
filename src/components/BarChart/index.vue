@@ -169,7 +169,7 @@ const init = () => {
 }
 </script>
 
-<style scoped lang='less'>
+<style scoped lang='scss'>
 #main {
     box-shadow: 5px 5px 17px #252844,
         -5px -5px 17px #33385e;

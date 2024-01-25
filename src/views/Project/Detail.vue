@@ -43,7 +43,7 @@ const changeShow = () => {
 }
 </script>
 
-<style scoped lang='less'>
+<style scoped lang='scss'>
 .scale-enter-active,
 .scale-leave-active {
   transition: opacity 0.3s;
@@ -81,9 +81,9 @@ const changeShow = () => {
   padding: 50px;
   transform: translate(-50%, -50%);
   background: linear-gradient(to right top,
-  rgb(15, 12, 41),
-  rgb(48, 43, 99),
-  rgb(36, 36, 62));
+      rgb(15, 12, 41),
+      rgb(48, 43, 99),
+      rgb(36, 36, 62));
   border-radius: 5px;
 
   &::-webkit-scrollbar {

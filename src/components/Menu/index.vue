@@ -120,7 +120,7 @@ onMounted(() => {
 
 // window.addEventListener('resize', () => {
 // 	offsetMenuBorder(activeItem.value);
-// 	menuRef!.value.style.setProperty('--timeOut', 'none');
+// 	menuRef!.value.styles.setProperty('--timeOut', 'none');
 // });
 </script>
 

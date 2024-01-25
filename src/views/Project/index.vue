@@ -12,7 +12,7 @@
         <div class="mini-container menu-container">
           <div class="menu">
             <span :class="[index === menuIndex ? 'active' : '']" v-for="(item, index) in menu" :key=index
-                @click="menuClick(item.type)">{{ item.title }}
+                  @click="menuClick(item.type)">{{ item.title }}
             </span>
           </div>
           <div class="project" v-loading="loading">
@@ -41,11 +41,11 @@ import Subhead from '@/components/Subhead/index.vue';
 import Detail from './Detail.vue';
 import {getProject} from '@/api/request'
 // 菜单项
-const menu = ref([{title: "全部",type: 0}, {title: "PC", type: 1}, {title: "移动端", type: 2}, {title: "微信小程序", type: 3}])
+const menu = ref([{title: "全部", type: 0}, {title: "PC", type: 1}, {title: "移动端", type: 2}, {title: "微信小程序", type: 3}])
 
 // 默认,切换处理
 let menuIndex = ref(0)
-const menuClick = ( type: number) => {
+const menuClick = (type: number) => {
   queryList.value.type = type
   menuIndex.value = type
   getProjectList()
@@ -62,6 +62,7 @@ const clickDetail = (item: object) => {
 const changeShow = (e: any) => {
   show.value = e;
 }
+
 interface Project {
   imgUrl: string;
   introduce: string;
@@ -70,6 +71,7 @@ interface Project {
   title: string;
   type: number;
 }
+
 // 定义包含 Project 对象的数组类型
 type ProjectArray = Project[];
 //项目列表项
@@ -81,7 +83,7 @@ const loading = ref(false)
 const getProjectList = () => {
   loading.value = true
   getProject(queryList.value).then((res: any) => {
-    const { current_data, current_page, total_page } = res.data
+    const {current_data, current_page, total_page} = res.data
     projectList.value = current_data
   }).finally(() => loading.value = false)
 }

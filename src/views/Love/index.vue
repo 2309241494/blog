@@ -12,6 +12,7 @@
 
       </div>
     </div>
+    <Model :showModel="true"/>
   </div>
 </template>
 
@@ -20,9 +21,8 @@ import {ref, onMounted, reactive} from 'vue';
 import Sidebar from '@/components/Sidebar/index.vue';
 import Title from '@/components/Title/index.vue';
 import Subhead from '@/components/Subhead/index.vue'
-import ImgCard from '@/components/ImgCard/index.vue';
-import Paginate from '@/components/Paginate/index.vue';
 import {getHeroData} from '@/api/request';
+import Model from '@/components/Model/index.vue';
 
 let cards = ref([])
 let queryObj = ref({

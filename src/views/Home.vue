@@ -75,7 +75,7 @@ const currentText = computed(() => {
 });
 </script>
 
-<style scoped lang="less">
+<style scoped lang="scss">
 .Home-container {
   border-radius: 15px 0 0 15px;
 

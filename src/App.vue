@@ -25,13 +25,15 @@ import Phone from "@/views/Phone/index.vue";
 import Menu from "@/components/Menu/index.vue";
 </script>
 
-<style scoped lang="less">
+<style scoped lang="scss">
 :deep(.el-loading-mask) {
   z-index: 900;
 }
-:deep(.el-loading-spinner .path){
+
+:deep(.el-loading-spinner .path) {
   stroke: #363b5f;
 }
+
 /* 隐藏滚动条 */
 
 .App-container {
