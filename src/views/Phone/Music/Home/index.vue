@@ -12,11 +12,11 @@
     </div>
     <div class="like">
       <div class="left">
-        <el-image :src="audioList[audioIndex].imgUrl" fit="cover"></el-image>
-        <i class="iconfont " @click="handlePlay" :class="[play ? 'icon-zanting' : 'icon-bofang1']"></i>
+        <el-image :src="audioList[2].imgUrl" fit="cover"></el-image>
+        <i class="iconfont " @click="handlePlay(2)" :class="[play ? 'icon-zanting' : 'icon-bofang1']"></i>
         <div class="song-information">
-          <span class="song-name">{{ getSongInfo(audioList[audioIndex].name).name }}</span>
-          <span class="song-singer">{{ getSongInfo(audioList[audioIndex].name).singer }}</span>
+          <span class="song-name">{{ getSongInfo(audioList[2].name).name }}</span>
+          <span class="song-singer">{{ getSongInfo(audioList[2].name).singer }}</span>
         </div>
       </div>
       <div class="right">
@@ -65,13 +65,9 @@
 
 <script setup lang="ts">
 import {ref, onMounted, watch, Ref} from 'vue';
-import MusicDetail from "./Detail.vue"
 import {getMusicData} from '@/api/request';
 import {CloseBold, Pointer} from "@element-plus/icons-vue";
 import MusicTitle from "../MusicTitle.vue"
-
-const navigationBar = ref([{icon: 'icon-zhuye05-F', value: 1}, {icon: 'icon-tongji-2', value: 2},
-  {icon: 'icon-xiaoxi', value: 3}, {icon: 'icon-geren', value: 4}])
 // 处理更多歌单的点击事件
 const handleSongList = () => {
   console.log("更多歌单")
@@ -95,52 +91,16 @@ const getSongInfo = (str: string) => {
     singer
   };
 };
-let swidth = ref("")
-const playProgressBar: any = ref<HTMLAudioElement | null>(null)
-const handleProgressBar = () => {
-
-  //获取当前播放的百分比  当前进度/总进度
-  const {currentTime, duration} = audio.value
-
-  let precent = currentTime / duration
-  //计算进度条的因子,百分比需要*该因子,最后才能到100%
-  let sp = 387 / 100;
-
-  //拼接进度条的width
-  swidth.value = (precent * 100 * sp) + "px";
-
-  //设置进度条的播放进度
-  playProgressBar.value.style.width = swidth.value;
-}
-
+const emit = defineEmits(["play", "pause"])
 // 播放暂停处理
 let play = ref(false)
-const handlePlay = () => {
+const handlePlay = (index: number) => {
   play.value = !play.value;
   if (play.value) {
-    audio.value.play()
+    emit("play", index)
   } else {
-    audio.value.pause()
+    emit("play", index)
   }
-}
-
-// 下一首
-const handleNext = () => {
-  audioIndex.value += 1
-  play.value = true
-  playProgressBar.value.style.width = "0px"
-  setTimeout(() => {
-    audio.value.play()
-  }, 1000)
-}
-// 上一首
-const handleUp = () => {
-  audioIndex.value -= 1
-  play.value = true;
-  playProgressBar.value.style.width = "0px"
-  setTimeout(() => {
-    audio.value.play()
-  }, 1000)
 }
 
 watch(audioIndex, (val) => {
@@ -201,6 +161,12 @@ function handleMouseMove(e: MouseEvent) {
   const x = e.pageX - songListContainer.value!.offsetLeft;
   const walk = (x - startX.value) * 3; // 控制滚动速度
   songListContainer.value!.scrollLeft = scrollLeft.value - walk;
+}
+
+// 返回0到n的随机数
+function getRandomNumber(n: number) {
+  debugger
+  return Math.floor(Math.random() * n);
 }
 
 onMounted(() => {
@@ -338,13 +304,13 @@ onMounted(() => {
 
         .song-singer {
           letter-spacing: .5px;
-          font-size: 14px;
+          font-size: 12px;
           color: #d8d8d8;
         }
 
         .song-name {
           font-weight: bold;
-          font-size: 16px;
+          font-size: 15px;
         }
       }
 

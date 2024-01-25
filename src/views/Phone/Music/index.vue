@@ -1,7 +1,7 @@
 <template>
   <div class="music-home" v-if="audioList && audioList.length > 0">
     <transition name="fade">
-      <component :is="views[defaultView - 1].view" :key="views[defaultView - 1].value"></component>
+      <component :is="views[defaultView - 1].view" :key="views[defaultView - 1].value" @play="handleMusicPlay"></component>
     </transition>
     <div class="bottom">
       <i class="iconfont" v-for="(item,index) in navigationBar" :class="[item.icon,{'active':defaultView === item.value
@@ -19,8 +19,6 @@
         </div>
       </div>
     </div>
-    <audio @ended="handleNext" @timeupdate="handleProgressBar" ref="audio" id="" :src=audioList[audioIndex].audioUrl>
-    </audio>
   </div>
   <MusicDetail/>
 </template>
@@ -29,12 +27,10 @@
 import {ref, onMounted, watch, Ref} from 'vue';
 import MusicDetail from "./Detail.vue"
 import {getMusicData} from '@/api/request';
-import {CloseBold, Pointer} from "@element-plus/icons-vue";
 import Home from "./Home/index.vue";
 import Personal from "./Personal/index.vue";
 import Message from "./Message/index.vue";
 import Statistics from "./Statistics/index.vue";
-
 
 const views = ref([
   {view: Home, value: 1,},
@@ -67,62 +63,22 @@ const getSongInfo = (str: string) => {
     singer
   };
 };
-let swidth = ref("")
-const playProgressBar: any = ref<HTMLAudioElement | null>(null)
-const handleProgressBar = () => {
-
-  //获取当前播放的百分比  当前进度/总进度
-  const {currentTime, duration} = audio.value
-
-  let precent = currentTime / duration
-  //计算进度条的因子,百分比需要*该因子,最后才能到100%
-  let sp = 387 / 100;
-
-  //拼接进度条的width
-  swidth.value = (precent * 100 * sp) + "px";
-
-  //设置进度条的播放进度
-  playProgressBar.value.style.width = swidth.value;
-}
 
 // 播放暂停处理
 let play = ref(false)
 const handlePlay = () => {
   play.value = !play.value;
   if (play.value) {
-    audio.value.play()
+
   } else {
-    audio.value.pause()
+
   }
 }
 
-// 下一首
-const handleNext = () => {
-  audioIndex.value += 1
-  play.value = true
-  playProgressBar.value.style.width = "0px"
-  setTimeout(() => {
-    audio.value.play()
-  }, 1000)
+const handleMusicPlay = (index: number) => {
+  audioIndex.value = index
+  handlePlay()
 }
-// 上一首
-const handleUp = () => {
-  audioIndex.value -= 1
-  play.value = true;
-  playProgressBar.value.style.width = "0px"
-  setTimeout(() => {
-    audio.value.play()
-  }, 1000)
-}
-
-watch(audioIndex, (val) => {
-  const len = audioList.value.length
-  if (val >= len) {
-    audioIndex.value = 0
-  } else if (val < 0) {
-    audioIndex.value = len - 1
-  }
-})
 
 interface MusicData {
   name: string;
@@ -144,6 +100,7 @@ onMounted(() => {
     audioList.value = res.data;
   })
 })
+
 </script>
 
 <style scoped lang='less'>
@@ -198,10 +155,11 @@ onMounted(() => {
 
         .song-singer {
           color: #a08f9e;
-          font-size: 16px;
+          font-size: 14px;
         }
 
         .song-name {
+          font-size: 16px;
           color: #483047;
           font-weight: bold;
         }
