@@ -52,7 +52,7 @@ const handleCloseModel = () => {
 onMounted(async () => {
   setTimeout(() => {
     if (bjsCanvas.value) {
-      createScene(bjsCanvas.value, "http://oss.test.ctbigdatatest.wenhuayun.cn/bigdatacenter/2023/12/19/77262205-e5fc-4146-ade3-72c7ad991c67.glb");
+      createScene(bjsCanvas.value, "https://mp-cd880b8b-a556-4424-ba3e-77537732bc82.cdn.bspapp.com/spider_cat.glb");
     }
   }, 1000)
 });
